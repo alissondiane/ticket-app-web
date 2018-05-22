@@ -15,16 +15,51 @@ class LoginForm extends React.Component {
     };
     this.onChangeUsuario = this.onChangeUsuario.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
-    this.VistaNueva = this.VistaNueva.bind(this);
+    
     this.VistaNuevaCasa = this.VistaNuevaCasa.bind(this);
+    this.ValidarUsuario = this.ValidarUsuario.bind(this);
   }
 
-  VistaNueva=(e)=>{
+  ValidarUsuario=(e)=>{
+    var user = this.state.usuario;
+    var password = this.state.password;
+    alert("has enviado:"+ user + ' ' + password);
+    /*
+    fetch('https://tick-app-zuul.herokuapp.com/usuario/leer'+user+'/'+password)
+    .then((response) => {
+    return response.json()
+    })
+    .then((alumno) => {
+   
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
+    */
+    this.Mensaje();
+
+    e.preventDefault();
+  }
+  Mensaje(){
+    /*
+      console.log(this.usuarioleido);
+      if (this.usuarioleido === 0){
+        alert("Usuario ingresado incorrectamente");
+      }else{
+       if(this.usuarioleido.tipoUsuario.nombreTu === "ADMINISTRADOR"){
+         console.log( this.usuarioleido.tipoUsuario.nombreTu);
+          alert("Bienvenido");
+           this.router.navigate(['vistaAdmin']);
+       }else{
+        alert("Usuario ingresado incorrectamente tipo incorrecto");
+        }
+      } 
+    */  
     
     browserHistory.push('/Vista/Principal');
     console.log("llego aca");
-    e.preventDefault();
-    
+
   }
   VistaNuevaCasa=(e)=>{
     
@@ -75,7 +110,7 @@ class LoginForm extends React.Component {
             </div>
           </div>
           <div class="center">
-          <button type="submit" onClick={this.VistaNueva} className="btn btn-primary btn-lg">INGRESAR</button>
+          <button type="submit" onClick={this.ValidarUsuario} className="btn btn-primary btn-lg">INGRESAR</button>
       </div>
          
       </form>

@@ -1,11 +1,13 @@
 import React from 'react'
 import MenuRow from './Cliente-Row'
 import TableHeaderMenuList from './Table-Header-MenuList'
+import MENU from './Data-Menu';
 
 class MenuListNuevo extends React.Component {
     addNewFiltro(e) {
         e.preventDefault();
-        var desayunos= [];
+        var Menu = [];
+    
         var d1 = this.desayuno1.value;
         var d2=this.desayuno2.value;
         var d3 = this.desayuno3.value;
@@ -13,36 +15,212 @@ class MenuListNuevo extends React.Component {
         var d5 = this.desayuno5.value;
         var d6 = this.desayuno6.value;
         var d7 = this.desayuno7.value;
-        desayunos.push(d1);
-        desayunos.push(d2);
-        desayunos.push(d3);
-        desayunos.push(d4);
-        desayunos.push(d5);
-        desayunos.push(d6);
-        desayunos.push(d7);
+
+        var a1 = this.almuerzo1.value;
+        var a2=this.almuerzo2.value;
+        var a3 = this.almuerzo3.value;
+        var a4 = this.almuerzo4.value;
+        var a5 = this.almuerzo5.value;
+        var a6 = this.almuerzo6.value;
+        var a7 = this.almuerzo7.value;
+
+        var c1 = this.cena1.value;
+        var c2=this.cena2.value;
+        var c3 = this.cena3.value;
+        var c4 = this.cena4.value;
+        var c5 = this.cena5.value;
+        var c6 = this.cena6.value;
+        var c7 = this.cena7.value;
+
+        
+        var dd1 = this.descripcionD1.value;
+        var dd2=this.descripcionD2.value;
+        var dd3 = this.descripcionD3.value;
+        var dd4 = this.descripcionD4.value;
+        var dd5 = this.descripcionD5.value;
+        var dd6 = this.descripcionD6.value;
+        var dd7 = this.descripcionD7.value;
+
+        var aa1 = this.descripcionA1.value;
+        var aa2=this.descripcionA2.value;
+        var aa3 = this.descripcionA3.value;
+        var aa4 = this.descripcionA4.value;
+        var aa5 = this.descripcionA5.value;
+        var aa6 = this.descripcionA6.value;
+        var aa7 = this.descripcionA7.value;
+
+        var cc1 = this.descripcionC1.value;
+        var cc2=this.descripcionC2.value;
+        var cc3 = this.descripcionC3.value;
+        var cc4 = this.descripcionC4.value;
+        var cc5 = this.descripcionC5.value;
+        var cc6 = this.descripcionC6.value;
+        var cc7 = this.descripcionC7.value;
+
+        var lunes = [];
+        
+        var martes = [];
+        var miercoles = [];
+        var jueves = [];
+        var viernes = [];
+        var sabado= [];
+        var domingo = [];
+        lunes.push({nombre: d1, descripcion: dd1});
+        lunes.push({nombre: a1, descripcion: aa1});
+        lunes.push({nombre: c1, descripcion: cc1});
+
+        martes.push({nombre: d2, descripcion: dd2});
+        martes.push({nombre: a2, descripcion: aa2});
+        martes.push({nombre: c2, descripcion: cc2});
+
+        miercoles.push({nombre: d3, descripcion: dd3});
+        miercoles.push({nombre: a3, descripcion: aa3});
+        miercoles.push({nombre: c3, descripcion: cc3});
+
+        jueves.push({nombre: d4, descripcion: dd4});
+        jueves.push({nombre: a4, descripcion: aa4});
+        jueves.push({nombre: c4, descripcion: cc4});
+
+        viernes.push({nombre: d5, descripcion: dd5});
+        viernes.push({nombre: a5, descripcion: aa5});
+        viernes.push({nombre: c5, descripcion: cc5});
+
+        sabado.push({nombre: d6, descripcion: dd6});
+        sabado.push({nombre: a6, descripcion: aa6});
+        sabado.push({nombre: c6, descripcion: cc6});
+
+        domingo.push({nombre: d7, descripcion: dd7});
+        domingo.push({nombre: a7, descripcion: aa7});
+        domingo.push({nombre: c7, descripcion: cc7});
+
+        Menu.push(lunes);
+        Menu.push(martes);
+        Menu.push(miercoles);
+        Menu.push(jueves);
+        Menu.push(viernes);
+        Menu.push(sabado);
+        Menu.push(domingo);
     
-        console.log("desayunos ingresados");
-        console.log(desayunos);
-        this.props.Fechas(desayunos);
+        console.log("Menu  ingresados");
+        console.log(Menu);
+        this.props.Fechas(Menu);
     
     }  
      render() {
         return(
         <table className=" total table ">
-        <form className="margen_izq" onSubmit={(e) => this.addNewFiltro(e)}>
-        <TableHeaderMenuList />
+        <form className="total" onSubmit={(e) => this.addNewFiltro(e)}>
+        <thead>
+			<tr>      
+                <th></th>    
+                <th className="th1">LUNES</th>           
+                <th className="th1">MARTES</th>
+                <th className="th1">MIERCOLES</th>
+                <th className="th1">JUEVES</th>
+                <th className="th1">VIERNES</th>
+                <th className="th1">SABADO</th>
+                <th className="th1">DOMINGO</th>
+            </tr>
+	  </thead>
         <tbody>
           <tr>
             <td className="th1" >DESAYUNO</td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno2" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno3" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno4" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno5" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno6= input } type="text" name="Desayuno6" placeholder="Nombre" /></td>
-            <td className="td1"><input ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno7" placeholder="Nombre" /></td>
-          </tr>   
-          <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar Menu<i className="large material-icons left">search</i></button>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD2 = input } type="text" name="Desayuno1"placeholder="Descripcion"/>
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD3 = input } type="text" name="Desayuno1" placeholder="Descripcion"/>
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionD7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            
+          </tr> 
+          <tr>
+            <td className="th1" >ALMUERZO</td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA2 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA3 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo5= input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.almuerzo7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionA7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+          </tr>
+
+
+          <tr>
+            <td className="th1" >CENA</td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC2 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC3 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+            <td className="td1">
+            <input ref={ ( input ) => this.cena7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  ref={ ( input ) => this.descripcionC7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            </td>
+
+          </tr>
+          <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar Menu<i className="material-icons left">search</i></button>
           
           </tbody></form>
           </table>

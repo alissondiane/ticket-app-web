@@ -96,6 +96,7 @@ class VistaPrincipal extends React.Component {
     <button  onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right"type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
     </div>
   </div>
+  <div  className=" margen_top" ><h3>Menu de la Semana</h3></div>
   <div className="SplitPane row center-xs">
             <div className="  center-xs-12">
               <table className=" total table ">
@@ -103,7 +104,6 @@ class VistaPrincipal extends React.Component {
                 <MenuList  listado={MENU} />
               </table>
               </div>
-
    </div>
     </div>
     );

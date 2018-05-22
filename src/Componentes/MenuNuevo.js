@@ -22,45 +22,14 @@ class MenuNuevo extends React.Component {
     };
     
     this.VistaClienteNuevo = this.VistaClienteNuevo.bind(this);
-    this.VistaCasaNueva = this.VistaCasaNueva.bind(this);
-    this.OpcionSeleccionadaDepartamento = this.OpcionSeleccionadaDepartamento.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.SeleccionFechaDel= this.SeleccionFechaDel.bind(this);
     this.FiltrarFecha = this.FiltrarFecha.bind(this);
   }
 
   VistaClienteNuevo=(e)=>{
     
-    browserHistory.push('/Listado/Clientes');
+    browserHistory.push('/Vista/Principal');
     console.log("VISTA LISTADO CLIENTES");
     e.preventDefault();
-    
-  }
-  VistaCasaNueva=(e)=>{
-    
-    browserHistory.push('/Casa/nueva');
-    console.log("VISTA CASA NUEVA");
-    e.preventDefault();
-    
-  }
-  OpcionSeleccionadaDepartamento(opcion) {
-    if(opcion != null){
-    console.log("opcion seleccionada categoria");
-    console.log(opcion);
-    this.setState({departamento: opcion.value});
-    }
-  }
-  onChange(e) {
-    console.log("precio ingresado");
-    console.log(e.target.value);
-    this.setState({precio:e.target.value});
-  }
-  SeleccionFechaDel(Fecha) {
-    console.log("fecha para buscar menu")
-    console.log(Fecha);
-    var fecha1 = new String(Fecha);
-    console.log(fecha1);
-    //this.setState({dateFrom: fecha1});
     
   }
   FiltrarFecha(desayunos){
@@ -79,15 +48,15 @@ class MenuNuevo extends React.Component {
                <h4>Menu Nuevo<i className="material-icons logo1">restaurant</i></h4>
               </div>
               <div className="col-xs-8 margen_top">
-                <button type="submit" className = "button" onClick={this.VistaClienteNuevo}>Cerrar sesion</button>
+                <button type="submit" className = "button" onClick={this.VistaClienteNuevo}>Regresar</button>
               </div>
             </div>
           
             <hr />
-  <div className="SplitPane row center-xs">
-            <div className="  center-xs-12">           
+            <div className="SplitPane row center-xs">
+            <div className="center-xs-12">           
                 <MenuListNuevo Fechas={this.FiltrarFecha} />
-              </div>
+            </div>
 
    </div>
     </div>
