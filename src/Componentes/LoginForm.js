@@ -37,11 +37,13 @@ class LoginForm extends React.Component {
         console.error(error)
     });
     */
-    this.Mensaje();
+  this.Mensaje();
 
     e.preventDefault();
   }
   Mensaje(){
+
+    alert("Bienvenido")
     /*
       console.log(this.usuarioleido);
       if (this.usuarioleido === 0){
