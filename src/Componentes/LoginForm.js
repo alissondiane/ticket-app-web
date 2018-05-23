@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
     var password = this.state.password;
     alert("has enviado:"+ user + ' ' + password);
     /*
-    fetch('https://tick-app-zuul.herokuapp.com/usuario/leer'+user+'/'+password)
+    fetch('https://tick-app-zuul.herokuapp.com/usuario/leer/'+user+'/'+password)
     .then((response) => {
     return response.json()
     })
