@@ -1,29 +1,19 @@
 import React from 'react';
 import {browserHistory} from 'react-router-3';
-import { Link } from 'react-router-3';
-import SelectNuevo from './SelectNuevo'
-import HEROES from './heroes';
 import MENU from './Data-Menu';
 import FiltroFecha from './FiltroFecha';
 import MenuList from './Menu.Semana';
 import TableHeaderMenuList from './Table-Header-MenuList'
-
+import '../App.css';
 class VistaPrincipal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      usuario : '',
-      isValid : false,
-      password: '',
-      precio : '',
-      departamento : ''
-
+      fecha:''
     };
     
     this.CerrarSesion = this.CerrarSesion.bind(this);
     this.MenuNuevo = this.MenuNuevo.bind(this);
-    this.OpcionSeleccionadaDepartamento = this.OpcionSeleccionadaDepartamento.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.SeleccionFechaDel= this.SeleccionFechaDel.bind(this);
   }
 
@@ -41,24 +31,12 @@ class VistaPrincipal extends React.Component {
     e.preventDefault();
     
   }
-  OpcionSeleccionadaDepartamento(opcion) {
-    if(opcion != null){
-    console.log("opcion seleccionada categoria");
-    console.log(opcion);
-    this.setState({departamento: opcion.value});
-    }
-  }
-  onChange(e) {
-    console.log("precio ingresado");
-    console.log(e.target.value);
-    this.setState({precio:e.target.value});
-  }
   SeleccionFechaDel(Fecha) {
     console.log("fecha para buscar menu")
     console.log(Fecha);
     var fecha1 = new String(Fecha);
     console.log(fecha1);
-    //this.setState({dateFrom: fecha1});
+    this.setState({fecha: fecha1});
     
   }
  
@@ -81,13 +59,13 @@ class VistaPrincipal extends React.Component {
   <div className="SplitPane row">
     <div className="col-xs-8" margen_top>
         <div className="SplitPane row">
-            <div className="col-xs-3 margen_top">
-                <label className="margen_top">Fecha:</label>
+            <div className="col-xs-2 margen_top">
+                <p className="margen_top">Fecha:</p>
             </div>
-            <div className="col-xs-6 margen_top">
+            <div className="col-xs-5 margen_top">
                   <FiltroFecha Fechas={this.SeleccionFechaDel} />
             </div>
-            <div className=" col-xs-3 margen_top" >
+            <div className=" col-xs-5 margen_top" >
             <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Buscar<i className="material-icons left">search</i></button>
             </div>
         </div>

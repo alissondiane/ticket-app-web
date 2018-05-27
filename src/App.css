@@ -54,7 +54,10 @@
 .tr:nth-child(even) {
   background-color: white
 }
-
+.th1:hover {background-color: rgb(97, 161, 182) ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+.tr1:nth-child(even) {
+  background-color: white
+}
 input{
     width: 500px;
     padding: 12px 20px;
@@ -492,7 +495,7 @@ button.delete {
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
 }
 .th1{
-  width: 300px;
+  width: 400px;
   height: 50px;
   text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
    /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
@@ -505,7 +508,7 @@ button.delete {
   }
 .td1{
     height: 100px;
-    width: 300px;
+    width: 400px;
     text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
      /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
     padding-left: 20px;

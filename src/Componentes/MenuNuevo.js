@@ -1,28 +1,18 @@
 import React from 'react';
 import {browserHistory} from 'react-router-3';
-import { Link } from 'react-router-3';
-import SelectNuevo from './SelectNuevo'
-import HEROES from './heroes';
-import MENU from './Data-Menu';
-import FiltroFecha from './FiltroFecha';
-import MenuList from './Menu.Semana';
 import MenuListNuevo from './Menu.Semana.Nuevo';
-import TableHeaderMenuList from './Table-Header-MenuList'
+import swal from 'sweetalert'
 
 class MenuNuevo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      usuario : '',
-      isValid : false,
-      password: '',
-      precio : '',
-      departamento : ''
+      menuNuevo : ""
 
     };
     
     this.VistaClienteNuevo = this.VistaClienteNuevo.bind(this);
-    this.FiltrarFecha = this.FiltrarFecha.bind(this);
+    this.GuardarMenu = this.GuardarMenu.bind(this);
   }
 
   VistaClienteNuevo=(e)=>{
@@ -32,9 +22,15 @@ class MenuNuevo extends React.Component {
     e.preventDefault();
     
   }
-  FiltrarFecha(desayunos){
-    console.log("listado de desayunos para guardar")
-    console.log(desayunos);
+  GuardarMenu(menu){
+    console.log("menu para guardar")
+    console.log(menu);
+    this.setState({
+     menuNuevo: menu
+    });
+
+    swal("Menu","guardado exitosamente","success");
+    browserHistory.push('/Vista/Principal');
   }
  
   render() {
@@ -55,7 +51,11 @@ class MenuNuevo extends React.Component {
             <hr />
             <div className="SplitPane row center-xs">
             <div className="center-xs-12">           
-                <MenuListNuevo Fechas={this.FiltrarFecha} />
+                <MenuListNuevo Fechas={this.GuardarMenu} />
+            </div>
+            <div>
+            {JSON.stringify(this.state.menuNuevo,null,'\t')}
+         
             </div>
 
    </div>

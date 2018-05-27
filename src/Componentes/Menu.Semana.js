@@ -1,5 +1,4 @@
 import React from 'react'
-import MenuRow from './Cliente-Row'
 
 class MenuList extends React.Component {
 

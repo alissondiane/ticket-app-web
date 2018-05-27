@@ -1,8 +1,8 @@
 import React from 'react';
 import {browserHistory} from 'react-router-3';
-import { Link } from 'react-router-3';
-import SelectNuevo from './SelectNuevo'
-import HEROES from './heroes';
+import swal from 'sweetalert'
+ 
+
 
 
 class LoginForm extends React.Component {
@@ -10,20 +10,18 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       usuario : '',
-      isValid : false,
       password: ''
     };
     this.onChangeUsuario = this.onChangeUsuario.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     
-    this.VistaNuevaCasa = this.VistaNuevaCasa.bind(this);
     this.ValidarUsuario = this.ValidarUsuario.bind(this);
   }
 
   ValidarUsuario=(e)=>{
     var user = this.state.usuario;
     var password = this.state.password;
-    alert("has enviado:"+ user + ' ' + password);
+    //alert("has enviado:"+ user + ' ' + password);
     /*
     fetch('https://tick-app-zuul.herokuapp.com/usuario/leer/'+user+'/'+password)
     .then((response) => {
@@ -43,7 +41,8 @@ class LoginForm extends React.Component {
   }
   Mensaje(){
 
-    alert("Bienvenido")
+    swal("Bienvenido!", this.state.usuario, "success");
+    
     /*
       console.log(this.usuarioleido);
       if (this.usuarioleido === 0){
@@ -63,13 +62,7 @@ class LoginForm extends React.Component {
     console.log("llego aca");
 
   }
-  VistaNuevaCasa=(e)=>{
-    
-    browserHistory.push('/Casa/nueva');
-    console.log("llego aca");
-    e.preventDefault();
-    
-  }
+  
   ValidarNombre(nombres){
     if(!nombres){
       alert("Ingrese un nombre");
@@ -87,7 +80,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { nombres, isLoading,isValid } = this.state;
 
     return (
 

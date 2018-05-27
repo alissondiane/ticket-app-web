@@ -1,7 +1,4 @@
 import React from 'react'
-import MenuRow from './Cliente-Row'
-import TableHeaderMenuList from './Table-Header-MenuList'
-import MENU from './Data-Menu';
 
 class MenuListNuevo extends React.Component {
     addNewFiltro(e) {
@@ -57,42 +54,55 @@ class MenuListNuevo extends React.Component {
         var cc6 = this.descripcionC6.value;
         var cc7 = this.descripcionC7.value;
 
-        var lunes = [];
-        
-        var martes = [];
-        var miercoles = [];
-        var jueves = [];
-        var viernes = [];
-        var sabado= [];
-        var domingo = [];
-        lunes.push({nombre: d1, descripcion: dd1});
-        lunes.push({nombre: a1, descripcion: aa1});
-        lunes.push({nombre: c1, descripcion: cc1});
-
-        martes.push({nombre: d2, descripcion: dd2});
-        martes.push({nombre: a2, descripcion: aa2});
-        martes.push({nombre: c2, descripcion: cc2});
-
-        miercoles.push({nombre: d3, descripcion: dd3});
-        miercoles.push({nombre: a3, descripcion: aa3});
-        miercoles.push({nombre: c3, descripcion: cc3});
-
-        jueves.push({nombre: d4, descripcion: dd4});
-        jueves.push({nombre: a4, descripcion: aa4});
-        jueves.push({nombre: c4, descripcion: cc4});
-
-        viernes.push({nombre: d5, descripcion: dd5});
-        viernes.push({nombre: a5, descripcion: aa5});
-        viernes.push({nombre: c5, descripcion: cc5});
-
-        sabado.push({nombre: d6, descripcion: dd6});
-        sabado.push({nombre: a6, descripcion: aa6});
-        sabado.push({nombre: c6, descripcion: cc6});
-
-        domingo.push({nombre: d7, descripcion: dd7});
-        domingo.push({nombre: a7, descripcion: aa7});
-        domingo.push({nombre: c7, descripcion: cc7});
-
+        var lunes = {
+          comidas : [
+             {nombre: d1, descripcion: dd1},
+             {nombre: a1, descripcion: aa1},
+             {nombre: c1, descripcion: cc1},
+          ]
+        };
+        var martes = {
+          comidas : [
+            {nombre: d2, descripcion: dd2},
+            {nombre: a2, descripcion: aa2},
+            {nombre: c2, descripcion: cc2},
+         ]
+        };
+        var miercoles ={
+          comidas : [
+            {nombre: d3, descripcion: dd3},
+            {nombre: a3, descripcion: aa3},
+            {nombre: c3, descripcion: cc3},
+         ]
+        };
+        var jueves = {
+          comidas : [
+            {nombre: d4, descripcion: dd4},
+            {nombre: a4, descripcion: aa4},
+            {nombre: c4, descripcion: cc4},
+         ]
+        };
+        var viernes = {
+          comidas : [
+            {nombre: d5, descripcion: dd5},
+            {nombre: a5, descripcion: aa5},
+            {nombre: c5, descripcion: cc5},
+         ]
+        };
+        var sabado= {
+          comidas : [
+            {nombre: d6, descripcion: dd6},
+            {nombre: a6, descripcion: aa6},
+            {nombre: c6, descripcion: cc6},
+         ]
+        };
+        var domingo = {
+          comidas : [
+            {nombre: d7, descripcion: dd7},
+            {nombre: a7, descripcion: aa7},
+            {nombre: c7, descripcion: cc7},
+         ]
+        };
         Menu.push(lunes);
         Menu.push(martes);
         Menu.push(miercoles);
@@ -109,7 +119,7 @@ class MenuListNuevo extends React.Component {
      render() {
         return(
         <table className=" total table ">
-        <form className="total" onSubmit={(e) => this.addNewFiltro(e)}>
+        <form  onSubmit={(e) => this.addNewFiltro(e)}>
         <thead>
 			<tr>      
                 <th></th>    
@@ -220,9 +230,15 @@ class MenuListNuevo extends React.Component {
             </td>
 
           </tr>
-          <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar Menu<i className="material-icons left">search</i></button>
           
-          </tbody></form>
+          </tbody>
+          <div className="SplitPane row">
+            <div className="col-xs-7 margen_top">
+            <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar<i className="material-icons left">check</i></button>
+            </div>
+            <div className="col-xs-7 margen_top">
+            </div>
+          </div></form>
           </table>
         )
       }
