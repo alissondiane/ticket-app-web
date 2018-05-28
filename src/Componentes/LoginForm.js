@@ -10,7 +10,8 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       usuario : '',
-      password: ''
+      password: '',
+      usuarioleido: 0
     };
     this.onChangeUsuario = this.onChangeUsuario.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
@@ -31,57 +32,29 @@ class LoginForm extends React.Component {
             .then((alumno) => {
               console.log("recibido");
               console.log(alumno);
-              /*
-
-              if(alumno.idAlum != null){
-                this.setState({ alumnos: alumno});
-                console.log(this.state.alumnos)
-                if(this.state.alumnos.apeNom.toUpperCase() == this.state.nombres.toUpperCase()){
-                  console.log("Hola")
-                  this.setState({isValid: true})
-                }
-                if (this.state.isValid) {
-                 browserHistory.push('/'+this.state.nombres.toUpperCase())
-                }
-              }
-              else{
-                alert("Datos ingresados incorrectamente");
-              }
-*/
+              this.setState({usuarioleido: alumno})
+              if(alumno.idTu.nombreTu =='ADMINISTRADOR'){
+                swal("Bienvenido!", this.state.usuario, "success");
+                browserHistory.push('/Vista/Principal');
+              }else{
+                swal("Wrong!", "Tipo de usuario incorrectamente!", "error");
+               }
             })
             .catch(error => {
             // si hay algún error lo mostramos en consola
-                console.error(error)
-                console.log("usuario ingresado incorrectamente")
+                console.error(error);
+                this.Mensaje();
             });
-        
-    console.log("paso el fetch")
-    this.Mensaje();
    
     e.preventDefault();
     
   }
   Mensaje(){
-
-    swal("Bienvenido!", this.state.usuario, "success");
-    
-    /*
-      console.log(this.usuarioleido);
-      if (this.usuarioleido === 0){
-        alert("Usuario ingresado incorrectamente");
-      }else{
-       if(this.usuarioleido.tipoUsuario.nombreTu === "ADMINISTRADOR"){
-         console.log( this.usuarioleido.tipoUsuario.nombreTu);
-          alert("Bienvenido");
-           this.router.navigate(['vistaAdmin']);
-       }else{
-        alert("Usuario ingresado incorrectamente tipo incorrecto");
-        }
-      } 
-    */  
-    
-    browserHistory.push('/Vista/Principal');
-    console.log("llego aca");
+    if(this.state.usuarioleido == 0){
+      swal("Wrong!", "Usuario no existe!", "error");
+    }
+   
+  
 
   }
   

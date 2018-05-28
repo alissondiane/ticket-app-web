@@ -94,7 +94,7 @@ class VistaPrincipal extends React.Component {
             <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
             
           </div>
-          <label><input name="Casa de playa" type="checkbox" /><span>Casa de playa</span></label>
+       
 
         </div>
         <div className=" margen_top" ><h3>Menu de la Semana</h3></div>
