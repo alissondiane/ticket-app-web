@@ -6,6 +6,7 @@ import { Router, Route, browserHistory } from 'react-router-3';
 import LoginForm from './Componentes/LoginForm';
 import VistaPrincipal from './Componentes/VistaPrincipal';
 import MenuNuevo from './Componentes/MenuNuevo';
+//import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
 class Index extends React.Component {
