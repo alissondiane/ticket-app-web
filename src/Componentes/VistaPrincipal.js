@@ -6,6 +6,8 @@ import MenuList from './Menu.Semana';
 import TableHeaderMenuList from './Table-Header-MenuList'
 import '../App.css';
 import ComidaDiaModal from './ComidaDiaModal'; //modal comida por dia
+import swal from 'sweetalert'
+
 
 class VistaPrincipal extends React.Component {
   constructor(props) {
@@ -52,7 +54,9 @@ class VistaPrincipal extends React.Component {
   }
   //cerramos el modal
   modalClearOption = () => {
-    this.setState( () => ({ modalOption: false}) )
+   swal("Cambios guardados exitosamente!","","success")
+    this.setState( () => ({ modalOption: false}) );
+   
   }
 
   render() {
@@ -86,8 +90,12 @@ class VistaPrincipal extends React.Component {
             </div>
           </div>
           <div className=" col-xs-4 margen_top">
+            
             <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
+            
           </div>
+          <label><input name="Casa de playa" type="checkbox" /><span>Casa de playa</span></label>
+
         </div>
         <div className=" margen_top" ><h3>Menu de la Semana</h3></div>
         <div className="SplitPane row center-xs">

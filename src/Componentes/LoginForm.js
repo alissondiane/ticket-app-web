@@ -14,30 +14,52 @@ class LoginForm extends React.Component {
     };
     this.onChangeUsuario = this.onChangeUsuario.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
-    
-    this.ValidarUsuario = this.ValidarUsuario.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);    
+
   }
 
-  ValidarUsuario=(e)=>{
-    var user = this.state.usuario;
-    var password = this.state.password;
-    //alert("has enviado:"+ user + ' ' + password);
-    /*
-    fetch('https://tick-app-zuul.herokuapp.com/usuario/leer/'+user+'/'+password)
-    .then((response) => {
-    return response.json()
-    })
-    .then((alumno) => {
-   
-    })
-    .catch(error => {
-    // si hay algún error lo mostramos en consola
-        console.error(error)
-    });
-    */
-  this.Mensaje();
+  onSubmit=(e)=>{
+    console.log("usuario:");
+    console.log(this.state.usuario);
+    console.log("password:");
+    console.log(this.state.password);
 
+        fetch('https://tick-app-zuul.herokuapp.com/tick-app-client/usuario/leer/'+this.state.usuario+'/'+this.state.password)
+            .then((response) => {
+            return response.json()
+            })
+            .then((alumno) => {
+              console.log("recibido");
+              console.log(alumno);
+              /*
+
+              if(alumno.idAlum != null){
+                this.setState({ alumnos: alumno});
+                console.log(this.state.alumnos)
+                if(this.state.alumnos.apeNom.toUpperCase() == this.state.nombres.toUpperCase()){
+                  console.log("Hola")
+                  this.setState({isValid: true})
+                }
+                if (this.state.isValid) {
+                 browserHistory.push('/'+this.state.nombres.toUpperCase())
+                }
+              }
+              else{
+                alert("Datos ingresados incorrectamente");
+              }
+*/
+            })
+            .catch(error => {
+            // si hay algún error lo mostramos en consola
+                console.error(error)
+                console.log("usuario ingresado incorrectamente")
+            });
+        
+    console.log("paso el fetch")
+    this.Mensaje();
+   
     e.preventDefault();
+    
   }
   Mensaje(){
 
@@ -63,19 +85,22 @@ class LoginForm extends React.Component {
 
   }
   
-  ValidarNombre(nombres){
-    if(!nombres){
-      alert("Ingrese un nombre");
-      return false;
-    }else{
-      return true;
-    }
-  }
 
   onChangeUsuario(e) {
+    /*if(!e.target.value){
+      alert("Ingrese un nombre");
+    }else{
+      this.setState({usuario: e.target.value});
+    }*/
     this.setState({usuario: e.target.value});
+    
   }
   onChangePassword(e) {
+    /*if(!e.target.value){
+      alert("Ingrese una contraseña");
+    }else{
+      this.setState({password: e.target.value});
+    }*/
     this.setState({password: e.target.value});
   }
 
@@ -104,7 +129,7 @@ class LoginForm extends React.Component {
             </div>
           </div>
           <div class="center">
-          <button type="submit" onClick={this.ValidarUsuario} className="btn btn-primary btn-lg">INGRESAR</button>
+          <button type="submit" onClick={this.onSubmit} className="btn btn-primary btn-lg">INGRESAR</button>
       </div>
          
       </form>
