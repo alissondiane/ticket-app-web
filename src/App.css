@@ -518,6 +518,7 @@ delete {
     background-color: rgb(219, 219, 219);
     font-weight: bold;
     font-family: 'Exo', sans-serif;
+    cursor: pointer;
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
 }
 .th1{
