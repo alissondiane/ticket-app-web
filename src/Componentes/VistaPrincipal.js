@@ -54,7 +54,6 @@ class VistaPrincipal extends React.Component {
   }
   //cerramos el modal
   modalClearOption = () => {
-   swal("Cambios guardados exitosamente!","","success")
     this.setState( () => ({ modalOption: false}) );
    
   }
@@ -65,15 +64,26 @@ class VistaPrincipal extends React.Component {
     return (
 
       <div className="">
+        <nav>
+    <div class="nav-wrapper azul">
+      
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a >Menu de la semana</a></li>
+        <li><a >Busqueda</a></li>
+        <li><a onClick={this.CerrarSesion} ><i className="material-icons">exit_to_app</i></a></li>
+      </ul>
+    </div>
+  </nav>
+ 
         <div className="menu row">
-          <div className=" col-xs-4 margen_top">
+          <div className=" col-xs-4">
             <h4>Menu<i className="material-icons logo1">restaurant</i></h4>
           </div>
           <div className="col-xs-8 margen_top">
-            <button type="submit" className="button" onClick={this.CerrarSesion}>Cerrar sesion</button>
           </div>
-        </div>
-
+      </div>
+ 
+      
         <hr />
         <div className="SplitPane row">
           <div className="col-xs-8" margen_top>
@@ -94,8 +104,6 @@ class VistaPrincipal extends React.Component {
             <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
             
           </div>
-       
-
         </div>
         <div className=" margen_top" ><h3>Menu de la Semana</h3></div>
         <div className="SplitPane row center-xs">

@@ -97,8 +97,8 @@
     ],
      dia: 'JUEVES' },
      { comidas: [
-      {nombre: "Pan con jamonada",
-      descripcion: "Pan con jamonada",
+      {nombre: "Pan con pollo",
+      descripcion: "Pan con pollo",
       numeroRaciones: 50,
       comidaTipo: "DESAYUNO",
       dia:"",

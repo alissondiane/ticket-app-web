@@ -234,7 +234,7 @@ class MenuListNuevo extends React.Component {
           </tbody>
           <div className="SplitPane row">
             <div className="col-xs-7 margen_top">
-            <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar<i className="material-icons left">check</i></button>
+            <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar<i className="material-icons left">save</i></button>
             </div>
             <div className="col-xs-7 margen_top">
             </div>

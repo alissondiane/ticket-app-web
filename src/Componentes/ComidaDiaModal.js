@@ -4,6 +4,7 @@ import { Checkbox } from 'react-bootstrap';
 import swal from 'sweetalert'
 
 const ComidaDiaModal = (props) => (
+
     <Modal
         isOpen={props.modalOption}
         onRequestClose={props.modalClearOption}
@@ -11,17 +12,24 @@ const ComidaDiaModal = (props) => (
     //closeTimeoutMS={200}
     //className="modal"
     >
-    <div>
+    <div className="margen_top">
+            <div className="SplitPane row">
+                
+                <div className="col-xs-12">
+                <div className=" margen_top" ><h3>Detalle comida<i className="material-icons logo1">restaurant</i></h3></div>
+                </div>
+            </div>
         <div className="SplitPane row">
+            
             <div className="col-xs-6" margen_top>
                 <div>
                     <p className="h2" >Detalle</p>
                     <br />
                     <hr/>
                     <label>Dia: ---------</label>
-                    <label>Tipo de comida: ----------</label>
-                    <label>Nombre: ----------</label>
-                    <label>Descripcion: ----------</label>
+                    <label>Tipo de comida:{props.modalComida.comidaTipo}</label>
+                    <label>Nombre:{props.modalComida.nombre}</label>
+                    <label>Descripcion: {props.modalComida.descripcion}</label>
                 </div>
                 <div>
                     <p className="h2" >Turnos</p>
@@ -38,33 +46,31 @@ const ComidaDiaModal = (props) => (
                     <p className="h2" >Accesos</p>
                     <br />
                     <hr/>
-                    <label><input name="Profesor" type="checkbox"  id="myCheck" /><span>Profesor</span></label>
-                    <label><input name="Alumno" type="checkbox"  id="myCheck" /><span>Alumno</span></label>
-                    <label><input name="Residente" type="checkbox"  id="myCheck" /><span>Residente</span></label>
-                    
+                    <label><input class="filled-in" name="Profesor" type="checkbox"  id="myCheck" /><span>Profesor</span></label>
+                    <label><input class="filled-in" name="Alumno" type="checkbox"  id="myCheck" /><span>Alumno</span></label>
+                    <label><input class="filled-in" name="Residente" type="checkbox"  id="myCheck" /><span>Residente</span></label>
+                
                 </div>
 
-                <p>Prueba...{props.modalComida}</p>
+                
             
             </div>
-            <div className="SplitPane row">
-            <div className="col-xs-6" margen_top >
-            </div>
-            <div className="col-xs-6" margen_top >
-            
-            <div className="SplitPane row">
-            <div className="col-xs-6" margen_top >
-            <button onClick={(e) => { swal("Edicion habilitada!","","success");e.preventDefault();}} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Editar<i className="material-icons left">check</i></button>
-            </div>
-            <div className="col-xs-6" margen_top>
-            <button className="waves-effect waves-light btn-large botonazul2 right" onClick={props.modalClearOption}>Guardar</button>
-            </div>
-            </div>
-            </div>
-            </div>
-
+           
             
         </div>
+        <div className="SplitPane row center">
+           
+                <div className="col-xs-4 margen_top"  >
+                <button onClick={(e) => { swal("Edicion habilitada!","","success");e.preventDefault();}} className="waves-effect waves-light btn-small botonazul2 right" type="submit">Editar<i className="material-icons left">mode_edit</i></button>
+                </div>
+                <div className="col-xs-4 margen_top" >
+                <button className="waves-effect waves-light btn-small botonazul2 right" onClick={(e) => { swal("Cambios guardados exitosamente!","","success");e.preventDefault();}} >Guardar<i className="material-icons left">save</i></button>
+                </div>
+                <div className="col-xs-4 margen_top">
+                <button   onClick={props.modalClearOption} className="waves-effect waves-light btn-small botonazul2 red right">Cerrar<i className="material-icons left">clear</i></button>
+                </div>
+        </div>
+
        
         
                

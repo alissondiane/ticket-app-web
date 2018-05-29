@@ -12,6 +12,9 @@
 .plomo{
   background-color: #E4E1E1;
 }
+.azul{
+  background-color: teal;
+}
 .espacio{
   padding-left: 40px;
 }
@@ -176,6 +179,9 @@ h3{
   font-weight: bold;
   font-family: 'Exo', sans-serif;
 }
+.informacion{
+  margin: 5px;
+}
 .menu{
   background-color:rgb(14, 14, 56);
   color:  WHITE;
@@ -185,12 +191,12 @@ h3{
 	font-size: 25px;
   margin: 0 auto;
   width:100%;
-  height: 150px;
+  height: 120px;
   font-weight: bold;
   font-family: 'Exo', sans-serif;
 }
 .h2{
-  background-color:rgb(14, 14, 56);
+  background-color:#092531;
   color:  WHITE;
 	padding: 15px 25px;
 	text-align: left;
@@ -222,6 +228,13 @@ select {
   float:right;
   position: absolute;
   z-index:0; 
+}
+.back{
+  margin : 5px;
+  float:right;
+  position: relative;
+  z-index:0;
+  background-color: none;
 }
 /* .boton{
   width:45px;
@@ -473,7 +486,7 @@ h4{
   margin-right: 2px;
   float:right;
 }
-button.delete {
+delete {
   position: relative;
   float:right;
   background-color: gray;
@@ -484,7 +497,7 @@ button.delete {
   color:black;
 }
 .th{
-  width: 50px;
+  width: 200px;
   height: 50px;
   text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
    /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
@@ -497,11 +510,10 @@ button.delete {
   }
 .td{
     height: 100px;
-    width: 50px;
+    width: 200px;
     text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
      /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 10px;
     border: 3px solid WHITE;
     background-color: rgb(219, 219, 219);
     font-weight: bold;
