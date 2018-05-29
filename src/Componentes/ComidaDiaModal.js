@@ -1,7 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Checkbox } from 'react-bootstrap';
-import swal from 'sweetalert'
+import swal from 'sweetalert';
+import NIVELTURNO from './Data-NivelTurno';
+import NivelTurnoList from './NivelTurno-List';
 
 class ComidaDiaModal extends React.Component {
        constructor(props) {
@@ -26,27 +28,28 @@ class ComidaDiaModal extends React.Component {
             </div>
         <div className="SplitPane row">
             
-            <div className="col-xs-6" margen_top>
+            <div className="col-xs-6  margen_top ">
                 <div>
                     <p className="h2" >Detalle</p>
                     <br />
                     <hr/>
-                    <label>Dia: ---------</label>
+                    <label>Dia: {this.props.modalComida.dia}</label>
                     <label>Tipo de comida:{this.props.modalComida.comidaTipo}</label>
                     <label>Nombre:{this.props.modalComida.nombre}</label>
                     <label>Descripcion: {this.props.modalComida.descripcion}</label>
+                    <hr/>
                 </div>
                 <div>
                     <p className="h2" >Turnos</p>
                     <br />
                     <hr/>
-                    <label>TURNO 1 - NIVEL 1</label>
-                    <label>Hora inicio: ----</label>
-                    <label>Hora fin: ----</label>
-                    <label>Nro de tickets: -----</label>
+                    <div className="scroll center-xs">
+                    <NivelTurnoList listado={NIVELTURNO}/>
+                    </div>
+                    <hr/>
                 </div>
             </div>
-            <div className="col-xs-6" margen_top>
+            <div className="col-xs-6 margen_top" >
                 <div>
                     <p className="h2" >Accesos</p>
                     <br />
@@ -54,7 +57,7 @@ class ComidaDiaModal extends React.Component {
                     <label><input class="filled-in" name="Profesor" type="checkbox"  id="myCheck" /><span>Profesor</span></label>
                     <label><input class="filled-in" name="Alumno" type="checkbox"  id="myCheck" /><span>Alumno</span></label>
                     <label><input class="filled-in" name="Residente" type="checkbox"  id="myCheck" /><span>Residente</span></label>
-                
+                    <hr/>
                 </div>
 
                 

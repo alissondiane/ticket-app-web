@@ -107,8 +107,8 @@ class VistaPrincipal extends React.Component {
         </div>
         <div className=" margen_top" ><h3>Menu de la Semana</h3></div>
         <div className="SplitPane row center-xs">
-          <div className="  center-xs-12">
-            <table className=" total table ">
+          <div className="center-xs-12">
+            <table className="total table ">
               <TableHeaderMenuList />
               <MenuList 
                 listado={MENU}

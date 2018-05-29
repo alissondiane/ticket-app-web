@@ -37,7 +37,10 @@
   border-collapse: collapse;/*juntamos los border por td y la tabla en si en uno solo*/
   border: 5px solid white;
   border-radius: 6px;
-  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-left:20px;
+  margin-top:20px;
+  margin-right: 20px;
   width:100%;
 }
 .centrar{
@@ -196,7 +199,7 @@ h3{
   font-family: 'Exo', sans-serif;
 }
 .h2{
-  background-color:#092531;
+  background-color:rgb(14, 14, 56);
   color:  WHITE;
 	padding: 15px 25px;
 	text-align: left;
@@ -420,12 +423,12 @@ h4{
   width: 350px;
   height: 450px;
 }
-.vistaCasa{
-  padding: 20px 30px;
+.vistaNivelTurno{
+  padding: 15px 20px;
   text-decoration: none;
   display: block;
   border-radius: 5px;
-  background-color: #d6e0d5;
+  background-color: #d1d3d1;
   width: 100%;
   margin-bottom: 5px;
 }
