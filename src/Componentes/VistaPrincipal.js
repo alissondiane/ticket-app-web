@@ -15,7 +15,7 @@ class VistaPrincipal extends React.Component {
     this.state = {
       fecha: '',
       modalOption: false, //apertura del modal
-      modalComida: ''
+      modalComida: []
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
