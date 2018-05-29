@@ -10,41 +10,59 @@ class MenuList extends React.Component {
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[0].comidas[0].nombre)}>
                         <p>{this.props.listado[0].comidas[0].nombre}</p>
-                        <p>Descripcion: {this.props.listado[0].comidas[0].descripcion}</p>
+                        <p>Descripcion:{this.props.listado[0].comidas[0].descripcion}</p>
+                        <div className="back right">
+                        <button onClick={(e)=>this.props.modalSelectedOption(this.props.listado[0].comidas[0])}  className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[1].comidas[0].nombre)}>
                         <p>{this.props.listado[1].comidas[0].nombre}</p>
                         <p>Descripción:{this.props.listado[1].comidas[0].descripcion}</p>
+                        <div className="back right">
+        
+                        <button  onClick={(e)=>this.props.modalSelectedOption(this.props.listado[1].comidas[0])}  className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[2].comidas[0].nombre)}>
                         <p>{this.props.listado[2].comidas[0].nombre}</p>
                         <p>Descripción:{this.props.listado[2].comidas[0].descripcion}</p>
+                        <div className="back right">
+                        <button  onClick={(e)=>this.props.modalSelectedOption(this.props.listado[2].comidas[0])} className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[3].comidas[0].nombre)}>
                         <p>{this.props.listado[3].comidas[0].nombre}</p>
-
                         <p>Descripción:{this.props.listado[3].comidas[0].descripcion}</p>
+                        <div className="back right">
+                        <button  onClick={(e)=>this.props.modalSelectedOption(this.props.listado[3].comidas[0])} className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[4].comidas[0].nombre)}>
                         <p>{this.props.listado[4].comidas[0].nombre}</p>
-
                         <p>Descripción:{this.props.listado[4].comidas[0].descripcion}</p>
+                        <div className="back right">
+                        <button onClick={(e)=>this.props.modalSelectedOption(this.props.listado[4].comidas[0])} className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[5].comidas[0].nombre)}>
                         <p>{this.props.listado[5].comidas[0].nombre}</p>
-
-                        <p>Descripción:{this.props.listado[5].comidas[0].descripcion}</p>
+                        <button  onClick={(e)=>this.props.modalSelectedOption(this.props.listado[5].comidas[0])} className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[6].comidas[0].nombre)}>
                         <p>{this.props.listado[6].comidas[0].nombre}</p>
 
                         <p>Descripción:{this.props.listado[6].comidas[0].descripcion}</p>
+                        
+                        <div className="back right">
+                        <button onClick={(e)=>this.props.modalSelectedOption(this.props.listado[6].comidas[0])} className="btn-floating"><b><i className="material-icons">zoom_in</i></b></button>
+                        </div>
                     </td>
                 </tr>
                 <tr>
