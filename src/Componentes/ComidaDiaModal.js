@@ -4,6 +4,8 @@ import { Checkbox } from 'react-bootstrap';
 import swal from 'sweetalert';
 import NIVELTURNO from './Data-NivelTurno';
 import NivelTurnoList from './NivelTurno-List';
+import TableHeaderNT  from './Table-Header-NT';
+
 
 class ComidaDiaModal extends React.Component {
     constructor(props) {
@@ -79,15 +81,7 @@ class ComidaDiaModal extends React.Component {
                                     </label>
                                     <hr />
                                 </div>
-                                <div>
-                                    <p className="h2" >Turnos</p>
-                                    <br />
-                                    <hr />
-                                    <div className="scroll center-xs">
-                                        <NivelTurnoList listado={NIVELTURNO} />
-                                    </div>
-                                    <hr />
-                                </div>
+                                
                             </div>
                             <div className="col-xs-6 margen_top" >
                                 <div>
@@ -100,12 +94,25 @@ class ComidaDiaModal extends React.Component {
                                     <hr />
                                 </div>
 
-
-
                             </div>
-
-
                         </div>
+                        <div className="SplitPane row">
+
+                            <div>
+                                    <p className="h2" >Turnos</p>
+                                    <br />
+                                    <hr />
+                                
+                                    <table className=" total table ">
+                                        <TableHeaderNT/>
+                                        <NivelTurnoList listado={NIVELTURNO} />
+                                    </table>
+                                     
+                                  
+                                    <hr />
+                                </div>
+                        </div>
+
                         <div className="SplitPane row center">
 
                             <div className="col-xs-4 margen_top"  >

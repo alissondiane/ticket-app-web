@@ -5,14 +5,15 @@ class NivelTurnoList extends React.Component {
 
   render() {
     return (
-        <div>
+      <tbody>
           {
             this.props.listado.map((nivelTurno) => {
               return <NivelTurnoRow key={nivelTurno.toString()} 
                                   nivelTurno={ nivelTurno} />
             })
           }
-        </div>
+         </tbody>
+        
     )
   }
 }
