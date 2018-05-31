@@ -233,6 +233,10 @@ h1{
 }
 .menu{
   background-color:rgb(14, 14, 56);
+  background-image: url("http://ogbu.unmsm.edu.pe/wp-content/uploads/2018/03/Imagen5.png");
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: 50% 80%;
   color:  WHITE;
 	padding: 15px 25px;
 	text-align: center;

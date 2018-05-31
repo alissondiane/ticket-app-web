@@ -219,6 +219,7 @@ class ComidaDiaModal extends React.Component {
 
                             <div className="col-xs-4 margen_top">
                                 <button 
+                                    disabled={!this.state.bloqueoEditar}
                                     onClick={(e) => { 
                                         swal("Edicion habilitada!", "", "success");
                                         this.setState(()=>({bloqueoEditar : false}))
@@ -229,6 +230,7 @@ class ComidaDiaModal extends React.Component {
                             </div>
                             <div className="col-xs-4 margen_top" >
                                 <button className="waves-effect waves-light btn-large botonazul2" 
+                                disabled={this.state.bloqueoEditar}
                                 onClick={(e) => { 
                                     swal("Cambios guardados exitosamente!", "", "success");
                                    
