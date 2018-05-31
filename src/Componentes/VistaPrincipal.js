@@ -104,7 +104,7 @@ class VistaPrincipal extends React.Component {
             
           </div>
         </div>
-        <div className=" margen_top" ><h3>Menu de la Semana</h3></div>
+        <div className=" margen_top" ><h1>Menu de la Semana</h1></div>
         <div className="SplitPane row center-xs">
           <div className="center-xs-12">
             <table className="total table ">

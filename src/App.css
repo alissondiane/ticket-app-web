@@ -79,7 +79,7 @@ input{
 label {
   text-align: left;
   display: block;
-  margin-left:0px;
+  margin-top:12px;
   color: black;
   font-weight: bold;
   font-weight: 100;
@@ -170,12 +170,44 @@ textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida
   padding-right: 40px;
 }
 h3{
+  background-color: rgb(231, 229, 229);
+  color: rgb(0, 0, 0);
+  padding-left:10px;
+  padding-right: 10px;
+  padding-top:2px;
+  padding-bottom: 2px;
+	text-align: left;
+	font-weight: 100;
+	font-size: 25px;
+  height:80%;
+ 
+  margin:10px 0px 10px 0px;
+  width:100%;
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
+  border-left:  12px solid  rgb(24, 52, 94);
+  border-bottom:  1px solid  rgb(24, 52, 94);
+  
+}
+h1{
   background-color:rgb(181, 185, 185);
   color: black;
 	padding: 20px;
 	text-align: center;
 	font-weight: 100;
 	font-size: 28px;
+  width : 50%;
+  margin: 0 auto;
+  width:100%;
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
+}
+.bienvenido{
+  color: black;
+	padding: 20px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 40px;
   width : 50%;
   margin: 0 auto;
   width:100%;
@@ -203,7 +235,7 @@ h3{
   color:  WHITE;
 	padding: 5px 10px;
 	text-align: left;
-	font-weight: 100;
+	font-weight: 80;
 	font-size: 18px;
   margin : 0 auto;
   width:100%;
@@ -217,7 +249,7 @@ h3{
   padding-right: 5px;
   padding-top:5px;
   padding-bottom: 5px;
-  margin:20px;
+  margin: 10px 0px 10px 10px;
   width:80%;
   height: 100%;
   font-weight: bold;
@@ -253,9 +285,8 @@ select {
   margin-top: 30px;
 }
 .botonazul2{
-  margin-top: 10px;
-  float:right;
-  position: absolute;
+  margin:2px;
+  float:center;
   z-index:0; 
 }
 .back{
@@ -408,8 +439,7 @@ h4{
 .input{
   width:300px;
   height: 45px;
-  padding: 12px 20px;
-  margin:3px;
+  margin:5px;
   display: inline-block;
   border: 1px solid lightblue;
   border-top-right-radius: 8px;

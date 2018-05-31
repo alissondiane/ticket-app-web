@@ -28,7 +28,8 @@ class NivelTurnoRow extends React.Component {
               <td className="tdNT">{this.state.NT.TURNO}</td>
               <td className="tdNT">{this.state.NT.HORA_INICIO}</td>     
               <td className="tdNT">{this.state.NT.HORA_FIN} </td>
-              <td className="tdNT">{this.state.NT.NUMERO_TICKETS} </td>
+              <td className="tdNT"><input type="number" className="input" value={this.state.NT.NUMERO_TICKETS} /> </td>
+              
   
      
       

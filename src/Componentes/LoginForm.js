@@ -83,7 +83,7 @@ class LoginForm extends React.Component {
 
       <div className="vista">
       
-      <h2 className="center">Bienvenido</h2>
+      <h2 className="bienvenido center">Bienvenido</h2>
       <form>
       <div class="center">
         <i class="material-icons logo">person</i>
