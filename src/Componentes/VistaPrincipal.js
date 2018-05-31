@@ -8,7 +8,6 @@ import '../App.css';
 import ComidaDiaModal from './ComidaDiaModal'; //modal comida por dia
 import swal from 'sweetalert'
 
-
 class VistaPrincipal extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +62,7 @@ class VistaPrincipal extends React.Component {
 
     return (
 
-      <div className="">
+    <div className="">
         <nav>
     <div class="nav-wrapper azul">
       
