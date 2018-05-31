@@ -39,12 +39,15 @@ class MenuNuevo extends React.Component {
     return (
 
       <div className="">
+     
             <div className="menu row">
               <div className=" col-xs-4 margen_top">
                <h4>Menu Nuevo<i className="material-icons logo1">restaurant</i></h4>
               </div>
               <div className="col-xs-8 margen_top">
-                <button type="submit" className = "button" onClick={this.VistaClienteNuevo}>Regresar</button>
+                <ul id="nav-mobile" class="right  hide-on-med-and-down">
+              <li ><a className="seleccionar" onClick={this.VistaClienteNuevo} >Regresar<i className="material-icons right">reply</i></a></li>
+     </ul>
               </div>
             </div>
           
