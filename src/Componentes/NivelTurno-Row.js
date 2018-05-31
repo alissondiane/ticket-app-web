@@ -21,20 +21,17 @@ class NivelTurnoRow extends React.Component {
   */
   render() {
     return(
-    <div className="vistaNivelTurno">
-    <div className="SplitPane1 row">
-              <div className="col-xs-5">
-                <label>NIVEL: {this.state.NT.NIVEL} </label>         
-                <label>TURNO: {this.state.NT.TURNO}</label>
-              </div>
-              <div className="col-xs-5">
-              <label>HORA-INICIO: {this.state.NT.HORA_INICIO}</label>     
-              <label>HORA-FIN: {this.state.NT.HORA_FIN} </label>
-              </div>
-    </div>
+    <tr>
+
+            
+              <td className="tdNT">{this.state.NT.NIVEL} </td>         
+              <td className="tdNT">{this.state.NT.TURNO}</td>
+              <td className="tdNT">{this.state.NT.HORA_INICIO}</td>     
+              <td className="tdNT">{this.state.NT.HORA_FIN} </td>
+  
      
       
-	</div>
+	</tr>
     )
   }
 }
