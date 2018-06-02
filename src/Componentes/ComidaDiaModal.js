@@ -18,8 +18,10 @@ class ComidaDiaModal extends React.Component {
             descripcion: "",
             numeroRaciones:0,
             inicioReserva:"",
-            finReserva:""
+            finReserva:"",
+            idComida:0
         }
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -31,10 +33,110 @@ class ComidaDiaModal extends React.Component {
                 descripcion: this.props.modalComida.descripcion,
                 numeroRaciones: this.props.modalComida.numeroRaciones,
                 inicioReserva: this.props.modalComida.inicioReserva,
-                finReserva: this.props.modalComida.finReserva
+                finReserva: this.props.modalComida.finReserva,
+                idComida : this.props.modalComida.idComida
             }))
         }
     }
+
+    onSubmit=(e)=>{
+        //guardamos los cambios
+        
+        console.log("Actualizando una comida");
+        /*
+        fetch('http://',
+        {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",//cambiar a metodo PUT de actualizacion
+        body: JSON.stringify(
+          {
+            "id_comida": this.state.idComida,
+            "descripcion": this.state.descripcion,
+            "nombre": this.state.nombre,
+            "num_raciones": this.state.numeroRaciones,
+            "dia": this.state.dia,
+            "comida_tipo":this.state.comidaTipo,
+            "inicio_reserva":this.state.inicioReserva,
+            "fin_reserva":this.state.finReserva
+     }
+          
+        )
+    })
+    .then((response) => {
+      return response.json()
+      })
+    .then((data) => {
+      console.log("DATA QUE DEVUELVE EL POST")
+      console.log(data)
+      swal("Comida actualizada exitosamente!", "", "success");
+     
+      })
+      .catch(error => {
+          swal("Error al actualizar!", "", "error");
+          console.error(error)
+    });
+    
+    //Actualizar nivel-turno 
+    //Actualizamos uno
+    fetch('http://',
+        {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",//cambiar a metodo PUT de actualizacion
+        body: JSON.stringify(
+          {
+            "id_nt": this.state.idComida,
+            "id_comida": this.state.descripcion,
+            "nivel": this.state.nombre,
+            "turno": this.state.numeroRaciones,
+            "hora_inicio": this.state.dia,
+            "hora_fin":this.state.comidaTipo,
+            "num_tickets":this.state.inicioReserva,
+     }
+          
+        )
+    })
+    .then((response) => {
+      return response.json()
+      })
+    .then((data) => {
+      console.log("DATA QUE DEVUELVE EL POST")
+      console.log(data)
+      swal("Comida actualizada exitosamente!", "", "success");
+     
+      })
+      .catch(error => {
+          swal("Error al actualizar!", "", "error");
+          console.error(error)
+    });
+
+*/
+var check = [];
+var check2 = [];
+var opcionesSeleccionadas = [];
+var listadoAlumnoPrograma = [];
+
+
+check = document.getElementsByClassName("nroTickets");
+
+console.log("seleccionados codigos");
+for (var item of check) {
+ opcionesSeleccionadas.push(item.id);
+ console.log("nro recibido");
+ console.log(item.id);
+
+}
+console.log(opcionesSeleccionadas);
+    
+        //swal("Cambios guardados exitosamente!", "", "success");
+        e.preventDefault();
+        
+      }
 
     render() {
         return (
@@ -50,7 +152,7 @@ class ComidaDiaModal extends React.Component {
                         <div className="SplitPane row">
                             
                             
-                                <h3>Detalle comida<i className="material-icons logo1">restaurant</i></h3>
+                                <h3>Detalle comida {this.state.idComida}<i className="material-icons logo1">restaurant</i></h3>
                                 <hr/>
                            
                         </div>
@@ -231,16 +333,7 @@ class ComidaDiaModal extends React.Component {
                             <div className="col-xs-4 margen_top" >
                                 <button className="waves-effect waves-light btn-large botonazul2" 
                                 disabled={this.state.bloqueoEditar}
-                                onClick={(e) => { 
-                                    swal("Cambios guardados exitosamente!", "", "success");
-                                   
-                                   
-                                    alert(this.state.nombre)
-                                    alert(this.state.descripcion);
-                                    alert(this.state.inicioReserva);
-                                    alert(this.state.finReserva);
-                                    e.preventDefault(); 
-                                }} 
+                                onClick={this.onSubmit} 
                                 >Guardar<i className="material-icons left">save</i></button>
                             </div>
                             <div className="col-xs-4 margen_top">
