@@ -85,7 +85,7 @@ class VistaPrincipal extends React.Component {
         <hr />
         <div className="SplitPane row">
 
-          <div className=" col-xs-6 margen_top">
+          <div className="col-xs-6 margen_top">
             <FechaActual />
           </div>
         
