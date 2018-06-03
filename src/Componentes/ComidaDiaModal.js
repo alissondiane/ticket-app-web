@@ -19,7 +19,8 @@ class ComidaDiaModal extends React.Component {
             numeroRaciones:0,
             inicioReserva:"",
             finReserva:"",
-            idComida:0
+            idComida:0,
+            ListadoNivelTurno :[]
         }
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -121,18 +122,33 @@ var check2 = [];
 var opcionesSeleccionadas = [];
 var listadoAlumnoPrograma = [];
 
-
 check = document.getElementsByClassName("nroTickets");
 
-console.log("seleccionados codigos");
+console.log("Numeros de tickets editados");
 for (var item of check) {
  opcionesSeleccionadas.push(item.id);
- console.log("nro recibido");
+ console.log("nro ticket recibido");
  console.log(item.id);
 
 }
 console.log(opcionesSeleccionadas);
-    
+/*
+this.setState({ListadoNivelTurno: NIVELTURNO})
+
+var PagosActualizados = this.state.
+
+    for (let i = 0; i < PagosActualizados.length; i++) {
+        var ap = listadoAlumnoPrograma[i];
+        if(ap != null){
+          var listadoRec = { 
+          "idAlumno" : PagosActualizados[i].idAlum,
+          "codAlumno" :ap.codAlumno,
+          "idPrograma":ap.idPrograma
+        }
+        pagoinsertar.push(listadoRec);
+        }
+    }
+    */
         //swal("Cambios guardados exitosamente!", "", "success");
         e.preventDefault();
         
