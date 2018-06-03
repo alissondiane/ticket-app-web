@@ -6,6 +6,7 @@ import MenuList from './Menu.Semana';
 import TableHeaderMenuList from './Table-Header-MenuList'
 import '../App.css';
 import ComidaDiaModal from './ComidaDiaModal'; //modal comida por dia
+import FechaActual from './FechaActual'; //fecha
 import swal from 'sweetalert'
 
 class VistaPrincipal extends React.Component {
@@ -83,8 +84,12 @@ class VistaPrincipal extends React.Component {
       
         <hr />
         <div className="SplitPane row">
+
+          <div className=" col-xs-6 margen_top">
+            <FechaActual />
+          </div>
         
-          <div className=" col-xs-12 margen_top">
+          <div className=" col-xs-6 margen_top">
             
             <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
             
