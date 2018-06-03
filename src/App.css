@@ -56,11 +56,11 @@
 .centrarImporte{
   align-content: center;
 }
-.th:hover {background-color: rgb(97, 161, 182) ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+.th:hover {background-color: teal;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
 .tr:nth-child(even) {
   background-color: white
 }
-.th1:hover {background-color: rgb(97, 161, 182) ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+.th1:hover {background-color: teal ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
 .tr1:nth-child(even) {
   background-color: white
 }
@@ -74,6 +74,18 @@ input{
     box-sizing: border-box;
     background-position: 2px 10px; 
     background-repeat: no-repeat;
+}
+.input2{
+  width: 500px;
+  text-align: center;
+  padding: 12px 20px;
+  margin: 20px 35px;
+  display: inline-block;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-position: 2px 10px; 
+  background-repeat: no-repeat;
 }
 
 label {
@@ -203,8 +215,7 @@ h1{
   font-family: 'Exo', sans-serif;
 }
 .Seleccionado{
-  background-color:rgb(2, 109, 109);
-  color: rgb(255, 255, 255);
+
 	padding: 0px;
 	text-align: center;
   font-weight: 100;
@@ -673,6 +684,6 @@ textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida
   }
   
   
-  .thNT:hover {background-color: black ;color:  lightblue;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+  .thNT:hover {background-color: teal ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
   .trNT:nth-child(even) {background-color: white}
   

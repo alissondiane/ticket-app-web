@@ -53,7 +53,6 @@ class VistaPrincipal extends React.Component {
   //cerramos el modal
   modalClearOption = () => {
     this.setState( () => ({ modalOption: false}) );
-   
   }
 
   render() {

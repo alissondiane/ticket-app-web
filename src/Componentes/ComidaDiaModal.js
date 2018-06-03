@@ -23,6 +23,7 @@ class ComidaDiaModal extends React.Component {
             ListadoNivelTurno :[]
         }
         this.onSubmit = this.onSubmit.bind(this);
+        this.editar = this.editar.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -39,12 +40,29 @@ class ComidaDiaModal extends React.Component {
             }))
         }
     }
+    editar=(e)=>{
+        swal("Edicion habilitada!", "", "success");
+        this.setState(()=>({bloqueoEditar : false}))
+        var nros = [];
+        
+        //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
+        nros = document.getElementsByClassName("nroTickets");
+        
+        console.log("Numeros de tickets editados");
+        for (var item of nros) {
+         item.disabled=false;
+         console.log(item.disabled);
+        }
+        e.preventDefault();
+    }
 
     onSubmit=(e)=>{
         //guardamos los cambios
         
-        console.log("Actualizando una comida");
+        //console.log("Actualizando una comida");
         /*
+        //Actualizamos la comida capturando los cambios realizados
+         //llamamos al servicio para actualizar una comida
         fetch('http://',
         {
         headers: {
@@ -79,9 +97,11 @@ class ComidaDiaModal extends React.Component {
           swal("Error al actualizar!", "", "error");
           console.error(error)
     });
+    //--------------------------------------------------------
     
     //Actualizar nivel-turno 
-    //Actualizamos uno
+    ////Actualizamos los niveles-turno  capturando los cambios realizados
+    //llamamos al servicio para actualizar un nivel-turno
     fetch('http://',
         {
         headers: {
@@ -117,42 +137,52 @@ class ComidaDiaModal extends React.Component {
     });
 
 */
-var check = [];
-var check2 = [];
-var opcionesSeleccionadas = [];
-var listadoAlumnoPrograma = [];
 
-check = document.getElementsByClassName("nroTickets");
+//Obtenemos el listado de nivel turno a enviar para actualizar
+var nros = [];
+var nroticketsingresados = [];
+
+//obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
+nros = document.getElementsByClassName("nroTickets");
 
 console.log("Numeros de tickets editados");
-for (var item of check) {
- opcionesSeleccionadas.push(item.id);
+for (var item of nros) {
+    nroticketsingresados.push(item.id);
  console.log("nro ticket recibido");
  console.log(item.id);
 
 }
-console.log(opcionesSeleccionadas);
-/*
-this.setState({ListadoNivelTurno: NIVELTURNO})
-
-var PagosActualizados = this.state.
-
-    for (let i = 0; i < PagosActualizados.length; i++) {
-        var ap = listadoAlumnoPrograma[i];
-        if(ap != null){
-          var listadoRec = { 
-          "idAlumno" : PagosActualizados[i].idAlum,
-          "codAlumno" :ap.codAlumno,
-          "idPrograma":ap.idPrograma
+//listado de nrotickets que han sido ingresados
+console.log( nroticketsingresados);
+//obtenemos el listado NIVELTURNO (data de prueba por ahora)
+var NivelTurnoInicial = NIVELTURNO;
+var NivelTurnoActualizar = [];
+//Cargamos la  lista de nivel turno a enviar para actualizar
+    for (let i = 0; i < NivelTurnoInicial .length; i++) {
+       
+          //creamos el json para enviar
+          var nivelT = {"id_nt": NivelTurnoInicial[i].ID_NT,
+          "id_comida": NivelTurnoInicial[i].ID_COMIDA,
+          "nivel":NivelTurnoInicial[i].NIVEL,
+          "turno": NivelTurnoInicial[i].TURNO,
+          "hora_inicio": NivelTurnoInicial[i].HORA_INICIO,
+          "hora_fin":NivelTurnoInicial[i].HORA_FIN,
+          "num_tickets": nroticketsingresados[i]
+        
         }
-        pagoinsertar.push(listadoRec);
-        }
-    }
-    */
-        //swal("Cambios guardados exitosamente!", "", "success");
+        
+        NivelTurnoActualizar.push(nivelT);
+    
+}
+
+   console.log("nivelturnoactualizado");
+   console.log(NivelTurnoActualizar);
+   //-------------------------------------------------------------------
+        swal("Cambios guardados exitosamente!", "", "success");
+        
         e.preventDefault();
         
-      }
+}
 
     render() {
         return (
@@ -338,11 +368,7 @@ var PagosActualizados = this.state.
                             <div className="col-xs-4 margen_top">
                                 <button 
                                     disabled={!this.state.bloqueoEditar}
-                                    onClick={(e) => { 
-                                        swal("Edicion habilitada!", "", "success");
-                                        this.setState(()=>({bloqueoEditar : false}))
-                                        e.preventDefault();
-                                    }} 
+                                    onClick={this.editar} 
                                     className="waves-effect waves-light btn-large botonazul2" 
                                     type="submit">Editar<i className="material-icons left">mode_edit</i></button>
                             </div>
