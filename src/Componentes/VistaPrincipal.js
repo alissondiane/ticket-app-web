@@ -80,8 +80,6 @@ class VistaPrincipal extends React.Component {
           <div className="col-xs-8 margen_top">
           </div>
       </div>
- 
-      
         <hr />
         <div className="SplitPane row">
 

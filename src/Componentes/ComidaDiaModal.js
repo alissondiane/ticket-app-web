@@ -5,12 +5,16 @@ import swal from 'sweetalert';
 import NIVELTURNO from './Data-NivelTurno';
 import NivelTurnoList from './NivelTurno-List';
 import TableHeaderNT  from './Table-Header-NT';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 class ComidaDiaModal extends React.Component {
     constructor(props) {
         super(props);
         this.state={
             bloqueoEditar: true,
+            bloqueoEditarDetalles:true,
+            bloqueoEditarAccesos : true,
             modalComida: [],
             dia: "",
             comidaTipo: "",
@@ -24,6 +28,10 @@ class ComidaDiaModal extends React.Component {
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.editar = this.editar.bind(this);
+        this.editarDetalles = this.editarDetalles.bind(this);
+        this.editarAccesos = this.editarAccesos.bind(this);
+        this.onSubmitAccesos = this.onSubmitAccesos.bind(this);
+        this.onSubmitDetalles = this.onSubmitDetalles.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -41,7 +49,7 @@ class ComidaDiaModal extends React.Component {
         }
     }
     editar=(e)=>{
-        swal("Edicion habilitada!", "", "success");
+        swal("Edicion Nivel Turno habilitada!", "", "success");
         this.setState(()=>({bloqueoEditar : false}))
         var nros = [];
         
@@ -55,8 +63,30 @@ class ComidaDiaModal extends React.Component {
         }
         e.preventDefault();
     }
-
-    onSubmit=(e)=>{
+    editarDetalles=(e)=>{
+        swal("Edicion detalles habilitada!", "", "success");
+        this.setState(()=>({bloqueoEditarDetalles : false}))
+    
+        
+        //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
+        e.preventDefault();
+    }
+    editarAccesos=(e)=>{
+        swal("Edicion accesos habilitada!", "", "success");
+        this.setState(()=>({bloqueoEditarAccesos: false}))
+ 
+        
+        //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
+        e.preventDefault();
+    }
+    onSubmitAccesos=(e)=>{
+      
+        swal("Cambios de accesos guardados exitosamente!", "", "success");
+   
+        e.preventDefault();
+        
+}
+    onSubmitDetalles=(e)=>{
         //guardamos los cambios
         
         //console.log("Actualizando una comida");
@@ -99,9 +129,23 @@ class ComidaDiaModal extends React.Component {
     });
     //--------------------------------------------------------
     
+*/
+        swal("Cambios de detalle guardados exitosamente!", "", "success");
+        console.log(this.state.nombre);
+        console.log(this.state.descripcion);
+        console.log(this.state.inicioReserva);
+        console.log(this.state.finReserva);
+        
+        e.preventDefault();
+        
+}
+
+    onSubmit=(e)=>{
+    
     //Actualizar nivel-turno 
     ////Actualizamos los niveles-turno  capturando los cambios realizados
     //llamamos al servicio para actualizar un nivel-turno
+    /*
     fetch('http://',
         {
         headers: {
@@ -178,7 +222,7 @@ var NivelTurnoActualizar = [];
    console.log("nivelturnoactualizado");
    console.log(NivelTurnoActualizar);
    //-------------------------------------------------------------------
-        swal("Cambios guardados exitosamente!", "", "success");
+        swal("Cambios nivel turno guardados exitosamente!", "", "success");
         
         e.preventDefault();
         
@@ -187,6 +231,7 @@ var NivelTurnoActualizar = [];
     render() {
         return (
             <div>
+             
                 <Modal
                     isOpen={this.props.modalOption}
                     onRequestClose={this.props.modalClearOption}
@@ -194,22 +239,26 @@ var NivelTurnoActualizar = [];
                     //closeTimeoutMS={100}
                 //className="modal"
                 >
+                <nav>
+    <div class="nav-wrapper azul2">
+      <a class="brand-logo espacio">Detalle comida {this.state.idComida}<i className="material-icons  right">restaurant</i> </a>
+    </div>
+   
+  </nav>
                     <div className="margen_top">
-                        <div className="SplitPane row">
-                            
-                            
-                                <h3>Detalle comida {this.state.idComida}<i className="material-icons logo1">restaurant</i></h3>
-                                <hr/>
-                           
-                        </div>
-                       
-                        <div className="SplitPane row">
+                    <Tabs >
+    <TabList className="SplitPane row Seleccionado">
+      <Tab>Detalle</Tab>
+      <Tab>Accesos</Tab>
+      <Tab>Nivel Turno</Tab>
+    </TabList>
+
+    <TabPanel>
+    <div className="SplitPane row">
                             <p className="h2" >Detalle</p>
                              <hr />     
                         </div>
-                        <div className="SplitPane row center NT">
-                            
-                                  
+                        <div className="SplitPane row center NT">  
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                     <div className="SplitPane row left">
@@ -221,7 +270,7 @@ var NivelTurnoActualizar = [];
                                     <div className="col-xs-8  margen_top ">
                                             <input type="text"
                                             value={this.state.nombre} 
-                                            disabled={this.state.bloqueoEditar}
+                                            disabled={this.state.bloqueoEditarDetalles}
                                             onChange={(e)=>{ this.setState({nombre: e.target.value}) }}/>
                                     </div>
                                     </div>
@@ -237,7 +286,7 @@ var NivelTurnoActualizar = [];
                                    
                                     <input type="text"
                                             value={this.state.descripcion} 
-                                            disabled={this.state.bloqueoEditar}
+                                            disabled={this.state.bloqueoEditarDetalles}
                                             onChange={(e)=>{ this.setState({descripcion: e.target.value}) }}/>
                                     </div>
                                     </div>
@@ -270,6 +319,7 @@ var NivelTurnoActualizar = [];
                                     
                                 </div>
                                 
+                                
                             </div>
                             <div className="col-xs-6 margen_top" >
                               <div>
@@ -295,7 +345,7 @@ var NivelTurnoActualizar = [];
                                   <div className="col-xs-8  margen_top ">
                                   <input className="input" type="time"
                                             value={this.state.inicioReserva} 
-                                            disabled={this.state.bloqueoEditar}
+                                            disabled={this.state.bloqueoEditarDetalles}
                                             onChange={(e)=>{ this.setState({inicioReserva: e.target.value}) }}/>
                                   </div>
                                   
@@ -310,43 +360,81 @@ var NivelTurnoActualizar = [];
                                   <div className="col-xs-8  margen_top ">
                                      <input type="time"
                                             value={this.state.finReserva} 
-                                            disabled={this.state.bloqueoEditar}
+                                            disabled={this.state.bloqueoEditarDetalles}
                                             onChange={(e)=>{ this.setState({finReserva: e.target.value}) }}/>
                                   </div>
                                   </div>      
                               </div>
 
                             </div>
+                        <div className="SplitPane row center">
+
+                            <div className="col-xs-6 margen_top">
+                                
+                            </div>
+                            <div className="col-xs-6 margen_top" >
+                                <button className="waves-effect waves-light btn-large botonazul2" 
+                                disabled={this.state.bloqueoEditarDetalles}
+                                onClick={this.onSubmitDetalles} 
+                                >Guardar<i className="material-icons left">save</i>
+                                </button>
+                                <button 
+                                    disabled={!this.state.bloqueoEditarDetalles}
+                                    onClick={this.editarDetalles} 
+                                    className="waves-effect waves-light btn-large botonazul2" 
+                                    type="submit">Editar<i className="material-icons left">mode_edit</i>
+                                    </button>
+                            </div>
+                            </div>
                            
                            
                         </div>
-                        
-                        <div className="SplitPane row">
+      
+    </TabPanel>
+    <TabPanel>
+    <div className="SplitPane row">
                             <p className="h2" >Accesos</p>
                             <br/>
                             <hr />  
                           
                         </div>
-                        
-                         
+                               
                         <div className="SplitPane row center NT">
 
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                    
-                                    <label><input class="filled-in" name="Profesor" type="checkbox" id="myCheck" checked disabled={this.state.bloqueoEditar} /><span>Profesor</span></label>
-                                    <label><input class="filled-in" name="Alumno" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditar} /><span>Alumno</span></label>
-                                    <label><input class="filled-in" name="Residente" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditar} /><span>Residente</span></label>
+                                    <label><input class="filled-in" name="Profesor" type="checkbox" id="myCheck" checked disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
+                                    <label><input class="filled-in" name="Alumno" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
+                                    <label><input class="filled-in" name="Residente" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
                                 
                                 </div>
                                 
                             </div>
-                            <div className="col-xs-6 margen_top" >
-                             
+                            <div className="SplitPane row center">
 
+                                <div className="col-xs-6 margen_top">
+                                   
+                                </div>
+                                <div className="col-xs-6 margen_top" >
+                                    <button className="waves-effect waves-light btn-large botonazul2" 
+                                        disabled={this.state.bloqueoEditarAccesos}
+                                        onClick={this.onSubmitAccesos} 
+                                    >Guardar<i className="material-icons left">save</i>
+                                    </button> 
+                                    <button 
+                                        disabled={!this.state.bloqueoEditarAccesos}
+                                         onClick={this.editarAccesos} 
+                                        className="waves-effect waves-light btn-large botonazul2" 
+                                        type="submit">Editar<i className="material-icons left">mode_edit</i>
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
-                        <div className="SplitPane row">
+    </TabPanel>
+    <TabPanel>
+    <div className="SplitPane row">
                             <p className="h2" >Turnos</p>
                             <br/>
                             <hr />     
@@ -358,32 +446,40 @@ var NivelTurnoActualizar = [];
                                         <NivelTurnoList listado={NIVELTURNO} />
                                     </table>  
                             </div>
+                            <div className="SplitPane row center">
+
+                            <div className="col-xs-6 margen_top">
                                 
-                        </div>
-
-
-                        
-                        <div className="SplitPane row center">
-
-                            <div className="col-xs-4 margen_top">
-                                <button 
-                                    disabled={!this.state.bloqueoEditar}
-                                    onClick={this.editar} 
-                                    className="waves-effect waves-light btn-large botonazul2" 
-                                    type="submit">Editar<i className="material-icons left">mode_edit</i></button>
                             </div>
-                            <div className="col-xs-4 margen_top" >
-                                <button className="waves-effect waves-light btn-large botonazul2" 
+                            <div className="col-xs-6 margen_top" >
+                            <button className="waves-effect waves-light btn-large botonazul2" 
                                 disabled={this.state.bloqueoEditar}
                                 onClick={this.onSubmit} 
                                 >Guardar<i className="material-icons left">save</i></button>
+                            <button 
+                                    disabled={!this.state.bloqueoEditar}
+                                    onClick={this.editar} 
+                                    className="waves-effect waves-light btn-large botonazul2" 
+                                    type="submit">Editar<i className="material-icons left">mode_edit</i>
+                                </button>
+                               
                             </div>
-                            <div className="col-xs-4 margen_top">
+                            </div>
+                                
+                        </div>  
+                       
+    </TabPanel>
+</Tabs>
+                        
+                        
+   
+</div>
+                    <footer>
+                            <hr/>
+                            <div className="col-xs-12 margen_top">
                                 <button onClick={this.props.modalClearOption} className="waves-effect waves-light btn-large botonazul2 red">Cerrar<i className="material-icons left">clear</i></button>
                             </div>
-                        </div>
-
-                    </div>
+                    </footer>
                 </Modal>
             </div>
         )
