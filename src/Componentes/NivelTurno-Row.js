@@ -6,7 +6,7 @@ class NivelTurnoRow extends React.Component {
     super(props);
     this.state = {
       NT : this.props.nivelTurno,
-      nro_tickets:this.props.nivelTurno.NUMERO_TICKETS,
+      nro_tickets:this.props.nivelTurno.numTickets,
 
 
     };
@@ -15,12 +15,10 @@ class NivelTurnoRow extends React.Component {
   render() {
     return(
     <tr>
-
-            
-              <td className="tdNT">{this.state.NT.NIVEL} </td>         
-              <td className="tdNT">{this.state.NT.TURNO}</td>
-              <td className="tdNT">{this.state.NT.HORA_INICIO}</td>     
-              <td className="tdNT">{this.state.NT.HORA_FIN} </td>
+              <td className="tdNT">{this.state.NT.nivel} </td>         
+              <td className="tdNT">{this.state.NT.turno}</td>
+              <td className="tdNT">{this.state.NT.horaInicio}</td>     
+              <td className="tdNT">{this.state.NT.horaFin} </td>
               <td className="tdNT">
               <input className="nroTickets input2" disabled="true" id={this.state.nro_tickets} type="number"
               onChange={(e)=>{ this.setState({nro_tickets: e.target.value}); e.preventDefault(); }}

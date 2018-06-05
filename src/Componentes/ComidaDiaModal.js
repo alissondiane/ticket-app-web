@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Checkbox } from 'react-bootstrap';
 import swal from 'sweetalert';
 import NIVELTURNO from './Data-NivelTurno';
+import ACCESOS from './Data-Accesos';
 import NivelTurnoList from './NivelTurno-List';
 import TableHeaderNT  from './Table-Header-NT';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -23,8 +24,13 @@ class ComidaDiaModal extends React.Component {
             numeroRaciones:0,
             inicioReserva:"",
             finReserva:"",
-            idComida:0,
-            ListadoNivelTurno :[]
+            idComida:this.props.modalComida.idComida,
+            ListadoNivelTurno :[],
+            accesos:[],
+            booleanAccesos:[],
+            detalleComida:{},
+            detalleAcceso:[],
+            detalleNivelTurno:[]
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.editar = this.editar.bind(this);
@@ -32,6 +38,7 @@ class ComidaDiaModal extends React.Component {
         this.editarAccesos = this.editarAccesos.bind(this);
         this.onSubmitAccesos = this.onSubmitAccesos.bind(this);
         this.onSubmitDetalles = this.onSubmitDetalles.bind(this);
+        this.data = this.data.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -41,10 +48,13 @@ class ComidaDiaModal extends React.Component {
                 comidaTipo: this.props.modalComida.comidaTipo,
                 nombre: this.props.modalComida.nombre,
                 descripcion: this.props.modalComida.descripcion,
-                numeroRaciones: this.props.modalComida.numeroRaciones,
+                numeroRaciones: this.props.modalComida.numRaciones,
                 inicioReserva: this.props.modalComida.inicioReserva,
                 finReserva: this.props.modalComida.finReserva,
-                idComida : this.props.modalComida.idComida
+                idComida : this.props.modalComida.idComida,
+                bloqueoEditar:true,
+                bloqueoEditarAccesos:true,
+                bloqueoEditarDetalles:true
             }))
         }
     }
@@ -80,6 +90,15 @@ class ComidaDiaModal extends React.Component {
         e.preventDefault();
     }
     onSubmitAccesos=(e)=>{
+    var checkbox_selec=[];
+    var checks=document.getElementsByClassName("checkbox1");
+    var checks_normales=Array.from(checks);
+    checks_normales.map((checkbox)=>{
+     if(checkbox.checked){
+       checkbox_selec.push(checkbox.name);
+     }
+    });
+    console.log(checkbox_selec);
       
         swal("Cambios de accesos guardados exitosamente!", "", "success");
    
@@ -199,18 +218,18 @@ for (var item of nros) {
 //listado de nrotickets que han sido ingresados
 console.log( nroticketsingresados);
 //obtenemos el listado NIVELTURNO (data de prueba por ahora)
-var NivelTurnoInicial = NIVELTURNO;
+var NivelTurnoInicial = this.state.detalleNivelTurno;
 var NivelTurnoActualizar = [];
 //Cargamos la  lista de nivel turno a enviar para actualizar
     for (let i = 0; i < NivelTurnoInicial .length; i++) {
        
           //creamos el json para enviar
-          var nivelT = {"id_nt": NivelTurnoInicial[i].ID_NT,
-          "id_comida": NivelTurnoInicial[i].ID_COMIDA,
-          "nivel":NivelTurnoInicial[i].NIVEL,
-          "turno": NivelTurnoInicial[i].TURNO,
-          "hora_inicio": NivelTurnoInicial[i].HORA_INICIO,
-          "hora_fin":NivelTurnoInicial[i].HORA_FIN,
+          var nivelT = {"id_nt": NivelTurnoInicial[i].idNt,
+          "id_comida": NivelTurnoInicial[i].idComida,
+          "nivel":NivelTurnoInicial[i].nivel,
+          "turno": NivelTurnoInicial[i].turno,
+          "hora_inicio": NivelTurnoInicial[i].horaInicio,
+          "hora_fin":NivelTurnoInicial[i].horaFin,
           "num_tickets": nroticketsingresados[i]
         
         }
@@ -226,6 +245,40 @@ var NivelTurnoActualizar = [];
         
         e.preventDefault();
         
+}
+data() {
+    console.log("id comida");
+    console.log(this.state.idComida)
+
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/nivelturno/listar/'+this.state.idComida)
+    .then((response) => {
+    return response.json()
+    })
+    .then((data) => {
+        this.setState({ detalleNivelTurno : data})
+        console.log("data recibida")
+        console.log(data);
+        
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
+ /*
+     for (let i = 0; i < ACCESOS.length; i++) {
+        switch(ACCESOS[i].ID_TU){
+            case 1:  this.state.booleanAccesos[0] = true
+            break;
+            case 2:  this.state.booleanAccesos[1] = true
+            break;
+            case 3:  this.state.booleanAccesos[2] = true
+            break;
+        }
+    }
+    */
+console.log("llegue aca")
+console.log(ACCESOS);
+     
 }
 
     render() {
@@ -250,7 +303,7 @@ var NivelTurnoActualizar = [];
     <TabList className="SplitPane row Seleccionado">
       <Tab>Detalle</Tab>
       <Tab>Accesos</Tab>
-      <Tab>Nivel Turno</Tab>
+      <Tab onClick={this.data}>Nivel Turno</Tab>
     </TabList>
 
     <TabPanel>
@@ -404,9 +457,9 @@ var NivelTurnoActualizar = [];
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                    
-                                    <label><input class="filled-in" name="Profesor" type="checkbox" id="myCheck" checked disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
-                                    <label><input class="filled-in" name="Alumno" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
-                                    <label><input class="filled-in" name="Residente" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Profesor"  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Alumno"    type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Residente" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
                                 
                                 </div>
                                 
@@ -443,7 +496,7 @@ var NivelTurnoActualizar = [];
                             <div className="  center-xs-12">
                                     <table className="  total tableNT">
                                         <TableHeaderNT/>
-                                        <NivelTurnoList listado={NIVELTURNO} />
+                                        <NivelTurnoList listado ={this.state.detalleNivelTurno} />
                                     </table>  
                             </div>
                             <div className="SplitPane row center">
@@ -477,7 +530,9 @@ var NivelTurnoActualizar = [];
                     <footer>
                             <hr/>
                             <div className="col-xs-12 margen_top">
-                                <button onClick={this.props.modalClearOption} className="waves-effect waves-light btn-large botonazul2 red">Cerrar<i className="material-icons left">clear</i></button>
+                                <button 
+                                onClick={this.props.modalClearOption} 
+                                 className="waves-effect waves-light btn-large botonazul2 red">Cerrar<i className="material-icons left">clear</i></button>
                             </div>
                     </footer>
                 </Modal>

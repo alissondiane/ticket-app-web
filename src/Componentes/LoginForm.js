@@ -24,8 +24,8 @@ class LoginForm extends React.Component {
     console.log(this.state.usuario);
     console.log("password:");
     console.log(this.state.password);
-    /*
-        fetch('https://tick-app-zuul.herokuapp.com/tick-app-client/usuario/leer/'+this.state.usuario+'/'+this.state.password)
+  
+        fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/leer/'+this.state.usuario+'/'+this.state.password)
             .then((response) => {
             return response.json()
             })
@@ -33,10 +33,10 @@ class LoginForm extends React.Component {
               console.log("recibido");
               console.log(alumno);
               this.setState({usuarioleido: alumno})
-              if(alumno.idTu.nombreTu =='ADMINISTRADOR'){
-                */
+              if(alumno.idTu == 1){
+              
                 swal("Bienvenido!", this.state.usuario, "success");
-                browserHistory.push('/Vista/Principal');/*
+                browserHistory.push('/Vista/Principal');
               }else{
                 swal("Wrong!", "Tipo de usuario incorrectamente!", "error");
                }
@@ -46,13 +46,13 @@ class LoginForm extends React.Component {
                 console.error(error);
                 this.Mensaje();
             });
-   */
+   
     e.preventDefault();
     
   }
   Mensaje(){
     if(this.state.usuarioleido == 0){
-      swal("Wrong!", "Usuario no existe!", "error");
+      swal("Error!", "Usuario incorrecto!", "error");
     }
    
   

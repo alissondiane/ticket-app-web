@@ -15,7 +15,8 @@ class VistaPrincipal extends React.Component {
     this.state = {
       fecha: '',
       modalOption: false, //apertura del modal
-      modalComida: []
+      modalComida: [],
+      menu:[]
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -54,8 +55,62 @@ class VistaPrincipal extends React.Component {
   //cerramos el modal
   modalClearOption = () => {
     this.setState( () => ({ modalOption: false}) );
-  }
 
+   
+  }
+  componentWillMount() {
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/2018-06-05')
+    .then((response) => {
+    return response.json()
+    })
+    .then((menues) => {
+      //data
+  
+        console.log("data recibida");
+
+        console.log(menues)
+        console.log("menues del dia lunes")
+        console.log(menues.lunes);
+        var menuc = [];
+        var lunes = {
+          lunes : menues.lunes
+        };
+        var martes = {
+          martes : menues.martes
+        };
+        var miercoles = {
+          miércoles : menues.miércoles
+        };
+        var jueves = {
+          jueves :menues.jueves
+        };
+        var viernes = {
+          viernes : menues.viernes
+        };
+        var sabado = {
+          sábado : menues.sábado
+        };
+        var domingo = {
+          domingo : menues.domingo
+        };
+      
+        menuc.push(lunes);
+        menuc.push(martes);
+        menuc.push(miercoles)
+        menuc.push(jueves);
+        menuc.push(viernes);
+        menuc.push(sabado);
+        menuc.push(domingo);
+        console.log("menu de la semana");
+        console.log(menuc);
+        console.log()
+        this.setState({ menu: menuc})
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
+  }
   render() {
 
 
@@ -97,9 +152,8 @@ class VistaPrincipal extends React.Component {
         <div className="SplitPane row center-xs">
           <div className="center-xs-12">
             <table className="total table ">
-              <TableHeaderMenuList />
               <MenuList 
-                listado={MENU}
+                listado={this.state.menu}
                 modalSelectedOption={this.modalSelectedOption} /*metodo de captura de datos*//>
             </table>
             <ComidaDiaModal
