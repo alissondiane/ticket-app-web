@@ -30,7 +30,10 @@ class ComidaDiaModal extends React.Component {
             booleanAccesos:[false,false,false],
             detalleComida:{},
             detalleAcceso:[],
-            detalleNivelTurno:[]
+            detalleNivelTurno:[],
+            c1:false,
+            c2:false,
+            c3:false,
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.editar = this.editar.bind(this);
@@ -265,18 +268,7 @@ data() {
     // si hay algún error lo mostramos en consola
         console.error(error)
     });
- /*
-     for (let i = 0; i < ACCESOS.length; i++) {
-        switch(ACCESOS[i].ID_TU){
-            case 1:  this.state.booleanAccesos[0] = true
-            break;
-            case 2:  this.state.booleanAccesos[1] = true
-            break;
-            case 3:  this.state.booleanAccesos[2] = true
-            break;
-        }
-    }
-    */
+
 console.log("llegue aca")
 console.log(ACCESOS);
      
@@ -293,19 +285,24 @@ accesos() {
         this.setState({ detalleAcceso : data})
         console.log("data recibida")
         console.log(data);
+
         var aux = [false,false,false];
         for (let i = 0; i < data.length; i++) {
             switch(data[i].idTu){
-                case 2: aux[0] = true
+                case 2: aux[0] = true;
                 break;
-                case 3: aux[1] = true
+                case 3: aux[1] = true;
                 break;
-                case 4: aux[2] = true
+                case 4: aux[2] = true;
                 break;
             }
+        
         }
+        
+        this.setState({ c1 :  aux[0]})
+        this.setState({ c2 :  aux[1]})
+        this.setState({ c3 :  aux[2]})
 
-        this.setState({ booleanAccesos : aux})
         
     })
     .catch(error => {
@@ -496,9 +493,9 @@ console.log(ACCESOS);
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                    
-                                    <label><input class="filled-in" className="checkbox1" name="Profesor" checked= {this.state.booleanAccesos[0]} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
-                                    <label><input class="filled-in" className="checkbox1" name="Alumno"  checked = {this.state.booleanAccesos[1]}  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
-                                    <label><input class="filled-in" className="checkbox1" name="Residente" checked = {this.state.booleanAccesos[2]} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
+                                    <label><input class="filled-in" value="Profesor" className="checkbox1" onChange={(e) => {this.setState({ c1: !this.state.c1 })} } name="Profesor" checked= {this.state.c1} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
+                                    <label><input class="filled-in" value="Alumno" className="checkbox1" onChange={(e) => {this.setState({ c2: !this.state.c2 })} } name="Alumno"  checked = {this.state.c2}  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
+                                    <label><input class="filled-in" value="Residente" className="checkbox1" onChange={(e) => {this.setState({ c3: !this.state.c3})} }  name="Residente" checked = {this.state.c3} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
                                 
                                 </div>
                                 
