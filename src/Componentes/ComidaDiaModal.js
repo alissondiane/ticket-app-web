@@ -27,7 +27,7 @@ class ComidaDiaModal extends React.Component {
             idComida:this.props.modalComida.idComida,
             ListadoNivelTurno :[],
             accesos:[],
-            booleanAccesos:[],
+            booleanAccesos:[false,false,false],
             detalleComida:{},
             detalleAcceso:[],
             detalleNivelTurno:[]
@@ -39,6 +39,7 @@ class ComidaDiaModal extends React.Component {
         this.onSubmitAccesos = this.onSubmitAccesos.bind(this);
         this.onSubmitDetalles = this.onSubmitDetalles.bind(this);
         this.data = this.data.bind(this);
+        this.accesos = this.accesos.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -280,6 +281,44 @@ console.log("llegue aca")
 console.log(ACCESOS);
      
 }
+accesos() {
+    console.log("id comida");
+    console.log(this.state.idComida)
+
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/accede/listar/'+this.state.idComida)
+    .then((response) => {
+    return response.json()
+    })
+    .then((data) => {
+        this.setState({ detalleAcceso : data})
+        console.log("data recibida")
+        console.log(data);
+        var aux = [false,false,false];
+        for (let i = 0; i < data.length; i++) {
+            switch(data[i].idTu){
+                case 2: aux[0] = true
+                break;
+                case 3: aux[1] = true
+                break;
+                case 4: aux[2] = true
+                break;
+            }
+        }
+
+        this.setState({ booleanAccesos : aux})
+        
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
+
+     
+  
+console.log("llegue aca")
+console.log(ACCESOS);
+     
+}
 
     render() {
         return (
@@ -302,7 +341,7 @@ console.log(ACCESOS);
                     <Tabs >
     <TabList className="SplitPane row Seleccionado">
       <Tab>Detalle</Tab>
-      <Tab>Accesos</Tab>
+      <Tab onClick= {this.accesos}>Accesos</Tab>
       <Tab onClick={this.data}>Nivel Turno</Tab>
     </TabList>
 
@@ -457,9 +496,9 @@ console.log(ACCESOS);
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                    
-                                    <label><input class="filled-in" className="checkbox1" name="Profesor"  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
-                                    <label><input class="filled-in" className="checkbox1" name="Alumno"    type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
-                                    <label><input class="filled-in" className="checkbox1" name="Residente" type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Profesor" checked= {this.state.booleanAccesos[0]} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Alumno"  checked = {this.state.booleanAccesos[1]}  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
+                                    <label><input class="filled-in" className="checkbox1" name="Residente" checked = {this.state.booleanAccesos[2]} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
                                 
                                 </div>
                                 
