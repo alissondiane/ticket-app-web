@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Router, Route, browserHistory } from 'react-router-3';
 import LoginForm from './Componentes/LoginForm';
 import VistaPrincipal from './Componentes/VistaPrincipal';
+import VistaSanciones from './Componentes/VistaSanciones';
 import MenuNuevo from './Componentes/MenuNuevo';
 import VistaBusquedaMenu from './Componentes/Vista-Busqueda-Menu';
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -23,6 +24,7 @@ class Index extends React.Component {
             <Route path="/Vista/Principal" component={VistaPrincipal}></Route>
             <Route path="/Vista/MenuNuevo" component={MenuNuevo}></Route>
             <Route path="/Vista/MenuBusqueda" component={VistaBusquedaMenu}></Route>
+            <Route path="/Vista/Sanciones" component={VistaSanciones}></Route>
   
           </Router>
           )

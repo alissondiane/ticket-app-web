@@ -329,14 +329,14 @@ console.log(ACCESOS);
                 //className="modal"
                 >
                 <nav>
-    <div class="nav-wrapper azul2">
+    <div class="nav-wrapper azul">
       <a class="brand-logo espacio">Detalle comida {this.state.idComida}<i className="material-icons  right">restaurant</i> </a>
     </div>
    
   </nav>
                     <div className="margen_top">
                     <Tabs >
-    <TabList className="SplitPane row Seleccionado">
+    <TabList className="SplitPane row TabSeleccionado">
       <Tab>Detalle</Tab>
       <Tab onClick= {this.accesos}>Accesos</Tab>
       <Tab onClick={this.data}>Nivel Turno</Tab>

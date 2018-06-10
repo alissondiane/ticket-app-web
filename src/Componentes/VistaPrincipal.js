@@ -22,6 +22,7 @@ class VistaPrincipal extends React.Component {
     this.CerrarSesion = this.CerrarSesion.bind(this);
     this.MenuNuevo = this.MenuNuevo.bind(this);
     this.MenuBusqueda= this.MenuBusqueda.bind(this);
+    this.VistaSanciones=this.VistaSanciones.bind(this);
   }
 
   CerrarSesion = (e) => {
@@ -45,6 +46,16 @@ class VistaPrincipal extends React.Component {
     e.preventDefault();
 
   }
+  VistaSanciones= (e) => {
+
+    browserHistory.push('/Vista/Sanciones');
+    console.log("VISTA SANCIONES");
+    e.preventDefault();
+
+  }
+
+
+  
 
   // capturamos lo seleccionado de Menu.Semana.js
   modalSelectedOption = (comida) => {
@@ -115,26 +126,26 @@ class VistaPrincipal extends React.Component {
 
 
     return (
+      
 
     <div className="">
-        <nav>
-    <div class="nav-wrapper azul">
-      
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li className="Seleccionado" ><a>Menu<i className="material-icons right">restaurant</i></a></li>
-        <li><a onClick={this.MenuBusqueda} >Busqueda<i className="material-icons right">search</i></a></li>
-        <li><a onClick={this.CerrarSesion} ><i className="material-icons">exit_to_app</i></a></li>
-      </ul>
+    
+
+    <ul className="ula">
+    <li className="OGBU"></li>
+    <li className="Seleccionado  z-depth-1 " ><a>Menu<i className="material-icons right ">restaurant</i></a></li>
+    <li><a onClick={this.MenuBusqueda} >Busqueda<i className="material-icons right">search</i></a></li>
+    <li><a onClick={this.VistaSanciones} >Sanciones<i className="material-icons right">gavel</i></a></li>
+    </ul>
+    <div className = "vistaderecha">
+    <div className=" z-depth-1 cabecera">
+    <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
+    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    
     </div>
-  </nav>
- 
-        <div className="menu row">
-          <div className=" col-xs-4">
-            <h4>Menu de la semana<i className="material-icons logo1">restaurant</i></h4>
-          </div>
-          <div className="col-xs-8 margen_top">
-          </div>
-      </div>
+        <div className="row">
+              <h4>Menu de la semana<i className="material-icons logo1 right z-depth-1">restaurant</i></h4>
+        </div>
         <hr />
         <div className="SplitPane row">
 
@@ -152,7 +163,7 @@ class VistaPrincipal extends React.Component {
         <div className="SplitPane row center-xs">
           <div className="center-xs-12">
             <table className="total table ">
-              <MenuList 
+            <MenuList 
                 listado={this.state.menu}
                 modalSelectedOption={this.modalSelectedOption} /*metodo de captura de datos*//>
             </table>
@@ -163,7 +174,8 @@ class VistaPrincipal extends React.Component {
               modalComida={this.state.modalComida}/>
           </div>
         </div>
-      </div>
+    </div>
+    </div>
     );
   }
 }

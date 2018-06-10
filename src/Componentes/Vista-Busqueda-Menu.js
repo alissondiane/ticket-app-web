@@ -21,6 +21,7 @@ class VistaBusquedaMenu extends React.Component {
     this.CerrarSesion = this.CerrarSesion.bind(this);
     this.SeleccionFechaDel = this.SeleccionFechaDel.bind(this);
     this.Buscar = this.Buscar.bind(this);
+    this.VistaSanciones=this.VistaSanciones.bind(this);
   }
 
   CerrarSesion = (e) => {
@@ -30,6 +31,7 @@ class VistaBusquedaMenu extends React.Component {
     e.preventDefault();
 
   }
+  
   Buscar=(e)=>{
     
     console.log("fecha a buscar en submit")
@@ -112,6 +114,13 @@ console.log(this.state.menu);
     e.preventDefault();
 
   }
+  VistaSanciones= (e) => {
+
+    browserHistory.push('/Vista/Sanciones');
+    console.log("VISTA SANCIONES");
+    e.preventDefault();
+
+  }
   SeleccionFechaDel(Fecha) {
     console.log("fecha para buscar menu")
     console.log(Fecha);
@@ -139,24 +148,25 @@ console.log(this.state.menu);
     return (
 
     <div className="">
-        <nav>
-    <div class="nav-wrapper azul">
-      
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a onClick={this.VistaPrincipal} >Menu<i className="material-icons right">restaurant</i></a></li>
-        <li className ="Seleccionado"><a>Busqueda<i className="material-icons right">search</i></a></li>
-        <li><a onClick={this.CerrarSesion} ><i className="material-icons">exit_to_app</i></a></li>
-      </ul>
+        <ul className="ula">
+    <li className="OGBU"></li>
+    <li><a onClick={this.VistaPrincipal}>Menu<i className="material-icons right">restaurant</i></a></li>
+    <li className="Seleccionado  z-depth-1 " ><a  >Busqueda<i className="material-icons right">search</i></a></li>
+    <li><a onClick={this.VistaSanciones} >Sanciones<i className="material-icons right">gavel</i></a></li>
+    
+    </ul>
+    <div className = "vistaderecha">
+    <div className=" z-depth-1 cabecera">
+    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    
     </div>
-  </nav>
+    
  
-        <div className="menu row">
-          <div className=" col-xs-4">
-            <h4>Busqueda Menu<i className="material-icons logo1">search</i></h4>
-          </div>
-          <div className="col-xs-8 margen_top">
-          </div>
-      </div>
+    <div className=" row">
+    <h4>Busqueda Menu<i className="material-icons logo1 right z-depth-1">search</i></h4>
+        </div>
+           
+         
  
       
         <hr />
@@ -190,7 +200,7 @@ console.log(this.state.menu);
               modalComida={this.state.modalComida}/>
           </div>
         </div>
-       
+        </div>
       </div>
     );
   }

@@ -13,7 +13,15 @@
   background-color: #E4E1E1;
 }
 .azul{
-  background-color: teal;
+  background-color: rgb(85, 36, 36);
+}
+.azul3{
+  background-color: rgb(85, 36, 36);
+  font-size: 30px;
+  float: right;
+}
+.azul3:hover{
+  background-color: rgb(85, 36, 36);
 }
 .azul2{
   background-color:teal;
@@ -50,15 +58,17 @@
 .left{
   text-align: left;
 }
+
 .table {
   border-collapse: collapse;/*juntamos los border por td y la tabla en si en uno solo*/
   border: 5px solid white;
   border-radius: 6px;
   margin-bottom: 20px;
-  margin-left:20px;
+  margin-left:10px;
   margin-top:20px;
-  margin-right: 20px;
+  margin-right: 10px;
   width:100%;
+  text-align:center;
 }
 .centrar{
   text-align: center;
@@ -70,23 +80,22 @@
   margin-left:30px;
   margin-top: 59px;
 }
-.centrarImporte{
-  align-content: center;
-}
-.th:hover {background-color: teal;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+
+.th:hover {background-color: rgb(85, 36, 36);;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
 .tr:nth-child(even) {
   background-color: white
 }
-.th1:hover {background-color: teal ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+.th1:hover {background-color: rgb(85, 36, 36); ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
 .tr1:nth-child(even) {
   background-color: white
 }
-input{
+.input{
     width: 500px;
     padding: 12px 20px;
     margin: 20px 35px;
     display: inline-block;
-    border: 1px solid lightblue;
+    border: 1px solid rgb(43, 4, 12);
+    color: black;
     border-radius: 4px;
     box-sizing: border-box;
     background-position: 2px 10px; 
@@ -231,7 +240,7 @@ h1{
   font-family: 'Exo', sans-serif;
 }
 .fecha{
-  color:teal;
+  color:rgb(88, 15, 24);
 	padding: 12px;
 	text-align: center;
 	font-weight: 100;
@@ -243,16 +252,19 @@ h1{
   font-family: 'Exo', sans-serif;
 }
 .Seleccionado{
-
 	padding: 0px;
 	text-align: center;
   font-weight: 100;
   height: 64px;
-	font-size: 28px;
+	font-size: 18px;
   margin: 0px;
   font-weight: bold;
   font-family: 'Exo', sans-serif;
-  border-bottom:  3px solid  rgb(1, 71, 71);
+  background-color: rgb(85, 36, 36);
+  color:white;
+}
+.TabSeleccionado{
+  color:black;
 
 }
 .bienvenido{
@@ -271,12 +283,12 @@ h1{
   margin: 5px;
 }
 .menu{
-  background-color:rgb(14, 14, 56);
+  background-color:rgb(255, 255, 255);
   background-image: url("http://ogbu.unmsm.edu.pe/wp-content/uploads/2018/03/Imagen5.png");
   background-position: 100% 30%;
   background-repeat: no-repeat;
   background-size: 40% 80%;
-  color:  WHITE;
+  color: black;
 	padding: 15px 25px;
 	text-align: center;
 	font-weight: 100;
@@ -287,8 +299,23 @@ h1{
   font-weight: bold;
   font-family: 'Exo', sans-serif;
 }
+.OGBU{
+  background-color: white;
+  background-image: url("http://ogbu.unmsm.edu.pe/wp-content/uploads/2018/03/Imagen5.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: black;
+	text-align: center;
+	font-weight: 100;
+	font-size: 25px;
+  margin: 0 auto;
+  width:100%;
+  height: 20%;
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
+}
 .h2{
-  background-color:rgb(14, 14, 56);
+  background-color:#410d14;
   color:  WHITE;
 	padding: 5px 10px;
 	text-align: left;
@@ -339,15 +366,46 @@ select {
   padding-bottom: 80px;
 }
 .botonazul{
-  margin-top: 30px;
+ 
+  background-color:rgb(99, 21, 21);
+  margin-left : 13px;
+  margin-right:0px;
+  margin-bottom: 10px;
+  margin-top:5px;
+  float:center;
+  z-index:0; 
+}
+.botonazul:hover{
+ 
+  background-color:rgb(49, 7, 7);
+  margin-left : 13px;
+  margin-right:0px;
+  margin-bottom: 10px;
+  margin-top:5px;
+  float:center;
+  z-index:0;
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
 }
 .botonazul2{
+  background-color:rgb(99, 21, 21);
   margin-left : 13px;
   margin-right:0px;
   margin-bottom: 10px;
   margin-top:5px;
   float:right;
   z-index:0; 
+}
+.botonazul2:hover{
+  background-color:rgb(53, 6, 6);
+  margin-left : 13px;
+  margin-right:0px;
+  margin-bottom: 10px;
+  margin-top:5px;
+  float:right;
+  z-index:0; 
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
 }
 .back{
   margin : 5px;
@@ -384,6 +442,11 @@ select {
   width: 100%;
   height: 100%;
 }
+.SplitPane {
+  width: 90%;
+  height: 100%;
+  margin :0 auto;
+}
 
 .SplitPane-left1 {
   float: left;
@@ -407,7 +470,7 @@ select {
 .logo{
   font-size: 50px;
   color: white;
-  background-color:rgb(11, 45, 61);
+  background-color:rgb(59, 8, 13);
   border-radius:50px;
   margin:8px;
   padding:10px;
@@ -417,18 +480,21 @@ select {
 .logo1{
   font-size: 30px;
   color: white;
-  background-color:rgb(11, 45, 61);
+  background-color:rgb(88, 15, 24);
   border-radius:50px;
-  margin:8px;
+  margin:0px;
   padding:10px;
-  border: 2px solid white;
+  border: 2px solid rgb(99, 38, 38);
   
 }
 h4{
   font-size: 35px;
-  color: white;
+  color: black;
   float:left;
-  margin :0;
+  margin-top:15px;
+  margin-left:10px;
+  margin-bottom:3px;
+  font-weight: bold;
 }
 
 .negro{
@@ -606,7 +672,7 @@ h4{
   float:right;
 }
 .seleccionar {
-  color: white;
+  color: black;
   cursor: pointer;
   cursor: hand;
   
@@ -627,7 +693,7 @@ delete {
   text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
    /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
   padding: 1px;
-  background-color:#092531;
+  background-color: rgb(46, 13, 13);;
   color: white;
   border: 3px solid WHITE;
   border-radius: 15px;
@@ -652,7 +718,7 @@ delete {
   text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
    /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
   padding: 1px;
-  background-color:#092531;
+  background-color:rgb(46, 13, 13);
   color: white;
   border: 3px solid WHITE;
   border-radius: 15px;
@@ -691,7 +757,7 @@ textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida
   text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
    /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
   padding: 10px 25px;
-  background-color:#215c75;
+  background-color:rgb(46, 13, 13);;
   color: white;
   border: 3px solid WHITE;
   border-radius: 8px;
@@ -715,6 +781,76 @@ textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida
   }
   
   
-  .thNT:hover {background-color: teal ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
+  .thNT:hover {background-color: rgb(58, 25, 25); ;color: WHITE ;}/*selector de <tr> para resaltar filas,encabezados de la tabla en el mouse:*/
   .trNT:nth-child(even) {background-color: white}
   
+.ula {
+    list-style-type: none;
+    margin: 0px;
+    padding:0px;
+    background-color:rgb(46, 6, 6);
+    width: 15%;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+.cabecera {
+  list-style-type: none;
+  margin: 0px;
+  padding:4px;
+  background-color:rgb(46, 6, 6);
+  width: 100%;
+  height:50px;
+}
+li a {
+    display: block;
+    color:white;
+    padding: 16px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+li a.active {
+    background-color: rgb(0, 0, 0);
+    color: black;
+}
+li a:hover:not(.active) {
+    background-color:rgb(85, 36, 36);
+    color: white;
+    cursor: hand;
+    cursor: pointer;  
+}
+.vistaderecha{
+  margin-left:15%;
+  margin-right:0px;
+  margin-bottom: 0px;
+  margin-top:0px;
+  padding:0px;
+  z-index:0; 
+
+}
+.salir{
+  float:right;
+  cursor:hand;
+  cursor:pointer;
+  color:white;
+  margin:8px;
+}
+.th3{
+width:200px;
+height: 18px;
+height: 18px;
+  text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+   /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 3px 5px;
+  background-color:rgb(46, 13, 13);;
+  color: white;
+  border: 2px solid #360d0d;
+/*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+}
+.centrar{
+  text-align: center;
+  align-content: center;
+  margin-left: 15px;
+  margin-right:15px;
+}

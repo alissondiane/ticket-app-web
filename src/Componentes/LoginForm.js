@@ -103,7 +103,7 @@ class LoginForm extends React.Component {
             </div>
           </div>
           <div class="center">
-          <button type="submit" onClick={this.onSubmit} className="btn btn-primary btn-lg">INGRESAR</button>
+          <button type="submit" onClick={this.onSubmit} className="waves-effect waves-light btn-small botonazul" >INGRESAR</button>
       </div>
          
       </form>
