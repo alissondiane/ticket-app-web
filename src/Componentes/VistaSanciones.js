@@ -106,7 +106,7 @@ class VistaSanciones extends React.Component {
     
     </div>
         <div className="row">
-              <h4>Usuarios Sancionados<i className="material-icons logo1 right z-depth-1">restaurant</i></h4>
+              <h4>Usuarios Sancionados<i className="material-icons logo1 right z-depth-1">person</i></h4>
         </div>
         <hr />
         <div className="row center-xs centrar">
