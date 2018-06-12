@@ -47,21 +47,10 @@ class ComidaDiaModal extends React.Component {
         this.VistaPrincipal=this.VistaPrincipal.bind(this);
         this.hola=this.hola.bind(this);
     }
-    VistaPrincipal = (e) => {
-
-        browserHistory.push('/Vista/Principal');
-        console.log("VISTA MENU NUEVO");
-        e.preventDefault();
-    
-      }
-       hola = (e) => {
-       alert("hola mundo");
-        console.log("VISTA MENU NUEVO");
-        e.preventDefault();
-    
-      }
+  
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.modalComida !== this.props.modalComida) {
+            this.VerificarFecha();
             this.setState((prevState)=>({
                 dia: this.props.modalComida.dia,
                 comidaTipo: this.props.modalComida.comidaTipo,
@@ -76,6 +65,63 @@ class ComidaDiaModal extends React.Component {
                 bloqueoEditarDetalles:true
             }))
         }
+    }
+    VerificarFecha(){
+        console.log("fecha actual");
+        var hoy = new Date();
+        var mm = hoy.getMonth()+1;
+        var dd = hoy.getDate();
+        var anio = hoy.getFullYear();
+        var fechaactual = dd+'-'+mm+'-'+anio;
+        var ayer= new Date(hoy.getTime() - 24*60*60*1000);
+        var mmA = ayer.getMonth()+1;
+        var ddA = ayer.getDate();
+        var anioA = ayer.getFullYear();
+        var fechaayer = ddA+'-'+mmA+'-'+anioA;
+        var fechauno = new Date();
+        
+        //Obtenemos el array de comida
+        var fechaComida = this.props.modalComida.dia;
+        var espacio = "-";
+        var comidaSeparada = fechaComida.split(espacio);
+
+        //verificamos si la fecha tiene un 05 para obtener el mes sin el 0
+        var mes = Array.from(comidaSeparada[1]);
+            console.log("digitos del mes separados");
+            console.log(mes);
+            if(mes[0] == 0){
+                comidaSeparada[1]=mes[1];
+            }
+        var dia = Array.from(comidaSeparada[2]);
+            console.log("digitos del mes separados");
+            console.log(dia);
+            if(dia[0] == 0){
+                comidaSeparada[2]=dia[1];
+            }
+        var a = parseInt(comidaSeparada[0]);
+        var m = parseInt(comidaSeparada[1]);
+        var d = parseInt(comidaSeparada[2]);
+        var fechados = new Date(a,m,d);
+        
+        console.log("Fecha de hoy");
+        console.log(fechauno);
+        console.log("fecha de la comida");
+        console.log(fechados);
+        alert(fechaayer);
+
+    }
+    VistaPrincipal = (e) => {
+
+        browserHistory.push('/Vista/Principal');
+        console.log("VISTA MENU NUEVO");
+        e.preventDefault();
+    
+      }
+    hola = (e) => {
+       alert("hola mundo");
+        console.log("VISTA MENU NUEVO");
+        e.preventDefault();
+    
     }
     editar=(e)=>{
         swal("Edicion Nivel Turno habilitada!", "", "success");

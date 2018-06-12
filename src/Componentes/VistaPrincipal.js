@@ -142,7 +142,7 @@ class VistaPrincipal extends React.Component {
     var diaActual =fecha.getFullYear()+"-"+mm+"-"+dd;
     var FechaActual = new String(diaActual);
     console.log(FechaActual);
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/2018-06-10')
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+FechaActual)
     .then((response) => {
     return response.json()
     })
