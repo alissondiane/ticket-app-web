@@ -5,7 +5,21 @@ class MenuList extends React.Component {
 
     render() {
        
-            if(this.props.listado.length>0){
+            if(this.props.listado.length > 0){
+                /*
+                if(this.props.listado[6].domingo == null){
+                    this.props.listado[6].domingo = [];
+                     var d1 = {
+                        "nombre":"ARROZ CON POLLO",
+                        "descripcion":"CASI NUNCA",
+                    }
+                    this.props.listado[6].domingo[0].push(d1);
+                    this.props.listado[6].domingo[1].push(d1);
+                     
+                    this.props.listado[6].domingo[2].push(d1);
+                      
+
+                }*/
                 return(
             <div>
             <TableHeaderMenuList />

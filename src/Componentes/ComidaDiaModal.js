@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import NIVELTURNO from './Data-NivelTurno';
 import ACCESOS from './Data-Accesos';
 import NivelTurnoList from './NivelTurno-List';
+import { browserHistory } from 'react-router-3';
 import TableHeaderNT  from './Table-Header-NT';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -43,8 +44,22 @@ class ComidaDiaModal extends React.Component {
         this.onSubmitDetalles = this.onSubmitDetalles.bind(this);
         this.data = this.data.bind(this);
         this.accesos = this.accesos.bind(this);
+        this.VistaPrincipal=this.VistaPrincipal.bind(this);
+        this.hola=this.hola.bind(this);
     }
+    VistaPrincipal = (e) => {
 
+        browserHistory.push('/Vista/Principal');
+        console.log("VISTA MENU NUEVO");
+        e.preventDefault();
+    
+      }
+       hola = (e) => {
+       alert("hola mundo");
+        console.log("VISTA MENU NUEVO");
+        e.preventDefault();
+    
+      }
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.modalComida !== this.props.modalComida) {
             this.setState((prevState)=>({
@@ -93,7 +108,7 @@ class ComidaDiaModal extends React.Component {
         //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
         e.preventDefault();
     }
-    onSubmitAccesos=(e)=>{
+onSubmitAccesos=(e)=>{
     var checkbox_selec=[];
     var checks=document.getElementsByClassName("checkbox1");
     var checks_normales=Array.from(checks);
@@ -109,31 +124,31 @@ class ComidaDiaModal extends React.Component {
         e.preventDefault();
         
 }
-    onSubmitDetalles=(e)=>{
+onSubmitDetalles=(e)=>{
         //guardamos los cambios
         
-        //console.log("Actualizando una comida");
-        /*
+    console.log("Actualizando una comida");
+      
         //Actualizamos la comida capturando los cambios realizados
          //llamamos al servicio para actualizar una comida
-        fetch('http://',
+        fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/actualizar',
         {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        method: "POST",//cambiar a metodo PUT de actualizacion
+        method: "PUT",//cambiar a metodo PUT de actualizacion
         body: JSON.stringify(
           {
-            "id_comida": this.state.idComida,
-            "descripcion": this.state.descripcion,
+            "idComida": this.state.idComida,
             "nombre": this.state.nombre,
-            "num_raciones": this.state.numeroRaciones,
+            "descripcion": this.state.descripcion,
+            "numRaciones": this.state.numeroRaciones,
             "dia": this.state.dia,
-            "comida_tipo":this.state.comidaTipo,
-            "inicio_reserva":this.state.inicioReserva,
-            "fin_reserva":this.state.finReserva
-     }
+            "comidaTipo":this.state.comidaTipo,
+            "inicioReserva":this.state.inicioReserva,
+            "finReserva":this.state.finReserva
+         }
           
         )
     })
@@ -141,116 +156,122 @@ class ComidaDiaModal extends React.Component {
       return response.json()
       })
     .then((data) => {
-      console.log("DATA QUE DEVUELVE EL POST")
+      console.log("DATA QUE DEVUELVE EL PUT")
       console.log(data)
-      swal("Comida actualizada exitosamente!", "", "success");
-     
+      if(data == 1){
+          swal("Comida actualizada exitosamente!", "", "success");
+          this.setState({ bloqueoEditarDetalles : true
+            
+        })
+      }
+
       })
       .catch(error => {
           swal("Error al actualizar!", "", "error");
           console.error(error)
     });
     //--------------------------------------------------------
-    
-*/
-        swal("Cambios de detalle guardados exitosamente!", "", "success");
         console.log(this.state.nombre);
         console.log(this.state.descripcion);
         console.log(this.state.inicioReserva);
         console.log(this.state.finReserva);
-        
         e.preventDefault();
         
 }
-
-    onSubmit=(e)=>{
+onSubmit=(e)=>{
     
-    //Actualizar nivel-turno 
-    ////Actualizamos los niveles-turno  capturando los cambios realizados
-    //llamamos al servicio para actualizar un nivel-turno
-    /*
-    fetch('http://',
-        {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",//cambiar a metodo PUT de actualizacion
-        body: JSON.stringify(
-          {
-            "id_nt": this.state.idComida,
-            "id_comida": this.state.descripcion,
-            "nivel": this.state.nombre,
-            "turno": this.state.numeroRaciones,
-            "hora_inicio": this.state.dia,
-            "hora_fin":this.state.comidaTipo,
-            "num_tickets":this.state.inicioReserva,
-     }
-          
-        )
-    })
-    .then((response) => {
-      return response.json()
-      })
-    .then((data) => {
-      console.log("DATA QUE DEVUELVE EL POST")
-      console.log(data)
-      swal("Comida actualizada exitosamente!", "", "success");
-     
-      })
-      .catch(error => {
-          swal("Error al actualizar!", "", "error");
-          console.error(error)
-    });
-
-*/
-
+//Actualizar nivel-turno 
+////Actualizamos los niveles-turno  capturando los cambios realizados
+//llamamos al servicio para actualizar un nivel-turno
 //Obtenemos el listado de nivel turno a enviar para actualizar
-var nros = [];
-var nroticketsingresados = [];
+    var nros = [];
+    var nroticketsingresados = [];
 
 //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
-nros = document.getElementsByClassName("nroTickets");
+    nros = document.getElementsByClassName("nroTickets");
 
-console.log("Numeros de tickets editados");
-for (var item of nros) {
+    console.log("Numeros de tickets editados");
+    for (var item of nros) {
     nroticketsingresados.push(item.id);
- console.log("nro ticket recibido");
- console.log(item.id);
+    console.log("nro ticket recibido");
+    console.log(item.id);
 
-}
+    }
+    var numeros =  nroticketsingresados.map(Number);
+    console.log("array de numeros");
+    console.log(numeros);
+
 //listado de nrotickets que han sido ingresados
-console.log( nroticketsingresados);
+    console.log( nroticketsingresados);
 //obtenemos el listado NIVELTURNO (data de prueba por ahora)
-var NivelTurnoInicial = this.state.detalleNivelTurno;
-var NivelTurnoActualizar = [];
+    var NivelTurnoInicial = this.state.detalleNivelTurno;
+    var NivelTurnoActualizar = [];
 //Cargamos la  lista de nivel turno a enviar para actualizar
     for (let i = 0; i < NivelTurnoInicial .length; i++) {
        
           //creamos el json para enviar
-          var nivelT = {"id_nt": NivelTurnoInicial[i].idNt,
-          "id_comida": NivelTurnoInicial[i].idComida,
+          var nivelT = {
+          "idNt": NivelTurnoInicial[i].idNt,
           "nivel":NivelTurnoInicial[i].nivel,
           "turno": NivelTurnoInicial[i].turno,
-          "hora_inicio": NivelTurnoInicial[i].horaInicio,
-          "hora_fin":NivelTurnoInicial[i].horaFin,
-          "num_tickets": nroticketsingresados[i]
+          "horaInicio": NivelTurnoInicial[i].horaInicio,
+          "horaFin":NivelTurnoInicial[i].horaFin,
+          "numTickets": numeros[i],
+          "idComida": NivelTurnoInicial[i].idComida,
         
         }
         
         NivelTurnoActualizar.push(nivelT);
-    
-}
+    }
 
-   console.log("nivelturnoactualizado");
-   console.log(NivelTurnoActualizar);
+    console.log("nivelturnoactualizado");
+    console.log(NivelTurnoActualizar);
+    //llamamos al servicio para actualizar el listadonivelturno de la comida
+
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/nivelturno/list/actualizar',
+    {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "PUT",//cambiar a metodo PUT de actualizacion
+    body: JSON.stringify(
+       NivelTurnoActualizar
+    )
+})
+.then((response) => {
+  return response.json()
+  })
+.then((data) => {
+  console.log("DATA QUE DEVUELVE EL PUT")
+  console.log(data)
+      console.log("data luego del put de nivel turno");
+      console.log(data)
+      swal("Actualizado exitosamente!", "", "success");
+      
+      var nros2= [];
+        
+        //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
+        nros2 = document.getElementsByClassName("nroTickets");
+        
+        console.log("Numeros de tickets editados");
+        for (var item2 of nros2) {
+         item2.disabled=true;
+         console.log(item2.disabled);
+        }
+        this.setState(()=>({bloqueoEditar : true}))
+
+  })
+  .catch(error => {
+      swal("Error al actualizar!", "", "error");
+      console.error(error)
+});    //
    //-------------------------------------------------------------------
-        swal("Cambios nivel turno guardados exitosamente!", "", "success");
+
         
-        e.preventDefault();
-        
+    e.preventDefault();
 }
-data() {
+data=(e)=> {
     console.log("id comida");
     console.log(this.state.idComida)
 
@@ -260,7 +281,7 @@ data() {
     })
     .then((data) => {
         this.setState({ detalleNivelTurno : data})
-        console.log("data recibida")
+        console.log("data nivel turno recibida")
         console.log(data);
         
     })
@@ -271,9 +292,10 @@ data() {
 
 console.log("llegue aca")
 console.log(ACCESOS);
+e.preventDefault();
      
 }
-accesos() {
+accesos=(e)=> {
     console.log("id comida");
     console.log(this.state.idComida)
 
@@ -314,11 +336,12 @@ accesos() {
   
 console.log("llegue aca")
 console.log(ACCESOS);
+e.preventDefault();
      
 }
 
-    render() {
-        return (
+render() {
+ return (
             <div>
              
                 <Modal
@@ -459,7 +482,6 @@ console.log(ACCESOS);
                         <div className="SplitPane row center">
 
                             <div className="col-xs-6 margen_top">
-                                
                             </div>
                             <div className="col-xs-6 margen_top" >
                                 <button className="waves-effect waves-light btn-large botonazul2" 
@@ -530,7 +552,7 @@ console.log(ACCESOS);
                         </div>
                         <div className="SplitPane row  NT center-xs">
                             <div className="  center-xs-12">
-                                    <table className="  total tableNT">
+                                    <table className="total tableNT">
                                         <TableHeaderNT/>
                                         <NivelTurnoList listado ={this.state.detalleNivelTurno} />
                                     </table>  
@@ -558,11 +580,10 @@ console.log(ACCESOS);
                         </div>  
                        
     </TabPanel>
-</Tabs>
+  </Tabs>
                         
-                        
-   
-</div>
+                     
+    </div>
                     <footer>
                             <hr/>
                             <div className="col-xs-12 margen_top">

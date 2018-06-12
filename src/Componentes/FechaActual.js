@@ -10,6 +10,7 @@ class FechaActual extends React.Component {
         var fechaActual = diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
         return fechaActual
     }
+    
     render() {
        
         return (

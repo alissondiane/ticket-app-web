@@ -75,8 +75,8 @@ class VistaSanciones extends React.Component {
     .then((response) => {
     return response.json()
     })
-    .then((menues) => {
-      //data
+    .then((sanciones) => {
+      this.setState({ sanciones: sanciones})
 
     })
     .catch(error => {

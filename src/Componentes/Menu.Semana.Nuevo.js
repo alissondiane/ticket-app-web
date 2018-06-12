@@ -58,49 +58,49 @@ class MenuListNuevo extends React.Component {
           comidas : [
              {nombre: d1, descripcion: dd1},
              {nombre: a1, descripcion: aa1},
-             {nombre: c1, descripcion: cc1},
+             {nombre: c1, descripcion: cc1}
           ]
         };
         var martes = {
           comidas : [
             {nombre: d2, descripcion: dd2},
             {nombre: a2, descripcion: aa2},
-            {nombre: c2, descripcion: cc2},
+            {nombre: c2, descripcion: cc2}
          ]
         };
         var miercoles ={
           comidas : [
             {nombre: d3, descripcion: dd3},
             {nombre: a3, descripcion: aa3},
-            {nombre: c3, descripcion: cc3},
+            {nombre: c3, descripcion: cc3}
          ]
         };
         var jueves = {
           comidas : [
             {nombre: d4, descripcion: dd4},
             {nombre: a4, descripcion: aa4},
-            {nombre: c4, descripcion: cc4},
+            {nombre: c4, descripcion: cc4}
          ]
         };
         var viernes = {
           comidas : [
             {nombre: d5, descripcion: dd5},
             {nombre: a5, descripcion: aa5},
-            {nombre: c5, descripcion: cc5},
+            {nombre: c5, descripcion: cc5}
          ]
         };
         var sabado= {
           comidas : [
             {nombre: d6, descripcion: dd6},
             {nombre: a6, descripcion: aa6},
-            {nombre: c6, descripcion: cc6},
+            {nombre: c6, descripcion: cc6}
          ]
         };
         var domingo = {
           comidas : [
             {nombre: d7, descripcion: dd7},
             {nombre: a7, descripcion: aa7},
-            {nombre: c7, descripcion: cc7},
+            {nombre: c7, descripcion: cc7}
          ]
         };
         Menu.push(lunes);
