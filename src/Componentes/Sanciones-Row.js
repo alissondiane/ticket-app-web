@@ -7,11 +7,11 @@ class SancionesRow extends React.Component {
     return(
     <tr>
      
-      <td>{this.props.sancion.nombre}</td>
-	    <td>{this.props.sancion.codigoAlumno}</td>	
-      <td>{this.props.sancion.inicioSancion}</td>
-      <td>{this.props.sancion.finSancion}</td>
-      <td>{this.props.sancion.nombreSancion}</td>
+      <td className="td3">{this.props.sancion.nombres} {this.props.sancion.apePat} {this.props.sancion.apeMat}</td>
+	    <td className="td3">{this.props.sancion.codigo}</td>	
+      <td className="td3">{this.props.sancion.inicio}</td>
+      <td className="td3">{this.props.sancion.fin}</td>
+      <td className="td3">{this.props.sancion.nombreSancion}</td>
 	  </tr>
     )
   }

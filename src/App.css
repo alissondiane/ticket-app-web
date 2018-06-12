@@ -68,7 +68,6 @@
   margin-top:20px;
   margin-right: 10px;
   width:100%;
-  text-align:center;
 }
 .centrar{
   text-align: center;
@@ -702,7 +701,7 @@ delete {
 .td{
     height: 100px;
     width: 200px;
-    text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+    /*text-align: center;Alineamos el texto al centro ---th por defecto esta alineado al centro*/
      /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
     padding: 10px;
     border: 3px solid WHITE;
@@ -848,7 +847,20 @@ height: 18px;
   border: 2px solid #360d0d;
 /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
 }
-.centrar{
+
+.td3{
+  width:200px;
+  height: 18px;
+  height: 18px;
+  text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+     /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+    padding: 10px;
+    border: 3px solid WHITE;
+    font-weight: bold;
+    font-family: 'Exo', sans-serif;
+  }
+
+entrar{
   text-align: center;
   align-content: center;
   margin-left: 15px;

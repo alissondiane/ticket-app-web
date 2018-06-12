@@ -70,8 +70,8 @@ class VistaSanciones extends React.Component {
   }
   componentWillMount() {
     //Cargar data de sanciones
-    /*
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/2018-06-05')
+    
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/aplicarsancion/sancion/listar')
     .then((response) => {
     return response.json()
     })
@@ -82,7 +82,7 @@ class VistaSanciones extends React.Component {
     .catch(error => {
     // si hay algún error lo mostramos en consola
         console.error(error)
-    });*/
+    });
   }
   render() {
 
@@ -111,7 +111,7 @@ class VistaSanciones extends React.Component {
         <hr />
         <div className="row center-xs centrar">
             <div className="center-xs-12 margin_top ">
-                <SancionesList listado={SANCIONES} />
+                <SancionesList listado={this.state.sanciones} />
             </div>
         </div>
     </div>
