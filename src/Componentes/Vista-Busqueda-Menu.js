@@ -53,7 +53,7 @@ class VistaBusquedaMenu extends React.Component {
         martes : menues.martes
       };
       var miercoles = {
-        miércoles : menues.miércoles
+        miércoles : menues.miercoles
       };
       var jueves = {
         jueves :menues.jueves
@@ -62,7 +62,7 @@ class VistaBusquedaMenu extends React.Component {
         viernes : menues.viernes
       };
       var sabado = {
-        sábado : menues.sábado
+        sábado : menues.sabado
       };
       var domingo = {
         domingo : menues.domingo
@@ -164,7 +164,7 @@ console.log(this.state.menu);
           martes : menues.martes
         };
         var miercoles = {
-          miércoles : menues.miércoles
+          miércoles : menues.miercoles
         };
         var jueves = {
           jueves :menues.jueves
@@ -173,7 +173,7 @@ console.log(this.state.menu);
           viernes : menues.viernes
         };
         var sabado = {
-          sábado : menues.sábado
+          sábado : menues.sabado
         };
         var domingo = {
           domingo : menues.domingo

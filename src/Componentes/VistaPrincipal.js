@@ -71,7 +71,24 @@ class VistaPrincipal extends React.Component {
     
   }
   ActualizarVista=()=>{
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/2018-06-10')
+    var fecha = new Date();
+    var dd = fecha.getDate();
+    var mm = fecha.getMonth()+1;
+    console.log("dia");
+    console.log(dd);
+    
+    if(dd<10) {
+        dd='0'+dd;
+    } 
+    if(mm<10) {
+      mm='0'+mm;
+      console.log("mes con 0");
+      console.log(mm);
+  } 
+    var diaActual =fecha.getFullYear()+"-"+mm+"-"+dd;
+    var FechaActual = new String(diaActual);
+    console.log(FechaActual);
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+FechaActual)
     .then((response) => {
     return response.json()
     })
@@ -91,7 +108,7 @@ class VistaPrincipal extends React.Component {
           martes : menues.martes
         };
         var miercoles = {
-          miércoles : menues.miércoles
+          miércoles : menues.miercoles
         };
         var jueves = {
           jueves :menues.jueves
@@ -100,7 +117,7 @@ class VistaPrincipal extends React.Component {
           viernes : menues.viernes
         };
         var sabado = {
-          sábado : menues.sábado
+          sábado : menues.sabado
         };
         var domingo = {
           domingo : menues.domingo
@@ -162,7 +179,7 @@ class VistaPrincipal extends React.Component {
           martes : menues.martes
         };
         var miercoles = {
-          miércoles : menues.miércoles
+          miércoles : menues.miercoles
         };
         var jueves = {
           jueves :menues.jueves
@@ -171,7 +188,7 @@ class VistaPrincipal extends React.Component {
           viernes : menues.viernes
         };
         var sabado = {
-          sábado : menues.sábado
+          sábado : menues.sabado
         };
         var domingo = {
           domingo : menues.domingo

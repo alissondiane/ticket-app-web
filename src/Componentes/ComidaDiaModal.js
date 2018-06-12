@@ -17,6 +17,10 @@ class ComidaDiaModal extends React.Component {
             bloqueoEditar: true,
             bloqueoEditarDetalles:true,
             bloqueoEditarAccesos : true,
+            bloqueoGuardar:true,
+            bloqueoGuardarDetalles:true,
+            bloqueoGuardarAccesos:true,
+            bloqueoAccesos:true,
             modalComida: [],
             dia: "",
             comidaTipo: "",
@@ -50,20 +54,46 @@ class ComidaDiaModal extends React.Component {
   
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.modalComida !== this.props.modalComida) {
-            this.VerificarFecha();
-            this.setState((prevState)=>({
-                dia: this.props.modalComida.dia,
-                comidaTipo: this.props.modalComida.comidaTipo,
-                nombre: this.props.modalComida.nombre,
-                descripcion: this.props.modalComida.descripcion,
-                numeroRaciones: this.props.modalComida.numRaciones,
-                inicioReserva: this.props.modalComida.inicioReserva,
-                finReserva: this.props.modalComida.finReserva,
-                idComida : this.props.modalComida.idComida,
-                bloqueoEditar:true,
-                bloqueoEditarAccesos:true,
-                bloqueoEditarDetalles:true
-            }))
+            var valido = this.VerificarFecha();
+            if(!valido){
+                this.setState((prevState)=>({
+                    dia: this.props.modalComida.dia,
+                    comidaTipo: this.props.modalComida.comidaTipo,
+                    nombre: this.props.modalComida.nombre,
+                    descripcion: this.props.modalComida.descripcion,
+                    numeroRaciones: this.props.modalComida.numRaciones,
+                    inicioReserva: this.props.modalComida.inicioReserva,
+                    finReserva: this.props.modalComida.finReserva,
+                    idComida : this.props.modalComida.idComida,
+                    bloqueoEditar:false,
+                    bloqueoAccesos:true,
+                    bloqueoEditarAccesos:false,
+                    bloqueoEditarDetalles:false,
+                    bloqueoGuardar:true,
+                    bloqueoGuardarDetalles:true,
+                    bloqueoGuardarAccesos:true,
+                }))
+            }else{
+                this.setState((prevState)=>({
+                    dia: this.props.modalComida.dia,
+                    comidaTipo: this.props.modalComida.comidaTipo,
+                    nombre: this.props.modalComida.nombre,
+                    descripcion: this.props.modalComida.descripcion,
+                    numeroRaciones: this.props.modalComida.numRaciones,
+                    inicioReserva: this.props.modalComida.inicioReserva,
+                    finReserva: this.props.modalComida.finReserva,
+                    idComida : this.props.modalComida.idComida,
+                    bloqueoEditar: true,
+                    bloqueoAccesos:true,
+                    bloqueoEditarDetalles:true,
+                    bloqueoEditarAccesos : true,
+                    bloqueoGuardar:true,
+                    bloqueoGuardarDetalles:true,
+                    bloqueoGuardarAccesos:true
+
+                }))
+            }
+           
         }
     }
     VerificarFecha(){
@@ -99,15 +129,21 @@ class ComidaDiaModal extends React.Component {
                 comidaSeparada[2]=dia[1];
             }
         var a = parseInt(comidaSeparada[0]);
-        var m = parseInt(comidaSeparada[1]);
+        var m = parseInt(comidaSeparada[1])-1;
         var d = parseInt(comidaSeparada[2]);
         var fechados = new Date(a,m,d);
+        var myBool = Boolean("false");
+        var resultado = false;
+
+        resultado = fechauno.getTime() <= fechados.getTime();
         
+        console.log("Resultado");
+        console.log(resultado);
         console.log("Fecha de hoy");
         console.log(fechauno);
         console.log("fecha de la comida");
         console.log(fechados);
-        alert(fechaayer);
+        return resultado;
 
     }
     VistaPrincipal = (e) => {
@@ -123,9 +159,11 @@ class ComidaDiaModal extends React.Component {
         e.preventDefault();
     
     }
-    editar=(e)=>{
+editar=(e)=>{
         swal("Edicion Nivel Turno habilitada!", "", "success");
-        this.setState(()=>({bloqueoEditar : false}))
+
+        this.setState(()=>({bloqueoEditar : false,
+        bloqueoGuardar:false}))
         var nros = [];
         
         //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
@@ -137,37 +175,88 @@ class ComidaDiaModal extends React.Component {
          console.log(item.disabled);
         }
         e.preventDefault();
-    }
-    editarDetalles=(e)=>{
+}
+editarDetalles=(e)=>{
         swal("Edicion detalles habilitada!", "", "success");
-        this.setState(()=>({bloqueoEditarDetalles : false}))
-    
-        
+        this.setState(()=>({bloqueoEditarDetalles : false,
+        bloqueoGuardarDetalles:false}))
         //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
         e.preventDefault();
-    }
-    editarAccesos=(e)=>{
-        swal("Edicion accesos habilitada!", "", "success");
-        this.setState(()=>({bloqueoEditarAccesos: false}))
- 
-        
+}
+editarAccesos=(e)=>{
+        swal("Edicion accesos esta habilitada!", "", "success");
+        this.setState({
+            bloqueoEditarAccesos : false,
+            bloqueoGuardarAccesos:false,
+            bloqueoAccesos:false
+        })    
         //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
         e.preventDefault();
-    }
+}
 onSubmitAccesos=(e)=>{
     var checkbox_selec=[];
     var checks=document.getElementsByClassName("checkbox1");
     var checks_normales=Array.from(checks);
+    var accesos = [];
+   
+   
     checks_normales.map((checkbox)=>{
      if(checkbox.checked){
-       checkbox_selec.push(checkbox.name);
+       accesos.push("true")
+     }else{
+        accesos.push("false")
      }
     });
-    console.log(checkbox_selec);
-      
-        swal("Cambios de accesos guardados exitosamente!", "", "success");
    
-        e.preventDefault();
+    console.log("accesos");
+    console.log(accesos);
+    var accesoEnviar =  {
+        "idComida": this.state.idComida,
+        "profesor": accesos[0],
+        "alumno": accesos[1],
+        "residente":accesos[2]
+     }
+     console.log("accesos a enviar");
+     console.log(accesoEnviar);
+    
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/actualizar',
+        {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "PUT",//cambiar a metodo PUT de actualizacion
+        body: JSON.stringify(
+          {
+            "idComida": this.state.idComida,
+            "profesor": accesos[0],
+            "alumno": accesos[1],
+            "residente":accesos[2]
+         }
+          
+        )
+    })
+    .then((response) => {
+      return response.json()
+      })
+    .then((data) => {
+      console.log("DATA QUE DEVUELVE EL PUT")
+      console.log(data)
+      if(data == 1){
+          swal("Accesos actualizada exitosamente!", "", "success");
+          this.setState({ bloqueoEditarAccesos : true,
+            bloqueoGuardarAccesos:true,
+            bloqueoAccesos:true
+    })
+      }
+      })
+      .catch(error => {
+          swal("Error al actualizar!", "", "error");
+          console.error(error)
+    });
+ 
+    
+    e.preventDefault();
         
 }
 onSubmitDetalles=(e)=>{
@@ -206,8 +295,8 @@ onSubmitDetalles=(e)=>{
       console.log(data)
       if(data == 1){
           swal("Comida actualizada exitosamente!", "", "success");
-          this.setState({ bloqueoEditarDetalles : true
-            
+          this.setState({ bloqueoEditarDetalles : true,
+            bloqueoGuardarDetalles:true
         })
       }
 
@@ -305,7 +394,9 @@ onSubmit=(e)=>{
          item2.disabled=true;
          console.log(item2.disabled);
         }
-        this.setState(()=>({bloqueoEditar : true}))
+        this.setState({ bloqueoEditar : true,
+            bloqueoGuardar:true
+        })
 
   })
   .catch(error => {
@@ -531,7 +622,7 @@ render() {
                             </div>
                             <div className="col-xs-6 margen_top" >
                                 <button className="waves-effect waves-light btn-large botonazul2" 
-                                disabled={this.state.bloqueoEditarDetalles}
+                                disabled={this.state.bloqueoGuardarDetalles}
                                 onClick={this.onSubmitDetalles} 
                                 >Guardar<i className="material-icons left">save</i>
                                 </button>
@@ -561,9 +652,9 @@ render() {
                             <div className="col-xs-6  margen_top ">
                                 <div>
                                    
-                                    <label><input class="filled-in" value="Profesor" className="checkbox1" onChange={(e) => {this.setState({ c1: !this.state.c1 })} } name="Profesor" checked= {this.state.c1} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Profesor</span></label>
-                                    <label><input class="filled-in" value="Alumno" className="checkbox1" onChange={(e) => {this.setState({ c2: !this.state.c2 })} } name="Alumno"  checked = {this.state.c2}  type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Alumno</span></label>
-                                    <label><input class="filled-in" value="Residente" className="checkbox1" onChange={(e) => {this.setState({ c3: !this.state.c3})} }  name="Residente" checked = {this.state.c3} type="checkbox" id="myCheck" disabled={this.state.bloqueoEditarAccesos} /><span>Residente</span></label>
+                                    <label><input class="filled-in" value="Profesor" className="checkbox1" onChange={(e) => {this.setState({ c1: !this.state.c1 })} } name="Profesor" checked= {this.state.c1} type="checkbox" id="myCheck" disabled={this.state.bloqueoAccesos} /><span>Profesor</span></label>
+                                    <label><input class="filled-in" value="Alumno" className="checkbox1" onChange={(e) => {this.setState({ c2: !this.state.c2 })} } name="Alumno"  checked = {this.state.c2}  type="checkbox" id="myCheck" disabled={this.state.bloqueoAccesos} /><span>Alumno</span></label>
+                                    <label><input class="filled-in" value="Residente" className="checkbox1" onChange={(e) => {this.setState({ c3: !this.state.c3})} }  name="Residente" checked = {this.state.c3} type="checkbox" id="myCheck" disabled={this.state.bloqueoAccesos} /><span>Residente</span></label>
                                 
                                 </div>
                                 
@@ -575,7 +666,7 @@ render() {
                                 </div>
                                 <div className="col-xs-6 margen_top" >
                                     <button className="waves-effect waves-light btn-large botonazul2" 
-                                        disabled={this.state.bloqueoEditarAccesos}
+                                        disabled={this.state.bloqueoGuardarAccesos}
                                         onClick={this.onSubmitAccesos} 
                                     >Guardar<i className="material-icons left">save</i>
                                     </button> 
@@ -610,7 +701,7 @@ render() {
                             </div>
                             <div className="col-xs-6 margen_top" >
                             <button className="waves-effect waves-light btn-large botonazul2" 
-                                disabled={this.state.bloqueoEditar}
+                                disabled={this.state.bloqueoGuardar}
                                 onClick={this.onSubmit} 
                                 >Guardar<i className="material-icons left">save</i></button>
                             <button 
