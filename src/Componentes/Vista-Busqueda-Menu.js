@@ -211,8 +211,12 @@ console.log(this.state.menu);
     
     </ul>
     <div className = "vistaderecha">
-    <div className=" z-depth-1 cabecera">
+
+      <div className=" z-depth-1 cabecera">
+    <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    <a className="salir2" >Administrador</a>
+    
     
     </div>
     

@@ -21,6 +21,7 @@ class ComidaDiaModal extends React.Component {
             bloqueoGuardarDetalles:true,
             bloqueoGuardarAccesos:true,
             bloqueoAccesos:true,
+            bloqueoDetalles:true,
             modalComida: [],
             dia: "",
             comidaTipo: "",
@@ -67,6 +68,7 @@ class ComidaDiaModal extends React.Component {
                     idComida : this.props.modalComida.idComida,
                     bloqueoEditar:false,
                     bloqueoAccesos:true,
+                    bloqueoDetalles:true,
                     bloqueoEditarAccesos:false,
                     bloqueoEditarDetalles:false,
                     bloqueoGuardar:true,
@@ -85,6 +87,7 @@ class ComidaDiaModal extends React.Component {
                     idComida : this.props.modalComida.idComida,
                     bloqueoEditar: true,
                     bloqueoAccesos:true,
+                    bloqueoDetalles:true,
                     bloqueoEditarDetalles:true,
                     bloqueoEditarAccesos : true,
                     bloqueoGuardar:true,
@@ -179,7 +182,8 @@ editar=(e)=>{
 editarDetalles=(e)=>{
         swal("Edicion detalles habilitada!", "", "success");
         this.setState(()=>({bloqueoEditarDetalles : false,
-        bloqueoGuardarDetalles:false}))
+        bloqueoGuardarDetalles:false,
+        bloqueoDetalles:false}))
         //obtenemos lo nrotickets ingresado por el id de cada input desde NivelTurno-Row.js
         e.preventDefault();
 }
@@ -219,7 +223,7 @@ onSubmitAccesos=(e)=>{
      console.log("accesos a enviar");
      console.log(accesoEnviar);
     
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/actualizar',
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/accede/comida/actualizar',
         {
         headers: {
           'Accept': 'application/json',
@@ -296,7 +300,8 @@ onSubmitDetalles=(e)=>{
       if(data == 1){
           swal("Comida actualizada exitosamente!", "", "success");
           this.setState({ bloqueoEditarDetalles : true,
-            bloqueoGuardarDetalles:true
+            bloqueoGuardarDetalles:true,
+            bloqueoDetalles:true
         })
       }
 
@@ -519,7 +524,7 @@ render() {
                                     <div className="col-xs-8  margen_top ">
                                             <input type="text"
                                             value={this.state.nombre} 
-                                            disabled={this.state.bloqueoEditarDetalles}
+                                            disabled={this.state.bloqueoDetalles}
                                             onChange={(e)=>{ this.setState({nombre: e.target.value}) }}/>
                                     </div>
                                     </div>
@@ -535,7 +540,7 @@ render() {
                                    
                                     <input type="text"
                                             value={this.state.descripcion} 
-                                            disabled={this.state.bloqueoEditarDetalles}
+                                            disabled={this.state.bloqueoDetalles}
                                             onChange={(e)=>{ this.setState({descripcion: e.target.value}) }}/>
                                     </div>
                                     </div>
@@ -594,7 +599,7 @@ render() {
                                   <div className="col-xs-8  margen_top ">
                                   <input className="input" type="time"
                                             value={this.state.inicioReserva} 
-                                            disabled={this.state.bloqueoEditarDetalles}
+                                            disabled={this.state.bloqueoDetalles}
                                             onChange={(e)=>{ this.setState({inicioReserva: e.target.value}) }}/>
                                   </div>
                                   
@@ -609,7 +614,7 @@ render() {
                                   <div className="col-xs-8  margen_top ">
                                      <input type="time"
                                             value={this.state.finReserva} 
-                                            disabled={this.state.bloqueoEditarDetalles}
+                                            disabled={this.state.bloqueoDetalles}
                                             onChange={(e)=>{ this.setState({finReserva: e.target.value}) }}/>
                                   </div>
                                   </div>      

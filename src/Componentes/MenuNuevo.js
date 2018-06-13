@@ -28,6 +28,8 @@ class MenuNuevo extends React.Component {
     console.log(menu);
     console.log(this.FechaProximaSemana());
     var fechas = this.FechaProximaSemana();
+    console.log("fechas de la semana");
+    console.log(fechas);
     var MenuNuevo = [];
     for (let i = 0; i < menu.length; i++) {
         var desayuno = {
@@ -79,6 +81,7 @@ class MenuNuevo extends React.Component {
       console.error(error)
       });    //
     }
+    
    
     swal("Menu","guardado exitosamente","success");
     //browserHistory.push('/Vista/Principal');

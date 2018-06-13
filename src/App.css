@@ -387,7 +387,7 @@ select {
   font-family: 'Exo', sans-serif;
 }
 .botonazul2{
-  background-color:rgb(99, 21, 21);
+  background-color:rgb(104, 53, 53);
   margin-left : 13px;
   margin-right:0px;
   margin-bottom: 10px;
@@ -396,7 +396,7 @@ select {
   z-index:0; 
 }
 .botonazul2:hover{
-  background-color:rgb(53, 6, 6);
+  background-color:rgb(80, 29, 29);
   margin-left : 13px;
   margin-right:0px;
   margin-bottom: 10px;
@@ -830,6 +830,13 @@ li a:hover:not(.active) {
 }
 .salir{
   float:right;
+  cursor:hand;
+  cursor:pointer;
+  color:white;
+  margin:8px;
+}
+.salir2{
+  float:left;
   cursor:hand;
   cursor:pointer;
   color:white;
