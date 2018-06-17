@@ -33,22 +33,35 @@ class MenuNuevo extends React.Component {
     var MenuNuevo = [];
     for (let i = 0; i < menu.length; i++) {
         var desayuno = {
+          "idComida": 0,
           "nombre":menu[i].comidas[0].nombre,
           "descripcion":menu[i].comidas[0].descripcion,
+          "numRaciones":0,
           "dia":fechas[i],
-          "comidaTipo":"DESAYUNO"
+          "comidaTipo":"DESAYUNO",
+          "inicioReserva": "07:00:00",
+          "finReserva": "11:30:00"
         }
+    
         var almuerzo = {
+          "idComida":0,
           "nombre":menu[i].comidas[1].nombre,
           "descripcion":menu[i].comidas[1].descripcion,
+          "numRaciones":0,
           "dia":fechas[i],
-          "comidaTipo":"ALMUERZO"
+          "comidaTipo":"ALMUERZO",
+          "inicioReserva": "07:00:00",
+          "finReserva": "11:30:00"
         }
         var cena = {
+          "idComida":0,
           "nombre":menu[i].comidas[2].nombre,
           "descripcion":menu[i].comidas[2].descripcion,
+          "numRaciones":0,
           "dia":fechas[i],
-          "comidaTipo":"CENA"
+          "comidaTipo":"CENA",
+          "inicioReserva": "14:30:00",
+          "finReserva": "16:59:59"
         }
         MenuNuevo.push(desayuno);
         MenuNuevo.push(almuerzo);
@@ -57,8 +70,8 @@ class MenuNuevo extends React.Component {
     console.log("array de comidas a guardar");
     console.log(MenuNuevo);
     
-    for (let i = 0; i < MenuNuevo.length; i++) {
-      fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/add',
+   
+      fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/list/add',
       {
         headers: {
       'Accept': 'application/json',
@@ -66,7 +79,7 @@ class MenuNuevo extends React.Component {
        },
       method: "POST",//cambiar a metodo PUT de actualizacion
        body: JSON.stringify(
-       MenuNuevo[i]
+         MenuNuevo
       )
       })
       .then((response) => {
@@ -77,10 +90,9 @@ class MenuNuevo extends React.Component {
       console.log(data)
       })
       .catch(error => {
-      swal("Error al actualizar!", "", "error");
+      swal("Error al guardar!", "", "error");
       console.error(error)
       });    //
-    }
     
    
     swal("Menu","guardado exitosamente","success");
@@ -225,11 +237,6 @@ class MenuNuevo extends React.Component {
             <div className="center-xs-12">           
                 <MenuListNuevo Fechas={this.GuardarMenu} />
             </div>
-            <div>
-            {JSON.stringify(this.state.menuNuevo,null,'\t')}
-         
-            </div>
-
    </div>
     </div>
     );

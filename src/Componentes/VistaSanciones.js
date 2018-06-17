@@ -95,14 +95,14 @@ class VistaSanciones extends React.Component {
 
     <ul className="ula">
     <li className="OGBU"></li>
-    <li><a onClick={this.VistaPrincipal}>Menu<i className="material-icons right ">restaurant</i></a></li>
-    <li><a onClick={this.MenuBusqueda} >Busqueda<i className="material-icons right">search</i></a></li>
+    <li><a onClick={this.VistaPrincipal}>Menú<i className="material-icons right ">restaurant</i></a></li>
+    <li><a onClick={this.MenuBusqueda} >Búsqueda<i className="material-icons right">search</i></a></li>
     <li  className="Seleccionado  z-depth-1 "><a  >Sanciones<i className="material-icons right">gavel</i></a></li>
     </ul>
     <div className = "vistaderecha">
     <div className=" z-depth-1 cabecera">
     <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
-    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     
     
@@ -111,10 +111,26 @@ class VistaSanciones extends React.Component {
               <h4>Usuarios Sancionados<i className="material-icons logo1 right z-depth-1">person</i></h4>
         </div>
         <hr />
-        <div className="row center-xs centrar">
-            <div className="center-xs-12 margin_top ">
-                <SancionesList listado={this.state.sanciones} />
+        <div className="row">
+            <div className="col-xs-8 margin_top">
+            <SancionesList listado={this.state.sanciones} />
             </div>
+            <div className="col-xs-4 margin_top">
+            <div className="leyenda">
+            <h2 className="sanciones-titulo">Tipos de sanciones</h2>
+            
+            <label>Sanción leve</label>
+            <label>Detalle</label>
+            <label>Sanción media</label>
+            <label>Detalle</label>
+            <label>Sanción alta</label>
+            <label>Detalle</label>
+      
+            </div>
+            </div>
+           
+               
+           
         </div>
     </div>
     </div>

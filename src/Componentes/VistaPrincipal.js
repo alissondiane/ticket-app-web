@@ -222,20 +222,20 @@ class VistaPrincipal extends React.Component {
 
     <ul className="ula">
     <li className="OGBU"></li>
-    <li className="Seleccionado  z-depth-1 " ><a>Menu<i className="material-icons right ">restaurant</i></a></li>
-    <li><a onClick={this.MenuBusqueda} >Busqueda<i className="material-icons right">search</i></a></li>
+    <li className="Seleccionado  z-depth-1 " ><a>Menú<i className="material-icons right ">restaurant</i></a></li>
+    <li><a onClick={this.MenuBusqueda} >Búsqueda<i className="material-icons right">search</i></a></li>
     <li><a onClick={this.VistaSanciones} >Sanciones<i className="material-icons right">gavel</i></a></li>
     </ul>
     <div className = "vistaderecha">
     <div className=" z-depth-1 cabecera">
     
     <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
-    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     
     </div>
         <div className="row">
-              <h4>Menu de la semana<i className="material-icons logo1 right z-depth-1">restaurant</i></h4>
+              <h4>Menú de la semana<i className="material-icons logo1 right z-depth-1">restaurant</i></h4>
         </div>
         <hr />
         <div className="SplitPane row">

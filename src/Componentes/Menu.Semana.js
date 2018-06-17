@@ -6,20 +6,7 @@ class MenuList extends React.Component {
     render() {
        
             if(this.props.listado.length > 0){
-                /*
-                if(this.props.listado[6].domingo == null){
-                    this.props.listado[6].domingo = [];
-                     var d1 = {
-                        "nombre":"ARROZ CON POLLO",
-                        "descripcion":"CASI NUNCA",
-                    }
-                    this.props.listado[6].domingo[0].push(d1);
-                    this.props.listado[6].domingo[1].push(d1);
-                     
-                    this.props.listado[6].domingo[2].push(d1);
-                      
-
-                }*/
+               
                 return(
             <div>
             <TableHeaderMenuList />
@@ -29,7 +16,7 @@ class MenuList extends React.Component {
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[0].lunes[0])}>
                         <p>{this.props.listado[0].lunes[0].nombre}</p>
-                        <p>Descripcion: {this.props.listado[0].lunes[0].descripcion}</p>
+                        <p>Descripción: {this.props.listado[0].lunes[0].descripcion}</p>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[1].martes[0])}>
@@ -71,7 +58,7 @@ class MenuList extends React.Component {
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[0].lunes[1])}>
                         <p>{this.props.listado[0].lunes[1].nombre}</p>
-                        <p>Descripcion: {this.props.listado[0].lunes[1].descripcion}</p>
+                        <p>Descripción: {this.props.listado[0].lunes[1].descripcion}</p>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[1].martes[1])}>
@@ -115,7 +102,7 @@ class MenuList extends React.Component {
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[0].lunes[2])}>
                         <p>{this.props.listado[0].lunes[2].nombre}</p>
-                        <p>Descripcion: {this.props.listado[0].lunes[2].descripcion}</p>
+                        <p>Descripción: {this.props.listado[0].lunes[2].descripcion}</p>
                     </td>
                     <td className="td"
                         onClick={(e) => this.props.modalSelectedOption(this.props.listado[1].martes[2])}>

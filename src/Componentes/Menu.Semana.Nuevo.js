@@ -136,64 +136,64 @@ class MenuListNuevo extends React.Component {
           <tr>
             <td className="th1" >DESAYUNO</td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD1 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD2 = input } type="text" name="Desayuno1"placeholder="Descripcion"/>
+            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD2 = input } type="text" name="Desayuno1"placeholder="Descripción"/>
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD3 = input } type="text" name="Desayuno1" placeholder="Descripcion"/>
+            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD3 = input } type="text" name="Desayuno1" placeholder="Descripción"/>
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD4 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD5 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD6 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionD7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD7 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             
           </tr> 
           <tr>
             <td className="th1" >ALMUERZO</td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA1 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA2 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA2 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA3 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA3 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA4 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo5= input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo5= input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA5 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA6 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.almuerzo7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionA7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.almuerzo7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionA7 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
           </tr>
 
@@ -201,32 +201,32 @@ class MenuListNuevo extends React.Component {
           <tr>
             <td className="th1" >CENA</td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC1 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.cena1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea" ref={ ( input ) => this.descripcionC1 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC2 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.cena2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea" ref={ ( input ) => this.descripcionC2 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC3 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea  className = "textareaNombre" ref={ ( input ) => this.cena3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionC3 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC4 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea  className = "textareaNombre" ref={ ( input ) => this.cena4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionC4 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC5 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea  className = "textareaNombre" ref={ ( input ) => this.cena5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionC5 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC6 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea  className = "textareaNombre" ref={ ( input ) => this.cena6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea className = "textarea"  ref={ ( input ) => this.descripcionC6 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
             <td className="td1">
-            <input ref={ ( input ) => this.cena7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  ref={ ( input ) => this.descripcionC7 = input } type="text" name="Desayuno1" placeholder="Descripcion" />
+            <textarea className = "textareaNombre" ref={ ( input ) => this.cena7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+            <textarea  className = "textarea" ref={ ( input ) => this.descripcionC7 = input } type="text" name="Desayuno1" placeholder="Descripción" />
             </td>
 
           </tr>

@@ -7,10 +7,10 @@ class TableHeaderSanciones extends React.Component {
     <thead>
 			<tr>       
                 <th className="th3">Nombres y Apellidos</th>           
-                <th className="th3">Codigo</th>
+                <th className="th3">Código</th>
                 <th className="th3">Fecha-Inicio</th>
                 <th className="th3">Fecha-Fin</th>
-                <th className="th3">Nombre Sancion</th>
+                <th className="th3">Nombre Sanción</th>
               
             </tr>
 	  </thead>

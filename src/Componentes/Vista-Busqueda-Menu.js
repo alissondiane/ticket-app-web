@@ -205,8 +205,8 @@ console.log(this.state.menu);
     <div className="">
         <ul className="ula">
     <li className="OGBU"></li>
-    <li><a onClick={this.VistaPrincipal}>Menu<i className="material-icons right">restaurant</i></a></li>
-    <li className="Seleccionado  z-depth-1 " ><a  >Busqueda<i className="material-icons right">search</i></a></li>
+    <li><a onClick={this.VistaPrincipal}>Menú<i className="material-icons right">restaurant</i></a></li>
+    <li className="Seleccionado  z-depth-1 " ><a  >Búsqueda<i className="material-icons right">search</i></a></li>
     <li><a onClick={this.VistaSanciones} >Sanciones<i className="material-icons right">gavel</i></a></li>
     
     </ul>
@@ -214,7 +214,7 @@ console.log(this.state.menu);
 
       <div className=" z-depth-1 cabecera">
     <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
-    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesion</a>
+    <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     
     
@@ -222,7 +222,7 @@ console.log(this.state.menu);
     
  
     <div className=" row">
-    <h4>Busqueda Menu<i className="material-icons logo1 right z-depth-1">search</i></h4>
+    <h4>Busqueda Menú<i className="material-icons logo1 right z-depth-1">search</i></h4>
         </div>
            
          

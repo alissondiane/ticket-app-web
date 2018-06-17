@@ -124,20 +124,30 @@ label {
   font-family: 'Times New Roman', Times, serif;
   width: 250px;
 }
-textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida  ,barra de desplazamiento*/
-  width: 70%;
-  height: 100px;
-  padding: 12px 20px;
+.textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida  ,barra de desplazamiento*/
+  width: 95%;
+  color:black;
+  float:center;
+  height: 60%;
+  padding: 5px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
   font-size: 12px;
   resize: none;
-  background-color: rgb(219, 219, 219);
-  margin-bottom: 10px;
-  margin-left: 45px;
-  margin-top:15px;
+  margin:0px 6px 6px 3px;
+}
+.textareaNombre { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida  ,barra de desplazamiento*/
+  width: 95%;
+  color:black;
+  height: 40%;
+  padding:5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 12px;
+  resize: none;
+  margin:10px 6px 6px 3px;
 }
 
 
@@ -323,6 +333,16 @@ h1{
   margin : 0 auto;
   width:100%;
   height:100%;
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
+}
+.sanciones-titulo{
+  color: black;
+	padding: 5px 10px;
+	text-align: center;
+	font-weight: 80;
+	font-size: 20px;
+  margin : 0 auto;
   font-weight: bold;
   font-family: 'Exo', sans-serif;
 }
@@ -604,6 +624,18 @@ h4{
   width: 350px;
   height: 450px;
 }
+.leyenda{
+
+    list-style-type: none;
+    margin: 0px;
+    padding:10px;
+    background-color:rgb(228, 228, 228);
+    width: 95%;
+    height:300px;
+    margin-left:10px;
+    margin-top:20px;
+  
+}
 .vistaNivelTurno{
   padding: 15px 20px;
   text-decoration: none;
@@ -724,8 +756,8 @@ delete {
   /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
 .td1{
-    height: 100px;
-    width: 800px;
+    height: 200px;
+    width: 900px;
     text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
      /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
     padding-left: 5px;
@@ -733,6 +765,7 @@ delete {
     border: 3px solid WHITE;
     background-color: rgb(219, 219, 219);
     font-weight: bold;
+    float:center;
     font-family: 'Exo', sans-serif;
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
 }
