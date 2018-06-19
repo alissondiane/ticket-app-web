@@ -561,7 +561,7 @@ render() {
                                     
                                   
                                     <div className="col-xs-4  margen_top ">
-                                    <label>Dia: </label>
+                                    <label>Día: </label>
                                     </div>
                                     <div className="col-xs-8  margen_top ">
                                    
@@ -609,7 +609,7 @@ render() {
                                     
                                   
                                   <div className="col-xs-4  margen_top ">
-                                  <label>Fin-Reserva: </label>
+                                  <label>Fín-Reserva: </label>
                                   </div>
                                   <div className="col-xs-8  margen_top ">
                                      <input type="time"

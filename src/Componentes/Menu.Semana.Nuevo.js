@@ -125,10 +125,10 @@ class MenuListNuevo extends React.Component {
                 <th></th>    
                 <th className="th1">LUNES</th>           
                 <th className="th1">MARTES</th>
-                <th className="th1">MIERCOLES</th>
+                <th className="th1">MIÉRCOLES</th>
                 <th className="th1">JUEVES</th>
                 <th className="th1">VIERNES</th>
-                <th className="th1">SABADO</th>
+                <th className="th1">SÁBADO</th>
                 <th className="th1">DOMINGO</th>
             </tr>
 	  </thead>

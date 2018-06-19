@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
                 swal("Bienvenido!", this.state.usuario, "success");
                 browserHistory.push('/Vista/Principal');
               }else{
-                swal("Wrong!", "Tipo de usuario incorrectamente!", "error");
+                swal("Tipo de usuario incorrectamente!", "", "error");
                }
             })
             .catch(error => {
@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
   }
   Mensaje(){
     if(this.state.usuarioleido == 0){
-      swal("Error!", "Usuario incorrecto!", "error");
+      swal("Usuario incorrecto!", "", "error");
     }
    
   

@@ -7,11 +7,12 @@ class SancionesRow extends React.Component {
     return(
     <tr>
      
-      <td >{this.props.sancion.nombres} {this.props.sancion.apePat} {this.props.sancion.apeMat}</td>
-	    <td >{this.props.sancion.codigo}</td>	
-      <td>{this.props.sancion.inicio}</td>
-      <td>{this.props.sancion.fin}</td>
-      <td >{this.props.sancion.nombreSancion}</td>
+      
+	    <td className="td3">{this.props.sancion.codigo}</td>	
+      <td className="td3" >{this.props.sancion.nombres} {this.props.sancion.apePat} {this.props.sancion.apeMat}</td>
+      <td className="td3" >{this.props.sancion.inicio.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</td>
+      <td className="td3" >{this.props.sancion.fin.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</td>
+      <td className="td3">{this.props.sancion.nombreSancion}</td>
 	  </tr>
     )
   }

@@ -112,22 +112,24 @@ class VistaSanciones extends React.Component {
         </div>
         <hr />
         <div className="row">
-            <div className="col-xs-8 margin_top">
+            <div className="col-xs-9 margin_top">
             <SancionesList listado={this.state.sanciones} />
             </div>
-            <div className="col-xs-4 margin_top">
-            <div className="leyenda">
-            <h2 className="sanciones-titulo">Tipos de sanciones</h2>
-            
-            <label>Sanción leve</label>
-            <label>Detalle</label>
-            <label>Sanción media</label>
-            <label>Detalle</label>
-            <label>Sanción alta</label>
-            <label>Detalle</label>
-      
-            </div>
-            </div>
+          
+  <div className="col-xs-3 margen_top">
+  <div className="mensaje">
+      <div class="card white darken-1">
+        <div class="card-content black-text">
+          <span class="card-title">Sanciones<i className="material-icons right">gavel</i></span>
+          <p>Días sin poder realizar reserva:</p>
+          <label className="leve">Leve: 1 día</label>
+          <label className="media">Media: 3 días</label>
+          <label className="alta">Alta: 5 días</label>
+        </div>
+      </div>
+      </div>
+    </div>
+
            
                
            

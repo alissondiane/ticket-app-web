@@ -225,10 +225,10 @@ class MenuNuevo extends React.Component {
               <div className=" col-xs-4 margen_top">
                <h4>Menu Nuevo<i className="material-icons logo1 right z-depth-1">restaurant</i></h4>
               </div>
-              <div className="col-xs-8 margen_top">
-                <ul id="nav-mobile" class="right  hide-on-med-and-down">
-              <li ><a className="seleccionar" onClick={this.VistaClienteNuevo} >Regresar<i className="material-icons right">reply</i></a></li>
-     </ul>
+              <div className="col-xs-5 margen_top">  
+              </div>
+              <div className="col-xs-3 margen_top">  
+                  <button className="waves-effect waves-light btn-large botonazul2 right"  onClick={this.VistaClienteNuevo} >Regresar<i className="material-icons right">reply</i></button>
               </div>
             </div>
           

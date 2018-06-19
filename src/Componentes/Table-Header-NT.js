@@ -6,11 +6,11 @@ class TableHeaderNT extends React.Component {
     return(
     <thead>
 			      <tr>      
-                <th className="thNT">NIVEL</th>           
-                <th className="thNT">TURNO</th>
-                <th className="thNT">HORA_INICIO</th>
-                <th className="thNT">HORA_FIN</th>
-                <th className="thNT">NRO_TICKETS</th>
+                <th className="thNT">Nivel</th>           
+                <th className="thNT">Turno</th>
+                <th className="thNT">Hora-inicio</th>
+                <th className="thNT">Hora-fín</th>
+                <th className="thNT">Nro-Tickets</th>
             </tr>
 	  </thead>
     )

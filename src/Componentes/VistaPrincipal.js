@@ -246,7 +246,7 @@ class VistaPrincipal extends React.Component {
         
           <div className=" col-xs-6 margen_top">
             
-            <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menu<i className="material-icons left">restaurant</i></button>
+            <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menú<i className="material-icons left">restaurant</i></button>
             
           </div>
         </div>
