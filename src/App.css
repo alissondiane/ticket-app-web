@@ -908,11 +908,27 @@ entrar{
   margin-right:15px;
 }
 .leve{
-  color: rgb(228, 228, 228);
+   color:black;
+  font-weight: bold;
+  background-color:yellow;
+  padding:6px;
+  width:100%;
+  border-radius: 10px;
+
 }
 .media{
-  color: rgb(253, 242, 90);
+  color:black;
+  font-weight: bold;
+  background-color:orange;
+  padding:6px;
+  width:100%;
+  border-radius: 10px;
 }
 .alta{
-  color: rgb(182, 27, 27);
+  color:black;
+  font-weight: bold;
+  background-color:red;
+  padding:6px;
+  width:100%;
+  border-radius: 10px;
 }
