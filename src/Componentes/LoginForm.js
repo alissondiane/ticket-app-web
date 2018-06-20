@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
   render() {
 
     return (
-
+     <div className="fondo">
       <div className="vista">
       
       <h2 className="bienvenido center">Bienvenido</h2>
@@ -107,6 +107,7 @@ class LoginForm extends React.Component {
       </div>
          
       </form>
+      </div>
       </div>
     
     );

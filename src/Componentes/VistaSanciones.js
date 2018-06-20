@@ -120,7 +120,8 @@ class VistaSanciones extends React.Component {
   <div className="mensaje">
       <div class="card white darken-1">
         <div class="card-content black-text">
-          <span class="card-title">Sanciones<i className="material-icons right">gavel</i></span>
+          <span class="card-title centrar">Sanciones<i className="material-icons right">gavel</i></span>
+          <label>Motivo:Inasistencia al comedor</label>
           <p>Días sin poder realizar reserva:</p>
           <label className="leve">Leve: 1 día</label>
           <label className="media">Media: 3 días</label>
