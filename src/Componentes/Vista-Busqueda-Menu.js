@@ -81,14 +81,14 @@ class VistaBusquedaMenu extends React.Component {
         this.setState({ menu: menuc})
         swal("Busqueda realizada exitosamente!", "", "success");
       }else{
-        swal("No se encontraron registros en esa fecha!", "", "error");
+        swal("No se encontraron registros en esa fecha!", "","info");
       }
       
       
     })
     .catch(error => {
     // si hay algún error lo mostramos en consola
-        swal("No se encontraron registros en esa fecha!", "", "error");
+        swal("Oops, Algo salió mal!!", "","error")
         console.error(error)
     });
 /*
@@ -213,7 +213,7 @@ console.log(this.state.menu);
     <div className = "vistaderecha">
 
       <div className=" z-depth-1 cabecera">
-    <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
+    <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     

@@ -163,7 +163,7 @@ class ComidaDiaModal extends React.Component {
     
     }
 editar=(e)=>{
-        swal("Edicion Nivel Turno habilitada!", "", "success");
+        swal("Edicion Nivel Turno habilitada!", "", "info");
 
         this.setState(()=>({bloqueoEditar : false,
         bloqueoGuardar:false}))
@@ -180,7 +180,7 @@ editar=(e)=>{
         e.preventDefault();
 }
 editarDetalles=(e)=>{
-        swal("Edicion detalles habilitada!", "", "success");
+        swal("Edicion detalles habilitada!", "", "info");
         this.setState(()=>({bloqueoEditarDetalles : false,
         bloqueoGuardarDetalles:false,
         bloqueoDetalles:false}))
@@ -188,7 +188,7 @@ editarDetalles=(e)=>{
         e.preventDefault();
 }
 editarAccesos=(e)=>{
-        swal("Edicion accesos esta habilitada!", "", "success");
+        swal("Edicion accesos esta habilitada!", "", "info");
         this.setState({
             bloqueoEditarAccesos : false,
             bloqueoGuardarAccesos:false,

@@ -101,7 +101,7 @@ class VistaSanciones extends React.Component {
     </ul>
     <div className = "vistaderecha">
     <div className=" z-depth-1 cabecera">
-    <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
+    <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     
@@ -112,16 +112,17 @@ class VistaSanciones extends React.Component {
         </div>
         <hr />
         <div className="row">
-            <div className="col-xs-9 margin_top">
+            <div className="col-xs-9 margen_top">
             <SancionesList listado={this.state.sanciones} />
             </div>
           
-  <div className="col-xs-3 margen_top">
+  <div className="col-xs-3">
   <div className="mensaje">
       <div class="card white darken-1">
         <div class="card-content black-text">
           <span class="card-title centrar">Sanciones<i className="material-icons right">gavel</i></span>
-          <label>Motivo:Inasistencia al comedor</label>
+          <label>Motivo:</label>
+          <p>Inasistencia al comedor</p>
           <p>Días sin poder realizar reserva:</p>
           <label className="leve">Leve: 1 día</label>
           <label className="media">Media: 3 días</label>

@@ -13,11 +13,10 @@
   background-color: #E4E1E1;
 }
 .azul{
-  background-color: rgb(85, 36, 36);
+background-color:rgb(85, 36, 36);
+
 }
 .azul3{
-  background-color: rgb(85, 36, 36);
-  font-size: 30px;
   float: right;
   margin:5px;
 }
@@ -63,12 +62,13 @@
 
 .table {
   border-collapse: collapse;/*juntamos los border por td y la tabla en si en uno solo*/
-  border: 5px solid white;
+
   border-radius: 6px;
   margin-bottom: 20px;
   margin-left:5px;
   margin-top:10px;
   margin-right: 5px;
+  padding:20px;
   width:100%;
 }
 .centrar{
@@ -114,7 +114,17 @@
   background-position: 2px 10px; 
   background-repeat: no-repeat;
 }
-
+.label {
+  text-align: left;
+  display: block;
+  margin-top:12px;
+  color: white;
+  font-weight: bold;
+  font-weight: 100;
+	font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  width: 150px;
+}
 label {
   text-align: left;
   display: block;
@@ -124,7 +134,7 @@ label {
   font-weight: 100;
 	font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
-  width: 250px;
+  width: 150px;
 }
 .textarea { /*Utilice la resizepropiedad para evitar áreas de texto sea reducida  ,barra de desplazamiento*/
   width: 95%;
@@ -161,7 +171,8 @@ label {
 .mensaje{
   margin-left:10px;
   margin-right:10px;
-  margin-top:10px;
+  margin-top:35px;
+  margin-bottom: 35px;
  }
 /* 
 .pagination{
@@ -196,7 +207,7 @@ label {
 } */
 .margen2{
   margin-top: 20px;
-  margin-left: 10%;
+  margin-left:0px;
  } 
 .margen_izq{
   margin-left: 65px;
@@ -275,7 +286,8 @@ h1{
   color:white;
 }
 .TabSeleccionado{
-  color:black;
+  color:rgb(85, 36, 36);
+  font-weight: bold;
 
 }
 .bienvenido{
@@ -295,12 +307,22 @@ h1{
 }
 .fondo{
   margin:0px;
-  padding: 80px;
+  padding: 100px;
   background-repeat:no-repeat;
   z-index: 9999;
   background-image: url("https://prod.media.larepublica.pe/720x405/larepublica/imagen/2017/12/12/noticia-san-marcos.jpg");
   width:100%;
-  height:700px;
+  height:100%;
+  position: fixed;
+  background-size:100% 100%;
+}
+.fondo2{
+  margin:0px;
+  padding: 100px;
+  background-repeat:no-repeat;
+  z-index: 9999;
+  width:85%;
+  height:100%;
   background-size:100% 100%;
 }
 
@@ -405,7 +427,7 @@ select {
   margin-left : 13px;
   margin-right:0px;
   margin-bottom: 10px;
-  margin-top:5px;
+  margin-top:10px;
   float:center;
   z-index:0; 
 }
@@ -415,7 +437,7 @@ select {
   margin-left : 13px;
   margin-right:0px;
   margin-bottom: 10px;
-  margin-top:5px;
+  margin-top:10px;
   float:center;
   z-index:0;
   font-weight: bold;
@@ -429,6 +451,15 @@ select {
   margin-top:5px;
   float:right;
   z-index:0; 
+}
+.boton{
+  background-color:rgb(104, 53, 53);
+}
+.boton:hover{
+  color:white;
+  background-color:rgb(124, 78, 78);
+  font-weight: bold;
+  font-family: 'Exo', sans-serif;
 }
 .botonazul2:hover{
   background-color:rgb(80, 29, 29);
@@ -509,6 +540,7 @@ select {
   margin:8px;
   padding:10px;
   border: 2px solid white;
+  z-index: 0;
   
 }
 .logo1{
@@ -518,8 +550,7 @@ select {
   border-radius:50px;
   margin:0px;
   padding:10px;
-  border: 2px solid rgb(99, 38, 38);
-  
+  z-index: 0;
 }
 h4{
   font-size: 35px;
@@ -627,18 +658,59 @@ h4{
   background-color: rgb(11, 45, 61);
   border-radius:4px 4px 0px 0px;
 }
+.colortd{
 
+  border-radius:10px;
+  border: 2px solid white;
+  background-color:rgb(230, 230, 230);
+
+  height: 100px;
+  width: 200px;
+    /*text-align: center;Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+     /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+    padding: 10px;
+    margin:5px;
+    font-weight: bold;
+    font-family: 'Exo', sans-serif;
+    cursor: pointer;
+}
+.colorth{
+  width: 200px;
+  height: 50px;
+  text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
+   /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
+  padding: 10px;
+  background-color: rgb(46, 13, 13);
+  color: white;
+  border-radius:10px;
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+}
 .vista{
 
   padding: 20px 35px 10px 20px;
   text-decoration: none;
   display: block;
   border-radius: 30px 70px;
-  background-color: #f2f2f2;
   margin:0px auto;
   width: 350px;
   height: 400px;
+  background-color:rgb(230, 222, 222);
 }
+.vistaCard{
+
+  padding: 10px 15px 10px 15px;
+  text-decoration: none;
+  display: block;
+  color:white;
+  margin-top:25px;
+  margin-left:100px;
+  margin-right: 70px;
+  margin-bottom: 10px;
+  width: 80%;
+  height: 100%;
+  background-color:rgb(95, 60, 60);}
+
 .leyenda{
 
     list-style-type: none;

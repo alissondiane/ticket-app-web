@@ -229,7 +229,7 @@ class VistaPrincipal extends React.Component {
     <div className = "vistaderecha">
     <div className=" z-depth-1 cabecera">
     
-    <a class="btn-floating azul3" ><i className="material-icons right">person</i></a>
+    <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
     <a className="salir2" >Administrador</a>
     

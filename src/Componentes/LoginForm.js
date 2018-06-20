@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
               this.setState({usuarioleido: alumno})
               if(alumno.idTu == 1){
               
-                swal("Bienvenido!", this.state.usuario, "success");
+                swal("Bienvenido!", this.state.usuario);
                 browserHistory.push('/Vista/Principal');
               }else{
                 swal("Tipo de usuario incorrectamente!", "", "error");
@@ -52,11 +52,8 @@ class LoginForm extends React.Component {
   }
   Mensaje(){
     if(this.state.usuarioleido == 0){
-      swal("Usuario incorrecto!", "", "error");
+      swal("Usuario o contraseña incorrectos!", "", "warning");
     }
-   
-  
-
   }
   
 
@@ -82,7 +79,7 @@ class LoginForm extends React.Component {
 
     return (
      <div className="fondo">
-      <div className="vista">
+      <div class="card  darken-1 vista">
       
       <h2 className="bienvenido center">Bienvenido</h2>
       <form>
@@ -102,8 +99,8 @@ class LoginForm extends React.Component {
           placeholder="Contraseña" name="Contraseña"></input>
             </div>
           </div>
-          <div class="center">
-          <button type="submit" onClick={this.onSubmit} className="waves-effect waves-light btn-small botonazul" >INGRESAR</button>
+          <div className="center margen_top">
+          <button type="submit" onClick={this.onSubmit} class="waves-effect waves-light btn-large botonazul">INGRESAR</button>
       </div>
          
       </form>

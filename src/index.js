@@ -8,6 +8,7 @@ import VistaPrincipal from './Componentes/VistaPrincipal';
 import VistaSanciones from './Componentes/VistaSanciones';
 import MenuNuevo from './Componentes/MenuNuevo';
 import VistaBusquedaMenu from './Componentes/Vista-Busqueda-Menu';
+import VistaAtencion from './Componentes/VistaAtencion';
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -25,6 +26,7 @@ class Index extends React.Component {
             <Route path="/Vista/MenuNuevo" component={MenuNuevo}></Route>
             <Route path="/Vista/MenuBusqueda" component={VistaBusquedaMenu}></Route>
             <Route path="/Vista/Sanciones" component={VistaSanciones}></Route>
+            <Route path="/Vista/Atencion" component={VistaAtencion}></Route>
   
           </Router>
           )
