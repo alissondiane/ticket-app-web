@@ -23,7 +23,8 @@ class VistaAtencion extends React.Component {
       modalComida: [],
       menu:[],
       sanciones:[],
-      codigo:0
+      codigo:0,
+      name: this.props.params.name,
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -106,7 +107,7 @@ class VistaAtencion extends React.Component {
     <div className=" z-depth-1 cabecera">
     <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
-    <a className="salir2" >Trabajador</a>
+    <a className="salir2" >Trabajador {this.state.name}</a>
     
     
     </div>

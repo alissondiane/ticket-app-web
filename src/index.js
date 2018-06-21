@@ -22,11 +22,11 @@ class Index extends React.Component {
                 path="/">
             </Route>
            
-            <Route path="/Vista/Principal" component={VistaPrincipal}></Route>
+            <Route path="/Vista/Principal/:name" component={VistaPrincipal}></Route>
             <Route path="/Vista/MenuNuevo" component={MenuNuevo}></Route>
-            <Route path="/Vista/MenuBusqueda" component={VistaBusquedaMenu}></Route>
-            <Route path="/Vista/Sanciones" component={VistaSanciones}></Route>
-            <Route path="/Vista/Atencion" component={VistaAtencion}></Route>
+            <Route path="/Vista/MenuBusqueda/:name" component={VistaBusquedaMenu}></Route>
+            <Route path="/Vista/Sanciones/:name" component={VistaSanciones}></Route>
+            <Route path="/Vista/Atencion/:name" component={VistaAtencion}></Route>
   
           </Router>
           )

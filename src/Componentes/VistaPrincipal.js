@@ -16,7 +16,8 @@ class VistaPrincipal extends React.Component {
       fecha: '',
       modalOption: false, //apertura del modal
       modalComida: [],
-      menu:[]
+      menu:[],
+      name: this.props.params.name,
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -42,14 +43,14 @@ class VistaPrincipal extends React.Component {
   }
   MenuBusqueda= (e) => {
 
-    browserHistory.push('/Vista/MenuBusqueda');
+    browserHistory.push('/Vista/MenuBusqueda/'+this.state.name);
     console.log("VISTA MENU BUSQUEDA");
     e.preventDefault();
 
   }
   VistaSanciones= (e) => {
 
-    browserHistory.push('/Vista/Sanciones');
+    browserHistory.push('/Vista/Sanciones/'+this.state.name);
     console.log("VISTA SANCIONES");
     e.preventDefault();
 
@@ -231,7 +232,7 @@ class VistaPrincipal extends React.Component {
     
     <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
-    <a className="salir2" >Administrador</a>
+    <a className="salir2" >Administrador {this.state.name}</a>
     
     </div>
         <div className="row">

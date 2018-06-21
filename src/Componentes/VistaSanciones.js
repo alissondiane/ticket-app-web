@@ -18,7 +18,8 @@ class VistaSanciones extends React.Component {
       modalOption: false, //apertura del modal
       modalComida: [],
       menu:[],
-      sanciones:[]
+      sanciones:[],
+      name: this.props.params.name
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -43,14 +44,14 @@ class VistaSanciones extends React.Component {
   }
   VistaPrincipal = (e) => {
 
-    browserHistory.push('/Vista/Principal');
+    browserHistory.push('/Vista/Principal/'+this.state.name);
     console.log("VISTA MENU NUEVO");
     e.preventDefault();
 
   }
   MenuBusqueda= (e) => {
 
-    browserHistory.push('/Vista/MenuBusqueda');
+    browserHistory.push('/Vista/MenuBusqueda/'+this.state.name);
     console.log("VISTA MENU BUSQUEDA");
     e.preventDefault();
 
@@ -103,7 +104,7 @@ class VistaSanciones extends React.Component {
     <div className=" z-depth-1 cabecera">
     <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
-    <a className="salir2" >Administrador</a>
+    <a className="salir2" >Administrador {this.state.name}</a>
     
     
     </div>

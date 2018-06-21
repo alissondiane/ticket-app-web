@@ -34,11 +34,14 @@ class LoginForm extends React.Component {
               console.log(alumno);
               this.setState({usuarioleido: alumno})
               if(alumno.idTu == 1){
-              
-                swal("Bienvenido!", this.state.usuario);
-                browserHistory.push('/Vista/Principal');
+                swal("Bienvenido administrador!", this.state.usuario);
+                browserHistory.push('/Vista/Principal/'+alumno.nombres+' '+alumno.apePat+' '+alumno.apeMat);
               }else{
-                swal("Tipo de usuario incorrectamente!", "", "error");
+                if(alumno.idTu == 5){
+                  swal("Bienvenido trabajador!", this.state.usuario);
+                  browserHistory.push('/Vista/Atencion/'+alumno.nombres+' '+alumno.apePat+' '+alumno.apeMat);
+                }
+                
                }
             })
             .catch(error => {
