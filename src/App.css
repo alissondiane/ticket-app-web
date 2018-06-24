@@ -1027,5 +1027,8 @@ entrar{
   width:100%;
   border-radius: 10px;
   text-align:center;
-
+}
+.Select-value {
+  background-color: rgba(153, 153, 153, .08);
+  color: rgb(77, 73, 73);
 }

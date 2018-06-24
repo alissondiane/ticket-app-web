@@ -11,11 +11,11 @@ class CardAtencion extends React.Component {
           <span class="card-title">Alumno</span>
            <div class="row">
            <div className=" col-xs-6">
-           <p>Nombre: {this.props.listado.nombre}</p>
+          <p>Nombre: {this.props.listado.nombre}</p>
           <p>Apellido Paterno: {this.props.listado.apellidoPaterno}</p>
           <p>Apellido Materno: {this.props.listado.apellidoMaterno}</p>
-          <p>Código: {this.props.listado.codigo}</p>
-          <p>Email: {this.props.listado.email}</p>
+          <p>Código:           {this.props.listado.codigo}</p>
+          <p>Email:            {this.props.listado.email}</p>
             </div>
             <div className=" col-xs-6">
             

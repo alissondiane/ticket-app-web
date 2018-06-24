@@ -12,6 +12,9 @@ import Buscar from './Buscar'; //input codigo a buscars
 import ATENCION from './Data-Atencion'; //input codigo a buscars
 import swal from 'sweetalert'
 import CardAtencion from './Card-Atencion'; //input codigo a buscars
+import SelectNuevo from './SelectNuevo'
+import OPCION from './Data-Select'
+
 
 class VistaAtencion extends React.Component {
   constructor(props) {
@@ -25,11 +28,13 @@ class VistaAtencion extends React.Component {
       sanciones:[],
       codigo:0,
       name: this.props.params.name,
+      opcion:''
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
     this.Atender = this.Atender.bind(this);
     this.Buscar=this.Buscar.bind(this);
+    this.OpcionSeleccionada=this.OpcionSeleccionada.bind(this);
   }
 
   CerrarSesion = (e) => {
@@ -90,6 +95,15 @@ class VistaAtencion extends React.Component {
 */
 
   }
+  OpcionSeleccionada(opcion) {
+
+    if(opcion != null){
+    console.log("opcion seleccionada del select");
+    console.log(opcion);
+    console.log(opcion.label);
+    this.setState({opcion: opcion.label});
+    }
+  }
   render() {
 
 
@@ -116,16 +130,19 @@ class VistaAtencion extends React.Component {
         </div>
         <hr />
         <div className="SplitPane row">
-            <div className=" col-xs-12">
-                <div>
+            <div className="col-xs-9">
                 <Buscar Busqueda={this.Buscar} />
-                </div>
+            </div>
+            <div className="col-xs-3 margen_top">
+                <SelectNuevo listado = {OPCION} Opcion={this.OpcionSeleccionada}/>
             </div>  
+
         </div>
         <div className="SplitPane row">
             <div className=" col-xs-12">
                 <CardAtencion listado={this.state.alumno} />
-            </div>  
+            </div> 
+            
         </div>
         <div className="SplitPane row center-xs">  
         <button onClick={this.Atender} className="waves-effect waves-light btn-large botonazul2 right" type="submit">ATENDER<i className="material-icons left">check</i></button>
