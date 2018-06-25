@@ -21,14 +21,10 @@ class VistaAtencion extends React.Component {
     super(props);
     this.state = {
       alumno:null,
-      fecha: '',
-      modalOption: false, //apertura del modal
-      modalComida: [],
-      menu:[],
-      sanciones:[],
       codigo:0,
       name: this.props.params.name,
-      opcion:''
+      opcion:'',
+      bloqueo:true
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -45,54 +41,88 @@ class VistaAtencion extends React.Component {
 
   }
   Atender = (e) => {
-    swal("Atendido exitosamente!", "", "success");
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/ticket/validar',
+        {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "PUT",//cambiar a metodo PUT de actualizacion
+        body: JSON.stringify(
+          {
+          "idTicket":this.state.alumno.idTicket,
+          "numero":2,
+          "estado":"RESERVADO",
+          "idComida":1,
+          "idNt":1,
+          "idUsuario":this.state.alumno.idUsuario
+        }
+          
+        )
+    })
+    .then((response) => {
+      return response.json()
+      })
+    .then((data) => {
+      console.log("DATA QUE DEVUELVE EL PUT de atender")
+      console.log(data)
+      if(data.estado == 0){
+        swal("No se encuentra en la hora de atención establecida!", "", "warning");
+      }else{
+        swal("Atendido exitosamente!", "", "success");
+      }
+      
+         
+  
+      })
+      .catch(error => {
+          swal("Error al actualizar!", "", "error");
+          console.error(error)
+    });
     e.preventDefault();
 
   }
-  componentWillMount() {
-    //Cargar data de sanciones
-    
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/aplicarsancion/sancion/listar')
-    .then((response) => {
-    return response.json()
-    })
-    .then((sanciones) => {
-      this.setState({ sanciones: sanciones})
-
-    })
-    .catch(error => {
-    // si hay algún error lo mostramos en consola
-        console.error(error)
-    });
-  }
   Buscar(busqueda) {
-    console.log("codigo ingresado");
+    console.log("CODIGO A BUSCAR");
     console.log(busqueda.codigo);
-    swal("Busqueda realizada exitosamente!", "", "success");
-    this.setState({alumno: ATENCION})
-/*
-    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/aplicarsancion/sancion/listar')
+    this.setState(()=>({bloqueo:true}))
+    this.setState({codigo: busqueda.codigo});
+    
+    console.log("TIPO DE COMIDA DEL SELECT");
+    console.log(this.state.opcion);
+    if(this.state.opcion){
+        
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/ticket/nivelturno/leer/'+busqueda.codigo+'/'+ this.state.opcion)
     .then((response) => {
     return response.json()
     })
     .then((alumno) => {
+      console.log("alumno recibido");
+      console.log(alumno);
       if(alumno){
-         this.setState({alumno: alumno})
-         swal("Busqueda realizada exitosamente!", "", "success");
-      }else{
-        this.setState({alumno: null})
-        swal("No tickets!", "", "info");
+        if(alumno.codigo == null){
+          this.setState({alumno: null})
+          swal("No se encontraron registros!", "", "info");
+        }else{
+                         
+      this.setState(()=>({alumno: alumno,
+        bloqueo:false}))
+          swal("Busqueda realizada exitosamente!", "", "success");
+        }
       }
-  
-
-
     })
     .catch(error => {
     // si hay algún error lo mostramos en consola
         console.error(error)
         swal("Oops, Algo salió mal!!", "","error")
     });
-*/
+    }else{
+      alert("Debe seleccionar un tipo de comida")
+    }
+    
+    
+
+
 
   }
   OpcionSeleccionada(opcion) {
@@ -145,7 +175,7 @@ class VistaAtencion extends React.Component {
             
         </div>
         <div className="SplitPane row center-xs">  
-        <button onClick={this.Atender} className="waves-effect waves-light btn-large botonazul2 right" type="submit">ATENDER<i className="material-icons left">check</i></button>
+        <button onClick={this.Atender} disabled={this.state.bloqueo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">ATENDER<i className="material-icons left">check</i></button>
         </div>
 
         </div>

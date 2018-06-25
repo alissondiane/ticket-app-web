@@ -232,7 +232,7 @@ class VistaPrincipal extends React.Component {
     
     <a><i className="material-icons right logo1 azul3 z-depth-1 ">person</i></a>
     <a className="salir" onClick={this.CerrarSesion} >Cerrar Sesión</a>
-    <a className="salir2" >Administrador {this.state.name}</a>
+    <a className="salir2">Administrador {this.state.name}</a>
     
     </div>
         <div className="row">

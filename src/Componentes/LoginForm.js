@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
                }
             })
             .catch(error => {
-            // si hay algún error lo mostramos en consola
+                swal("Error en la conexión!", "","error")
                 console.error(error);
                 this.Mensaje();
             });
