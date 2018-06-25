@@ -83,6 +83,7 @@ class VistaBusquedaMenu extends React.Component {
         swal("Busqueda realizada exitosamente!", "", "success");
       }else{
         swal("No se encontraron registros en esa fecha!", "","info");
+        this.setState({ menu: []})
       }
       
       

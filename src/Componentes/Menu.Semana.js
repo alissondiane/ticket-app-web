@@ -166,7 +166,7 @@ class MenuList extends React.Component {
             </div>
         )}
         else{
-            return <p className="text-center">No hay registros</p>
+            return  <div className="mensaje centrar">No se encontraron datos</div>
         }
     }
 }

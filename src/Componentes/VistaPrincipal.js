@@ -18,6 +18,7 @@ class VistaPrincipal extends React.Component {
       modalComida: [],
       menu:[],
       name: this.props.params.name,
+      bloqueado:false
     };
 
     this.CerrarSesion = this.CerrarSesion.bind(this);
@@ -36,7 +37,7 @@ class VistaPrincipal extends React.Component {
   }
   MenuNuevo = (e) => {
 
-    browserHistory.push('/Vista/MenuNuevo');
+    browserHistory.push('/Vista/MenuNuevo/'+this.state.name);
     console.log("VISTA MENU NUEVO");
     e.preventDefault();
 
@@ -72,6 +73,31 @@ class VistaPrincipal extends React.Component {
     
   }
   ActualizarVista=()=>{
+    var fechas2 = this.FechaProximaSemana();
+    console.log("fechas de la semana");
+    console.log("un dia de la otra semana");
+    console.log(fechas2[0]);
+    //validamos si ya hay menu creado de la siguiente semana//
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+fechas2[0])
+    .then((response) => {
+    return response.json()
+    })
+    .then((menues) => {
+      console.log("menues recibidos");
+      console.log(menues);
+      if(menues.lunes == null){
+        this.setState(()=>({
+          bloqueado:false}))
+      }else{
+        this.setState(()=>({
+          bloqueado:true}))
+      }
+        
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
     var fecha = new Date();
     var dd = fecha.getDate();
     var mm = fecha.getMonth()+1;
@@ -141,13 +167,157 @@ class VistaPrincipal extends React.Component {
         console.error(error)
     });
   }
+  FechaProximaSemana()
+  {
+      var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+      var Semana = ["","","","","","",""];
+      
+      var fecha=new Date();
+      var dia = diasSemana[fecha.getDay()];
+     
+      if(dia === "Domingo"){
+        var primerDia = new Date();
+        for (let i = 1; i <= Semana.length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Lunes"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*6);
+        for (let i= 1; i <= Semana.length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Martes"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*5);
+        for (let i = 1; i <= Semana .length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Miercoles"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*4);
+        for (let i = 1; i <= Semana .length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Jueves"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*3);
+        for (let i = 1; i <= Semana .length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Viernes"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*2);
+        for (let i = 1; i <= Semana .length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      if(dia === "Sabado"){
+        var primerDia = new Date(fecha.getTime() + (24*60*60*1000));
+        for (let i = 1; i <= Semana .length; i++) {
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*i);
+          var mm = dia1.getMonth()+1;
+          var dd = dia1.getDate();
+          if(dd<10) {
+            dd='0'+dd;
+          } 
+          if(mm<10) {
+          mm='0'+mm;
+          } 
+          Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
+        }
+      }
+      return Semana;
+  }  
 
   componentWillMount() {
+
+    var fechas = this.FechaProximaSemana();
+    console.log("fechas de la semana");
+    console.log("un dia de la otra semana");
+    console.log(fechas[0]);
+    //validamos si ya hay menu creado de la siguiente semana//
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+fechas[0])
+    .then((response) => {
+    return response.json()
+    })
+    .then((menues) => {
+      console.log("menues recibidos");
+      console.log(menues);
+      if(menues.lunes == null){
+        this.setState(()=>({
+          bloqueado:false}))
+      }else{
+        this.setState(()=>({
+          bloqueado:true}))
+      }
+        
+    })
+    .catch(error => {
+    // si hay algún error lo mostramos en consola
+        console.error(error)
+    });
+    //Validamos si ya hay menu creado de la siguiente semana//
+
     var fecha = new Date();
     var dd = fecha.getDate();
     var mm = fecha.getMonth()+1;
     console.log("dia");
     console.log(dd);
+    
     
     if(dd<10) {
         dd='0'+dd;
@@ -247,7 +417,7 @@ class VistaPrincipal extends React.Component {
         
           <div className=" col-xs-6 margen_top">
             
-            <button onClick={this.MenuNuevo} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menú<i className="material-icons left">restaurant</i></button>
+            <button onClick={this.MenuNuevo} disabled={this.state.bloqueado} className="waves-effect waves-light btn-large botonazul2 right" type="submit">Crear Menú<i className="material-icons left">restaurant</i></button>
             
           </div>
         </div>
