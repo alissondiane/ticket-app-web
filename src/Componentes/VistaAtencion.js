@@ -31,6 +31,7 @@ class VistaAtencion extends React.Component {
     this.Atender = this.Atender.bind(this);
     this.Buscar=this.Buscar.bind(this);
     this.OpcionSeleccionada=this.OpcionSeleccionada.bind(this);
+    this.Aplicar= this.Aplicar.bind(this);
   }
 
   CerrarSesion = (e) => {
@@ -90,6 +91,63 @@ class VistaAtencion extends React.Component {
       .catch(error => {
           swal("Error al actualizar!", "", "error");
           console.error(error)
+    });
+    e.preventDefault();
+
+  }
+  Aplicar= (e) => {
+   console.log("aplicar");
+
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/sancion/aplicar',
+    {
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify(
+    {
+    }
+      )
+    })
+    .then((response) => {
+    return response.json()
+    })
+  .then((data) => {
+   console.log("data recibida");
+   console.log(data.mensaje);
+   console.log("cantidad de sancionados")
+   console.log(data.estado);
+   swal("Sanciones aplicadas exitosamente!", "", "success");
+  })
+  .catch(error => {
+  console.error(error)
+  console.log("error al aplicar sancion");
+    });
+    fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/sancion/quitar',
+    {
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+    method: "PUT",
+    body: JSON.stringify(
+    {
+    }
+      )
+    })
+    .then((response) => {
+    return response.json()
+    })
+  .then((data) => {
+   console.log("data recibida");
+   console.log(data.mensaje);
+   console.log("cantidad de sancionados")
+   console.log(data.estado);
+  })
+  .catch(error => {
+  console.error(error)
+  console.log("error al aplicar sancion");
     });
     e.preventDefault();
 
@@ -159,6 +217,7 @@ class VistaAtencion extends React.Component {
     <ul className="ula">
     <li className="OGBU"></li>
     <li  className="Seleccionado  z-depth-1 "><a  >Atención<i className="material-icons right">check</i></a></li>
+    <button onClick={this.Aplicar} className="waves-effect waves-light btn-large botonazul2 right" type="submit">APLICAR</button>
     </ul>
     <div className = "vistaderecha">
     <div className=" z-depth-1 cabecera">

@@ -28,44 +28,11 @@
     -->
     <title>Ticket-App-Web</title>
   </head>
-  <body onLoad="setInterval('contador()',60000);">
+  <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <script type="text/javascript">
-      var cont = 0;
-  
-      function contador(){
-
-        fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/sancion/aplicar',
-    {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify(
-        {
-        }
-    )
-})
-.then((response) => {
-  return response.json()
-  })
-.then((data) => {
- console.log("data recibida");
- console.log(data.mensaje);
-  })
-  .catch(error => {
-      console.error(error)
-      console.log("error al aplicar sancion");
-});
-        //contador.value = cont;
-        cont++;
-        console.log("el valor del contador");
-        console.log(cont);
-      }
-      </script>
+    
     <div id="root"></div>
     <!--
       This HTML file is a template.
