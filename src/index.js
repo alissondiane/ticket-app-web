@@ -13,8 +13,16 @@ import VistaAtencion from './Componentes/VistaAtencion';
 
 
 class Index extends React.Component {
+
+    contador(){
+        console.log("hola mundo")
+    }
+       
+    
   
     render() {
+
+        setInterval('contador',1000);
         return(
             <Router history={browserHistory}>
             <Route

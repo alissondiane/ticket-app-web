@@ -69,10 +69,22 @@ class VistaAtencion extends React.Component {
       if(data.estado == 0){
         swal("No se encuentra en la hora de atención establecida!", "", "warning");
       }else{
+        fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/usuario/ticket/nivelturno/leer/'+this.state.codigo+'/'+ this.state.opcion)
+        .then((response) => {
+        return response.json()
+        })
+        .then((alumno) => {
+          console.log("alumno actualizado enn la vista recibido");
+          console.log(alumno);
+              this.setState({alumno: alumno,
+              bloqueo:true})
+    
+        })
+        .catch(error => {
+              console.error(error)
+        });
         swal("Atendido exitosamente!", "", "success");
-      }
-      
-         
+      }   
   
       })
       .catch(error => {
@@ -101,7 +113,8 @@ class VistaAtencion extends React.Component {
       console.log(alumno);
       if(alumno){
         if(alumno.codigo == null){
-          this.setState({alumno: null})
+          this.setState({alumno: null,
+            bloqueo:true})
           swal("No se encontraron registros!", "", "info");
         }else{
                          

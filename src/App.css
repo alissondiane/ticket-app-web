@@ -69,9 +69,9 @@ background-color:rgb(85, 36, 36);
 
   border-radius: 6px;
   margin-bottom: 20px;
-  margin-left:5px;
+  margin-left:2px;
   margin-top:10px;
-  margin-right: 5px;
+  margin-right: 2px;
   padding:20px;
   width:100%;
 }
@@ -1044,4 +1044,11 @@ entrar{
 .Select-value {
   background-color: rgba(153, 153, 153, .08);
   color: rgb(77, 73, 73);
+}
+.descripcion{
+  color:#360d0d;
+  padding:4px;
+  background-color:white;
+  border-radius:7px;
+  font-weight: bold;
 }
