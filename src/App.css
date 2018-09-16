@@ -704,11 +704,11 @@ h4{
   padding: 20px 35px 10px 20px;
   text-decoration: none;
   display: block;
-  border-radius: 30px 70px;
+  border-radius: 10px;
   margin:0px auto;
   width: 350px;
   height: 400px;
-  background-color:rgb(230, 222, 222);
+  background:rgb(230, 222, 222,0.76);
 }
 .vistaCard{
 

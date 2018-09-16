@@ -118,10 +118,12 @@ class MenuListNuevo extends React.Component {
     }  
      render() {
         return(
-        <table className=" total table ">
+        
+
         <form  onSubmit={(e) => this.addNewFiltro(e)}>
-        <thead>
-			<tr>      
+        <table className=" total table">
+          <thead>
+			        <tr>      
                 <th></th>    
                 <th className="th1">LUNES</th>           
                 <th className="th1">MARTES</th>
@@ -130,39 +132,46 @@ class MenuListNuevo extends React.Component {
                 <th className="th1">VIERNES</th>
                 <th className="th1">SÁBADO</th>
                 <th className="th1">DOMINGO</th>
-            </tr>
-	  </thead>
-        <tbody>
-          <tr>
-            <td className="th1" >DESAYUNO</td>
-            <td className="td1">
-            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD1 = input } type="text" name="Desayuno1" placeholder="Descripción" />
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD2 = input } type="text" name="Desayuno1"placeholder="Descripción"/>
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD3 = input } type="text" name="Desayuno1" placeholder="Descripción"/>
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD4 = input } type="text" name="Desayuno1" placeholder="Descripción" />
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea className = "textarea"  ref={ ( input ) => this.descripcionD5 = input } type="text" name="Desayuno1" placeholder="Descripción" />
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD6 = input } type="text" name="Desayuno1" placeholder="Descripción" />
-            </td>
-            <td className="td1">
-            <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
-            <textarea  className = "textarea" ref={ ( input ) => this.descripcionD7 = input } type="text" name="Desayuno1" placeholder="Descripción" />
-            </td>
+              </tr>
+	        </thead>
+          <tbody>
+            <tr>
+              <td className="th1" >DESAYUNO</td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno1 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea className = "textarea"  ref={ ( input ) => this.descripcionD1 = input } type="text" name="Desayuno1" placeholder="Descripción" />
+              </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno2 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea className = "textarea"  ref={ ( input ) => this.descripcionD2 = input } type="text" name="Desayuno1"placeholder="Descripción"/>
+               </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno3 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea className = "textarea"  ref={ ( input ) => this.descripcionD3 = input } type="text" name="Desayuno1" placeholder="Descripción"/>
+              </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno4 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea  className = "textarea" ref={ ( input ) => this.descripcionD4 = input } type="text" name="Desayuno1" placeholder="Descripción" />
+              </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno5 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea className = "textarea"  ref={ ( input ) => this.descripcionD5 = input } type="text" name="Desayuno1" placeholder="Descripción" />
+              </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre" ref={ ( input ) => this.desayuno6 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea  className = "textarea" ref={ ( input ) => this.descripcionD6 = input } type="text" name="Desayuno1" placeholder="Descripción" />
+              </td>
+
+              <td className="td1">
+              <textarea className = "textareaNombre"  ref={ ( input ) => this.desayuno7 = input } type="text" name="Desayuno1" placeholder="Nombre" />
+              <textarea  className = "textarea" ref={ ( input ) => this.descripcionD7 = input } type="text" name="Desayuno1" placeholder="Descripción" />
+              </td>
             
           </tr> 
           <tr>
@@ -232,14 +241,18 @@ class MenuListNuevo extends React.Component {
           </tr>
           
           </tbody>
+         
+          
+          </table>
           <div className="SplitPane row">
             <div className="col-xs-7 margen_top">
             <button  className="waves-effect waves-light btn-large botonazul2 right"type="submit">Guardar<i className="material-icons left">save</i></button>
             </div>
             <div className="col-xs-7 margen_top">
             </div>
-          </div></form>
-          </table>
+          </div>
+          </form>
+          
         )
       }
 }

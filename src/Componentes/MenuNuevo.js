@@ -69,31 +69,34 @@ class MenuNuevo extends React.Component {
         MenuNuevo.push(cena);
     }
     console.log("array de comidas a guardar");
-    console.log(MenuNuevo);
+
+    console.log(JSON.stringify(MenuNuevo));
     
-  
-      fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/list/add',
+    //'https://tick-app-jdbc.herokuapp.com/comida/list/add'
+    //'https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/list/add'
+    
+        fetch('https://tick-app-jdbc.herokuapp.com/comida/list/add',
       {
-        headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-       },
-      method: "POST",//cambiar a metodo PUT de actualizacion
-       body: JSON.stringify(
-         MenuNuevo
-      )
-      })
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-      console.log("DATA QUE DEVUELVE EL POST")
+          headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+         },
+        method: "POST",//cambiar a metodo PUT de actualizacion
+         body: JSON.stringify(
+           MenuNuevo
+        )
+        })
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+        console.log("DATA QUE DEVUELVE EL POST")
       console.log(data)
-      })
+        })
       .catch(error => {
-      swal("Error al guardar!", "", "error");
-      console.error(error)
-      });    //
+        swal("Error al guardar!", "", "error");
+        console.error(error)
+        });
     
    
     swal("Menu","guardado exitosamente","success");
@@ -105,12 +108,16 @@ class MenuNuevo extends React.Component {
       var Semana = ["","","","","","",""];
       
       var fecha=new Date();
+      console.log("fecha");
+      console.log(fecha);
       var dia = diasSemana[fecha.getDay()];
+      console.log("dia");
+      console.log(dia);
      
       if(dia === "Domingo"){
         var primerDia = new Date();
         for (let i = 1; i <= Semana.length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -125,7 +132,7 @@ class MenuNuevo extends React.Component {
       if(dia === "Lunes"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*6);
         for (let i= 1; i <= Semana.length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -140,7 +147,7 @@ class MenuNuevo extends React.Component {
       if(dia === "Martes"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*5);
         for (let i = 1; i <= Semana .length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -152,10 +159,10 @@ class MenuNuevo extends React.Component {
           Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
         }
       }
-      if(dia === "Miercoles"){
+      if(dia === "Miércoles"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*4);
         for (let i = 1; i <= Semana .length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -170,7 +177,7 @@ class MenuNuevo extends React.Component {
       if(dia === "Jueves"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*3);
         for (let i = 1; i <= Semana .length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -185,7 +192,7 @@ class MenuNuevo extends React.Component {
       if(dia === "Viernes"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000)*2);
         for (let i = 1; i <= Semana .length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -197,10 +204,10 @@ class MenuNuevo extends React.Component {
           Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
         }
       }
-      if(dia === "Sabado"){
+      if(dia === "Sábado"){
         var primerDia = new Date(fecha.getTime() + (24*60*60*1000));
         for (let i = 1; i <= Semana .length; i++) {
-          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i+1));
+          var dia1=new Date(primerDia.getTime() + (24*60*60*1000)*(i));
           var mm = dia1.getMonth()+1;
           var dd = dia1.getDate();
           if(dd<10) {
@@ -212,6 +219,8 @@ class MenuNuevo extends React.Component {
           Semana[i-1] =dia1.getFullYear()+"-"+mm+"-"+dd;
         }
       }
+      console.log("semana obtenida de la funcion");
+      console.log(Semana);
       return Semana;
   }  
  
@@ -238,6 +247,8 @@ class MenuNuevo extends React.Component {
             <div className="center-xs-12">           
                 <MenuListNuevo Fechas={this.GuardarMenu} />
             </div>
+            <div>Menu formato json a guardar</div>
+            <div>{JSON.stringify(MenuNuevo)}</div>
    </div>
     </div>
     );

@@ -38,7 +38,8 @@ class VistaBusquedaMenu extends React.Component {
     
     console.log("fecha a buscar en submit")
     console.log(this.state.fecha);
-  
+    console.log("menu de semana a buscar");
+    console.log('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+this.state.fecha);
     fetch('https://tick-app-zuul.herokuapp.com/tick-app-jdbc-client/comida/listar/semanal/'+this.state.fecha)
     .then((response) => {
     return response.json()
